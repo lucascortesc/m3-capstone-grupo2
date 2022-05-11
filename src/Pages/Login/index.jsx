@@ -2,7 +2,7 @@ export const Login = () => {
   return <div>Login</div>;
 };
 
-{
+
   /* use input example:
 
  <Input
@@ -12,4 +12,4 @@ name="name"
 error={errors.name?.message}
 /> 
 */
-}
+
