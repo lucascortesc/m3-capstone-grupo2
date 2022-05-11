@@ -1,11 +1,11 @@
-import { Routes } from "./Routes";
+import { Register } from "./Pages/Register";
 import { GlobalStyle } from "./Styles/global";
 
 const App = () => {
   return (
     <div className="App">
       <GlobalStyle />
-      <Routes />
+      <Register/>
     </div>
   );
 };
