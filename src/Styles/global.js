@@ -9,7 +9,6 @@ export const GlobalStyle = createGlobalStyle`
   box-sizing: border-box;
   list-style: none;
   text-decoration: none;
-  background-color : var(--primaryColor);
 }
 
 button {
