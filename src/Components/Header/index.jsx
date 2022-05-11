@@ -10,7 +10,14 @@ export const Header = ({ isLogged = false }) => {
         {isLogged ? (
           <img src={headerUserLogo} alt="the user image" />
         ) : (
-          <Button padding="10px 10px" background="">Login / Registro</Button>
+          <Button
+            padding="10px 10px"
+            background="#146666"
+            color="white"
+            weigth="800"
+          >
+            Login/Cadastro
+          </Button>
         )}
       </Styled.HeaderContainer>
     </Styled.Container>
