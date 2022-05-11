@@ -5,40 +5,39 @@ export const Container = styled.div`
     height: 12vh;
     background-color: red;
   }
-  .carrossel {
-    height: 130px;
-    background-color: red;
-  }
   footer {
     height: 200px;
     background-color: red;
   }
   @media (min-width: 1024px) {
-    .carrossel {
-      margin-top: 120px;
-    }
   }
 `;
 
 export const ImageDiv = styled.div`
-  width: 100vw;
+  /* width: 99vw; */
   height: 200px;
   position: relative;
   h2 {
     color: white;
-    padding-top: 90px;
+    padding-top: 110px;
     margin-left: 20px;
     font-size: 20px;
-    width: 80%;
-    font-family: Nunito, sans-serif;
+    /* width: 80%; */
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+      Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    font-weight: bold;
   }
   .deslizePopUp {
     display: none;
   }
   @media (min-width: 1024px) {
     height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
     h2 {
       font-size: 40px;
+      padding: 0;
     }
     .deslizePopUp {
       display: block;
@@ -74,7 +73,7 @@ export const InfosDiv = styled.div`
   padding: 30px 30px 40px 30px;
   word-spacing: 5px;
   font-family: Nunito, sans-serif;
-  margin-top: 100px;
+  margin-top: 200px;
   h3 {
     padding: 15px 0px;
     font-size: 24px;
