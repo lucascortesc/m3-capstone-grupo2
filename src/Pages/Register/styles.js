@@ -2,22 +2,29 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   width: 100%;
-  height: 100%;
-  @media (min-width: 1024px) {
-    background-image: url("register-background.png");
-    width: 50%;
 
-    aside {
-      position: fixed;
-      right: 25%;
+  img {
+    width: 50%;
+    
+  }
+
+  @media (max-width: 1024px) {
+    img {
+      display: none;
     }
+  }
+
+  @media (min-width: 1024px) {
+    display: flex;
+    
+
   }
 `;
 
 export const StyledForm = styled.form`
   color: white;
-  background-color: var(--primaryColor);
 
+  margin: 0px 0px 0px 0px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;

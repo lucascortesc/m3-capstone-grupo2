@@ -1,10 +1,17 @@
 import * as Styled from "./styles";
-import Input from "../../Components/Input"
+
+import RegisterImage from "../../Assets/imagens/RegisterImage.png";
+
+import { Button } from "../../Components/Button";
+
+import { useHistory } from "react-router-dom";
 
 export const Register = () => {
+  const history = useHistory();
+
   return (
     <Styled.Container>
-      <img src="register" alt="Imagem" />
+      <img src={RegisterImage} alt="Imagem" />
       <aside>
         <Styled.StyledForm>
           <h1>Cadastro</h1>
@@ -27,7 +34,8 @@ export const Register = () => {
             type="password"
           />
           <input name="cpf" placeholder="Digite aqui seu cpf" label="Nome" />
-          <button type="submit">Criar Conta</button>
+          <Button type="submit" onClick={() => history.push("/user")}
+            className="LoginButton">Criar Conta</Button>
         </Styled.StyledForm>
       </aside>
     </Styled.Container>
