@@ -1,5 +1,6 @@
 import * as Styled from "./styles";
+import { Header } from "../../Components/Header";
 
 export const Home = () => {
-  return <Styled.Container>Home</Styled.Container>;
+  return <Styled.Container><Header/></Styled.Container>;
 };
