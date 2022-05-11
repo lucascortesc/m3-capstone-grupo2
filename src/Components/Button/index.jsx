@@ -8,6 +8,7 @@ export const Button = ({
   fontSize = null,
   color = null,
   weigth = null,
+  onClickFunction = null,
   children = null,
 }) => {
   return (
@@ -20,7 +21,7 @@ export const Button = ({
       color={color}
       weigth={weigth}
     >
-      <button>{children}</button>
+      <button onClick={onClickFunction}>{children}</button>
     </S.Container>
   );
 };
