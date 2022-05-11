@@ -9,6 +9,7 @@ export const Button = ({
   color = null,
   weigth = null,
   children = null,
+  ...rest
 }) => {
   return (
     <S.Container
@@ -20,7 +21,7 @@ export const Button = ({
       color={color}
       weigth={weigth}
     >
-      <button>{children}</button>
+      <button {...rest}>{children}</button>
     </S.Container>
   );
 };
