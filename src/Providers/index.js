@@ -1,3 +1,5 @@
+import { AllEventsProvider } from "./AllEvents";
+
 export const Providers = ({ children }) => {
-  return;
+  return <AllEventsProvider>{children}</AllEventsProvider>;
 };
