@@ -6,6 +6,7 @@ export const Container = styled.div`
   display: flex;
   justify-content: center;
   background: none;
+  z-index: 9999999;
 
   @media (min-width: 1024px) {
     height: 115px;
@@ -24,12 +25,21 @@ export const HeaderContainer = styled.div`
   background: none;
   padding: 0px 25px;
 
+  >div {
+      display: flex;
+      gap: 20px;
+  }
+
   h1 {
     font-family: "Montserrat";
     font-weight: 800;
     color: var(--color-highlight);
     font-size: 20px;
   }
+
+  @media (max-width: 280px) {
+      flex-direction: column;
+  } 
 
   @media (min-width: 1024px) {
     padding: 0px 70px;
