@@ -1,13 +1,16 @@
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import Carousel from "../../Components/Carousel";
+import Footer from "../../Components/Footer";
 import * as Styled from "./styles";
+import { BsArrowDownCircle, BsArrowRightCircle } from "react-icons/bs";
+import { Header } from "../../Components/Header";
 
 export const Home = () => {
   const history = useHistory();
 
   return (
     <Styled.Container>
-      <header>coloque o header aqui</header>
+      <Header />
       <Styled.ImageDiv>
         <h2>
           Uma ação que parece simples <br></br> para você é a esperança de{" "}
@@ -16,7 +19,9 @@ export const Home = () => {
         <Styled.BackgroundImage></Styled.BackgroundImage>
         <div>
           <Carousel />
-          <div className="deslizePopUp">Deslize para ver mais</div>
+          <div className="deslizePopUp">
+            Deslize para ver mais <BsArrowDownCircle color="#C3BD2E" />
+          </div>
         </div>
       </Styled.ImageDiv>
       <Styled.InfosDiv>
@@ -33,7 +38,9 @@ export const Home = () => {
             onClick={() => history.push("/eventos")}
             className="InteresseButton"
           >
-            Tem interesse?
+            <p>
+              Tem interesse? <BsArrowRightCircle color="#C3BD2E" />
+            </p>
           </button>
         </div>
         <div className="containerHelp">
@@ -64,7 +71,7 @@ export const Home = () => {
           </div>
         </div>
       </Styled.InfosDiv>
-      <footer> coloque o footer aqui</footer>
+      <Footer />
     </Styled.Container>
   );
 };

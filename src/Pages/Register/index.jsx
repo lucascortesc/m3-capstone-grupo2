@@ -15,9 +15,16 @@ export const Register = () => {
             <input></input>
             <input></input>
             <input></input>
+            <input></input>
+            <div>
+              <input type="checkbox" id="terms" name="terms"></input>
+              <label for="terms">Concordo com os termos de política e privacidade. </label>
+            </div>
           </form>
           <Button>Criar conta</Button>
-          <p>Já tem uma conta?<Link to="/login">Clique aqui!</Link></p>
+          <p>
+            Já tem uma conta?<Link to="/login">Clique aqui!</Link>
+          </p>
         </Styled.FormContainer>
       </Styled.Content>
     </Styled.Container>
