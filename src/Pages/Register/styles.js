@@ -8,8 +8,10 @@ export const Container = styled.div`
   display: flex;
   align-items: stretch;
 
+  font-family: Nunito, sans-serif;
+
   background-color: var(--primaryColor);
-  color: white
+  color: white;
   
 `;
 
@@ -45,10 +47,13 @@ export const FormContainer = styled.div`
     .loginButton {
       padding: 10px;
       width: 200px;
+
       background-color: var(--primaryColor50);
       color: white;
+
       border: none;
       border-radius: 5px;
+
       margin: 10px auto;
       font-weight: bold;
     }
