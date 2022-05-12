@@ -1,8 +1,27 @@
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import { useAllEvents } from "../../Providers/AllEvents";
 import * as Styled from "./styles";
 
 export const Home = () => {
   const history = useHistory();
+
+  const { addEvent, addUserToEvent, removeUserFromEvent } = useAllEvents();
+
+  const handleClick = () => {
+    addEvent({
+      name: "Evento de teste addVoluntarios 2",
+      description: "Evento que ocorrera para ajudar o teste",
+      voluntarys: [],
+      maxVoluntary: 5,
+      location: "Kenzie teste",
+      date: "16 de fevereiro",
+      state: "progress",
+      img: "https://cdn1.photostockeditor.com/c/1812/human-five-children-smiling-while-doing-peace-hand-sign-people-people-image.jpg",
+      userId: 1,
+    });
+    //addUserToEvent({ nome: "Teste 2", id: 2 }, 12);
+    //removeUserFromEvent({ nome: "Lucas", id: 1 }, 12);
+  };
 
   return (
     <Styled.Container>
@@ -26,10 +45,7 @@ export const Home = () => {
             prol da <span className="highlighted">humanidade</span> e de nosso{" "}
             <span className="highlighted">planeta</span>.
           </p>
-          <button
-            onClick={() => history.push("/eventos")}
-            className="InteresseButton"
-          >
+          <button onClick={() => handleClick()} className="InteresseButton">
             Tem interesse?
           </button>
         </div>

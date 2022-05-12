@@ -18,35 +18,27 @@ export const AllEventsProvider = ({ children }) => {
     event.userId = user.id;
     event.state = "progess";
 
-    let response;
-
     api
       .post("/eventos", event, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
       })
-      .then((res) => (response = res.statusText))
-      .catch((err) => (response = err.response.statusText));
-
-    return response;
+      .then((res) => setAllEvents([...allEvents, event]));
   };
 
-  const removeEvent = (id) => {
+  const removeEvent = (eventId) => {
     const token = JSON.parse(localStorage.getItem("token"));
 
-    let response;
-
     api
-      .delete(`/eventos/${id}`, {
+      .delete(`/eventos/${eventId}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
       })
-      .then((res) => (response = res.statusText))
-      .catch((err) => (response = err.response.statusText));
-
-    return response;
+      .then((res) =>
+        setAllEvents(allEvents.filter(({ id }) => id !== eventId))
+      );
   };
 
   const addUserToEvent = async (user, eventId) => {
@@ -66,9 +58,34 @@ export const AllEventsProvider = ({ children }) => {
     );
   };
 
+  const removeUserFromEvent = async (user, eventId) => {
+    const token = JSON.parse(localStorage.getItem("token"));
+
+    const event = await api.get(`/eventos/${eventId}`);
+    const voluntarys = event.data.voluntarys;
+
+    const newVoluntarys = voluntarys.filter(({ id }) => id !== user.id);
+
+    api.patch(
+      `/eventos/${eventId}`,
+      { voluntarys: newVoluntarys },
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+  };
+
   return (
     <AllEventsContext.Provider
-      value={{ allEvents, addEvent, removeEvent, addUserToEvent }}
+      value={{
+        allEvents,
+        addEvent,
+        removeEvent,
+        addUserToEvent,
+        removeUserFromEvent,
+      }}
     >
       {children}
     </AllEventsContext.Provider>
