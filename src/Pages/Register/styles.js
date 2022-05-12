@@ -47,7 +47,7 @@ export const FormContainer = styled.div`
 
       a {
         font-weight: bold;
-        color: yellow;
+        color: var(--color-highlight);
       }
     }
   }
