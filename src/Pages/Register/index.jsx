@@ -1,7 +1,8 @@
 import * as Styled from "./styles";
 
-import { Button } from "../../Components/Button";
+
 import { Link } from "react-router-dom";
+import { BsArrowRightCircle } from "react-icons/bs";
 
 export const Register = () => {
   return (
@@ -20,7 +21,7 @@ export const Register = () => {
               <input type="checkbox" id="terms" name="terms"></input>
               <label>Concordo com os termos de política e privacidade. </label>
             </div>
-            <Button>Criar conta</Button>
+            <button className="loginButton" >Criar conta<BsArrowRightCircle color="#C3BD2E" /></button>
             <p>
               Já tem uma conta?<Link to="/login">Clique aqui!</Link>
             </p>

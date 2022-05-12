@@ -39,6 +39,16 @@ export const FormContainer = styled.div`
     margin: 80px 0;
     width: 340px;
     text-align: center;
+    .loginButton {
+      padding: 10px;
+      width: 260px;
+      background-color: var(--primaryColor50);
+      color: white;
+      border: none;
+      border-radius: 5px;
+      margin: 10px auto;
+      font-weight: bold;
+    }
 
     h1 {
       margin-bottom: 32px;
