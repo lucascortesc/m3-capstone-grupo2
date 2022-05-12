@@ -19,6 +19,7 @@ button {
   --primaryColor: #193E51;
   --primaryColor50: #146666;
   --secondaryColor: #6B6B87;
+  --color-highlight: #C3BD2E;
 }
 
 

@@ -6,7 +6,7 @@ const CarouselCard = ({ element }) => {
   return (
     <Styled.Container
       id={element.id}
-      onClick={(e) => history.push(`/eventos/${e.currentTarget.id}`)}
+      onClick={(e) => history.push(`/events/${e.currentTarget.id}`)}
     >
       <img src={element.img} alt="" />
       <p>{element.name}</p>

@@ -1,20 +1,28 @@
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
-import { useUser } from "../../Providers/User";
-import { useAllEvents } from "../../Providers/AllEvents";
+import Carousel from "../../Components/Carousel";
+import Footer from "../../Components/Footer";
 import * as Styled from "./styles";
+import { BsArrowDownCircle, BsArrowRightCircle } from "react-icons/bs";
+import { Header } from "../../Components/Header";
 
 export const Home = () => {
+  const history = useHistory();
+
   return (
     <Styled.Container>
-      <header>coloque o header aqui</header>
+      <Header />
       <Styled.ImageDiv>
         <h2>
           Uma ação que parece simples <br></br> para você é a esperança de{" "}
           <br></br> muitos.
         </h2>
         <Styled.BackgroundImage></Styled.BackgroundImage>
-        <div className="carrossel">Div do carrossel aqui</div>
-        <div className="deslizePopUp">Deslize para ver mais</div>
+        <div>
+          <Carousel />
+          <div className="deslizePopUp">
+            Deslize para ver mais <BsArrowDownCircle color="#C3BD2E" />
+          </div>
+        </div>
       </Styled.ImageDiv>
       <Styled.InfosDiv>
         <div className="whoAreDiv">
@@ -26,15 +34,20 @@ export const Home = () => {
             prol da <span className="highlighted">humanidade</span> e de nosso{" "}
             <span className="highlighted">planeta</span>.
           </p>
-          <button onClick={() => handleClick()} className="InteresseButton">
-            Tem interesse?
+          <button
+            onClick={() => history.push("/eventos")}
+            className="InteresseButton"
+          >
+            <p>
+              Tem interesse? <BsArrowRightCircle color="#C3BD2E" />
+            </p>
           </button>
         </div>
         <div className="containerHelp">
           <div className="whyHelpDiv">
             <h3>Por que ajudar?</h3>
             <p>
-              A cada <span className="highlighted">5 minutos</span> uma crinaça
+              A cada <span className="highlighted">5 minutos</span> uma criança
               é diagnosticada com{" "}
               <span className="highlighted">desnutrição</span>!
             </p>
@@ -58,7 +71,7 @@ export const Home = () => {
           </div>
         </div>
       </Styled.InfosDiv>
-      <footer> coloque o footer aqui</footer>
+      <Footer />
     </Styled.Container>
   );
 };

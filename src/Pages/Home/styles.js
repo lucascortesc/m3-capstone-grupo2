@@ -1,47 +1,37 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
-  header {
-    height: 12vh;
-    background-color: red;
-  }
-  .carrossel {
-    height: 130px;
-    background-color: red;
-  }
-  footer {
-    height: 200px;
-    background-color: red;
-  }
-  @media (min-width: 1024px) {
-    .carrossel {
-      margin-top: 120px;
-    }
-  }
-`;
+export const Container = styled.div``;
 
 export const ImageDiv = styled.div`
-  width: 100vw;
+  /* width: 99vw; */
   height: 200px;
   position: relative;
   h2 {
     color: white;
-    padding-top: 90px;
+    padding-top: 110px;
     margin-left: 20px;
     font-size: 20px;
-    width: 80%;
-    font-family: Nunito, sans-serif;
+    /* width: 80%; */
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+      Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    font-weight: bold;
   }
   .deslizePopUp {
     display: none;
   }
   @media (min-width: 1024px) {
-    height: 90vh;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
     h2 {
       font-size: 40px;
+      padding-top: 70px;
     }
     .deslizePopUp {
-      display: block;
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
       margin-left: 20px;
       margin-top: 5px;
       width: 200px;
@@ -65,6 +55,8 @@ export const BackgroundImage = styled.div`
   filter: blur(2px);
   -webkit-filter: blur(2px);
   z-index: -1;
+  @media (min-width: 1024px) {
+  }
 `;
 
 export const InfosDiv = styled.div`
@@ -74,10 +66,11 @@ export const InfosDiv = styled.div`
   padding: 30px 30px 40px 30px;
   word-spacing: 5px;
   font-family: Nunito, sans-serif;
-  margin-top: 100px;
+  margin-top: 200px;
   h3 {
     padding: 15px 0px;
     font-size: 24px;
+    text-align: center;
   }
   p {
     margin-bottom: 3px;
@@ -92,13 +85,20 @@ export const InfosDiv = styled.div`
     margin: 10px auto;
     font-weight: bold;
   }
+  .InteresseButton > p {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+  }
   .highlighted {
     color: #c3bd2e;
     font-weight: bold;
   }
   @media (min-width: 1024px) {
     margin-top: 0px;
-
+    h3 {
+      text-align: left;
+    }
     .whoAreDiv {
       width: 40%;
     }
