@@ -41,7 +41,7 @@ export const FormContainer = styled.div`
     text-align: center;
     .loginButton {
       padding: 10px;
-      width: 260px;
+      width: 200px;
       background-color: var(--primaryColor50);
       color: white;
       border: none;
