@@ -1,26 +1,16 @@
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import { useUser } from "../../Providers/User";
 import { useAllEvents } from "../../Providers/AllEvents";
 import * as Styled from "./styles";
 
 export const Home = () => {
   const history = useHistory();
 
-  const { addEvent, addUserToEvent, removeUserFromEvent } = useAllEvents();
+  const { removeEventFromUser } = useUser();
 
-  const handleClick = () => {
-    addEvent({
-      name: "Evento de teste addVoluntarios 2",
-      description: "Evento que ocorrera para ajudar o teste",
-      voluntarys: [],
-      maxVoluntary: 5,
-      location: "Kenzie teste",
-      date: "16 de fevereiro",
-      state: "progress",
-      img: "https://cdn1.photostockeditor.com/c/1812/human-five-children-smiling-while-doing-peace-hand-sign-people-people-image.jpg",
-      userId: 1,
-    });
-    //addUserToEvent({ nome: "Teste 2", id: 2 }, 12);
-    //removeUserFromEvent({ nome: "Lucas", id: 1 }, 12);
+  const handleClick = async () => {
+    const status = await removeEventFromUser(1);
+    console.log(status);
   };
 
   return (

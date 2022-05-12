@@ -10,7 +10,7 @@ export const AllEventsProvider = ({ children }) => {
     api.get("/eventos").then((res) => setAllEvents(res.data));
   }, []);
 
-  const addEvent = (event) => {
+  const addEvent = async (event) => {
     const token = JSON.parse(localStorage.getItem("token"));
     const user = JSON.parse(localStorage.getItem("user"));
 
@@ -18,27 +18,41 @@ export const AllEventsProvider = ({ children }) => {
     event.userId = user.id;
     event.state = "progess";
 
-    api
+    let response;
+
+    await api
       .post("/eventos", event, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
       })
-      .then((res) => setAllEvents([...allEvents, event]));
+      .then((res) => {
+        setAllEvents([...allEvents, event]);
+        response = res.statusText;
+      })
+      .catch((err) => (response = err.data.statusText));
+
+    return response;
   };
 
-  const removeEvent = (eventId) => {
+  const removeEvent = async (eventId) => {
     const token = JSON.parse(localStorage.getItem("token"));
 
-    api
+    let response;
+
+    await api
       .delete(`/eventos/${eventId}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
       })
-      .then((res) =>
-        setAllEvents(allEvents.filter(({ id }) => id !== eventId))
-      );
+      .then((res) => {
+        setAllEvents(allEvents.filter(({ id }) => id !== eventId));
+        response = res.statusText;
+      })
+      .catch((err) => (response = err.data.statusText));
+
+    return response;
   };
 
   const addUserToEvent = async (user, eventId) => {
@@ -47,15 +61,24 @@ export const AllEventsProvider = ({ children }) => {
     const event = await api.get(`/eventos/${eventId}`);
     const newVoluntarys = [...event.data.voluntarys, user];
 
-    api.patch(
-      `/eventos/${eventId}`,
-      { voluntarys: newVoluntarys },
-      {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      }
-    );
+    let response;
+
+    await api
+      .patch(
+        `/eventos/${eventId}`,
+        { voluntarys: newVoluntarys },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      )
+      .then((res) => {
+        response = res.statusText;
+      })
+      .catch((err) => (response = err.data.statusText));
+
+    return response;
   };
 
   const removeUserFromEvent = async (user, eventId) => {
@@ -66,15 +89,22 @@ export const AllEventsProvider = ({ children }) => {
 
     const newVoluntarys = voluntarys.filter(({ id }) => id !== user.id);
 
-    api.patch(
-      `/eventos/${eventId}`,
-      { voluntarys: newVoluntarys },
-      {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      }
-    );
+    let response;
+
+    api
+      .patch(
+        `/eventos/${eventId}`,
+        { voluntarys: newVoluntarys },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      )
+      .then((res) => (response = res.statusText))
+      .catch((err) => (response = err.data.statusText));
+
+    return response;
   };
 
   return (
