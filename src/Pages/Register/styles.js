@@ -1,32 +1,74 @@
 import styled from "styled-components";
+import ImageRegister from "../../Assets/ImageRegister.png";
 
 export const Container = styled.div`
-  width: 100%;
+  height 100vh;
+  width:100%;
 
-  img {
-    width: 50%;
-    
-  }
+  display: flex;
+  align-items: stretch;
 
-  @media (max-width: 1024px) {
-    img {
-      display: none;
-    }
-  }
+  font-family: Nunito, sans-serif;
 
+  background-color: var(--primaryColor);
+  color: white;
+  
+`;
+
+export const Background = styled.div`
   @media (min-width: 1024px) {
-    display: flex;
-    
-
+    flex: 1;
+    background: url(${ImageRegister}) no-repeat left;
+    background-size: cover;
   }
 `;
 
-export const StyledForm = styled.form`
-  color: white;
-
-  margin: 0px 0px 0px 0px;
+export const Content = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   align-items: center;
+  jusitfy-content: center;
+
+  @media (min-width: 1024px) {
+    width: 50%;
+  }
+`;
+
+export const FormContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  form {
+    margin: 80px 0;
+    width: 340px;
+    text-align: center;
+    .loginButton {
+      padding: 10px;
+      width: 200px;
+
+      background-color: var(--primaryColor50);
+      color: white;
+
+      border: none;
+      border-radius: 5px;
+
+      margin: 10px auto;
+      font-weight: bold;
+    }
+
+    h1 {
+      margin-bottom: 32px;
+    }
+
+    p {
+      margin-top: 8px;
+
+      a {
+        font-weight: bold;
+        color: var(--color-highlight);
+      }
+    }
+  }
 `;
