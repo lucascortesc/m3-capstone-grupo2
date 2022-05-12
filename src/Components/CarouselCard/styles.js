@@ -8,9 +8,10 @@ export const Container = styled.div`
   margin: 20px;
   border: 2px solid #fff;
   background-color: #fff;
-  height: 90%;
+  height: 89%;
   border-radius: 5px;
   width: 290px;
+
   cursor: pointer;
   &:hover {
     border: 2px solid #c3bd2e;
@@ -22,8 +23,13 @@ export const Container = styled.div`
   p {
     font-weight: bold;
     font-family: Nunito, sans-serif;
-    font-size: 18px;
-    padding: 5px;
+    font-size: 15px;
+
     text-align: center;
+  }
+  @media (min-width: 1024px) {
+    img {
+      object-fit: fill;
+    }
   }
 `;

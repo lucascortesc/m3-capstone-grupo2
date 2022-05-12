@@ -3,13 +3,14 @@ import Carousel from "../../Components/Carousel";
 import Footer from "../../Components/Footer";
 import * as Styled from "./styles";
 import { BsArrowDownCircle, BsArrowRightCircle } from "react-icons/bs";
+import { Header } from "../../Components/Header";
 
 export const Home = () => {
   const history = useHistory();
 
   return (
     <Styled.Container>
-      <header>coloque o header aqui</header>
+      <Header />
       <Styled.ImageDiv>
         <h2>
           Uma ação que parece simples <br></br> para você é a esperança de{" "}
