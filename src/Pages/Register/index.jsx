@@ -17,11 +17,12 @@ export const Register = () => {
             <input></input>
             <input></input>
             <input></input>
+            <input></input>
             <div>
               <input type="checkbox" id="terms" name="terms"></input>
               <label>Concordo com os termos de política e privacidade. </label>
             </div>
-            <button className="loginButton" >Criar conta<BsArrowRightCircle color="#C3BD2E" /></button>
+            <button className="loginButton" >Criar conta  <BsArrowRightCircle color="var(--color-highlight)" /></button>
             <p>
               Já tem uma conta?<Link to="/login">Clique aqui!</Link>
             </p>
