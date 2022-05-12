@@ -1,5 +1,6 @@
 import { createContext, useContext, useState, useEffect } from "react";
 import api from "../../services/api";
+import { verificarToken } from "../validation";
 
 export const AllEventsContext = createContext();
 
@@ -13,6 +14,11 @@ export const AllEventsProvider = ({ children }) => {
   const addEvent = async (event) => {
     const token = JSON.parse(localStorage.getItem("token"));
     const user = JSON.parse(localStorage.getItem("user"));
+
+    if (!(await verificarToken(token, user))) {
+      localStorage.clear();
+      return "missing or expired token";
+    }
 
     event.voluntarys = [];
     event.userId = user.id;
@@ -30,13 +36,19 @@ export const AllEventsProvider = ({ children }) => {
         setAllEvents([...allEvents, event]);
         response = res.statusText;
       })
-      .catch((err) => (response = err.data.statusText));
+      .catch((err) => (response = err.response.statusText));
 
     return response;
   };
 
   const removeEvent = async (eventId) => {
     const token = JSON.parse(localStorage.getItem("token"));
+    const user = JSON.parse(localStorage.getItem("user"));
+
+    if (!(await verificarToken(token, user))) {
+      localStorage.clear();
+      return "missing or expired token";
+    }
 
     let response;
 
@@ -50,13 +62,19 @@ export const AllEventsProvider = ({ children }) => {
         setAllEvents(allEvents.filter(({ id }) => id !== eventId));
         response = res.statusText;
       })
-      .catch((err) => (response = err.data.statusText));
+      .catch((err) => (response = err.response.statusText));
 
     return response;
   };
 
-  const addUserToEvent = async (user, eventId) => {
+  const addUserToEvent = async (eventId) => {
     const token = JSON.parse(localStorage.getItem("token"));
+    const user = JSON.parse(localStorage.getItem("user"));
+
+    if (!(await verificarToken(token, user))) {
+      localStorage.clear();
+      return "missing or expired token";
+    }
 
     const event = await api.get(`/eventos/${eventId}`);
     const newVoluntarys = [...event.data.voluntarys, user];
@@ -76,13 +94,19 @@ export const AllEventsProvider = ({ children }) => {
       .then((res) => {
         response = res.statusText;
       })
-      .catch((err) => (response = err.data.statusText));
+      .catch((err) => (response = err.response.statusText));
 
     return response;
   };
 
-  const removeUserFromEvent = async (user, eventId) => {
+  const removeUserFromEvent = async (eventId) => {
     const token = JSON.parse(localStorage.getItem("token"));
+    const user = JSON.parse(localStorage.getItem("user"));
+
+    if (!(await verificarToken(token, user))) {
+      localStorage.clear();
+      return "missing or expired token";
+    }
 
     const event = await api.get(`/eventos/${eventId}`);
     const voluntarys = event.data.voluntarys;
@@ -91,7 +115,7 @@ export const AllEventsProvider = ({ children }) => {
 
     let response;
 
-    api
+    await api
       .patch(
         `/eventos/${eventId}`,
         { voluntarys: newVoluntarys },
@@ -102,7 +126,7 @@ export const AllEventsProvider = ({ children }) => {
         }
       )
       .then((res) => (response = res.statusText))
-      .catch((err) => (response = err.data.statusText));
+      .catch((err) => (response = err.response.statusText));
 
     return response;
   };

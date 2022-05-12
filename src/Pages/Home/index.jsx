@@ -4,15 +4,6 @@ import { useAllEvents } from "../../Providers/AllEvents";
 import * as Styled from "./styles";
 
 export const Home = () => {
-  const history = useHistory();
-
-  const { removeEventFromUser } = useUser();
-
-  const handleClick = async () => {
-    const status = await removeEventFromUser(1);
-    console.log(status);
-  };
-
   return (
     <Styled.Container>
       <header>coloque o header aqui</header>

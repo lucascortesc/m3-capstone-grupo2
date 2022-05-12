@@ -1,11 +1,12 @@
 import { createContext, useContext, useState } from "react";
 import api from "../../services/api";
+import { verificarToken } from "../validation";
 
 export const UserContext = createContext();
 
 export const UserProvider = ({ children }) => {
   const [user, setUser] = useState(
-    JSON.parse(localStorage.getItem("user")) || undefined
+    JSON.parse(localStorage.getItem("user")) || ""
   );
 
   const loginUser = async (objUser) => {
@@ -25,14 +26,22 @@ export const UserProvider = ({ children }) => {
     return response;
   };
 
-  const logoutUser = async () => {
-    setUser(undefined);
+  const logoutUser = () => {
+    setUser("");
     localStorage.clear();
+
+    return true;
   };
 
   const addEventToUser = async (event) => {
     const token = JSON.parse(localStorage.getItem("token"));
     const user = JSON.parse(localStorage.getItem("user"));
+
+    if (!(await verificarToken(token, user))) {
+      setUser("");
+      localStorage.clear();
+      return "missing or expired token";
+    }
 
     const newEvents = [...user.events, event];
 
@@ -55,7 +64,7 @@ export const UserProvider = ({ children }) => {
 
         response = res.statusText;
       })
-      .catch((err) => (response = err.response.data));
+      .catch((err) => (response = err.response.statusText));
 
     return response;
   };
@@ -63,6 +72,12 @@ export const UserProvider = ({ children }) => {
   const removeEventFromUser = async (eventId) => {
     const token = JSON.parse(localStorage.getItem("token"));
     const user = JSON.parse(localStorage.getItem("user"));
+
+    if (!(await verificarToken(token, user))) {
+      setUser("");
+      localStorage.clear();
+      return "missing or expired token";
+    }
 
     const newEvents = [user.events.filter(({ id }) => id !== eventId)];
 
@@ -90,6 +105,7 @@ export const UserProvider = ({ children }) => {
     <UserContext.Provider
       value={{
         user,
+        setUser,
         loginUser,
         logoutUser,
         addEventToUser,
