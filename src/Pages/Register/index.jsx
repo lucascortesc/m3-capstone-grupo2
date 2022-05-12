@@ -1,12 +1,16 @@
 import * as Styled from "./styles";
 
 import { Link } from "react-router-dom";
-import { BsArrowRightCircle } from "react-icons/bs";
+import { BsArrowRightCircle, BsArrowLeftCircle } from "react-icons/bs";
 
 export const Register = () => {
   return (
     <Styled.Container>
-      <Styled.Background />
+      <Styled.Background>
+        <Link to="/">
+          <BsArrowLeftCircle color="white" size="30px"/>
+        </Link>
+      </Styled.Background>
       <Styled.Content>
         <Styled.FormContainer>
           <form>
