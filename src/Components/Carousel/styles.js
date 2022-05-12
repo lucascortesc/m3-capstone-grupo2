@@ -28,6 +28,7 @@ export const ContainerCarousel = styled.div`
   display: flex;
   justify-content: space-between;
   overflow-x: scroll;
+  overflow-y: hidden;
 
   height: 250px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;

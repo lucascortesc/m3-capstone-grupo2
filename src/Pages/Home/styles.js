@@ -40,7 +40,9 @@ export const ImageDiv = styled.div`
       padding: 0;
     }
     .deslizePopUp {
-      display: block;
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
       margin-left: 20px;
       margin-top: 5px;
       width: 200px;
@@ -90,6 +92,11 @@ export const InfosDiv = styled.div`
     border-radius: 5px;
     margin: 10px auto;
     font-weight: bold;
+  }
+  .InteresseButton > p {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
   }
   .highlighted {
     color: #c3bd2e;
