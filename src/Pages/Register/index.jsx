@@ -18,7 +18,9 @@ export const Register = () => {
             <input></input>
             <div>
               <input type="checkbox" id="terms" name="terms"></input>
-              <label for="terms">Concordo com os termos de política e privacidade. </label>
+              <label>
+                Concordo com os termos de política e privacidade.{" "}
+              </label>
             </div>
           </form>
           <Button>Criar conta</Button>
