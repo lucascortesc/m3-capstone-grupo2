@@ -20,6 +20,11 @@ export const Container = styled.div`
     background: #c4c4c4;
     padding: 8px;
     color: black;
+
+  }
+
+  .error{
+    color: red;
   }
   @media (min-width: 1100px) {
     width: 250px;
