@@ -3,10 +3,13 @@ import ImageRegister from "../../Assets/ImageRegister.png";
 
 export const Container = styled.div`
   height 100vh;
+  width:100%;
+
   display: flex;
   align-items: stretch;
-  width:100%;
+
   background-color: var(--primaryColor);
+  color: white
   
 `;
 
@@ -23,7 +26,7 @@ export const Content = styled.div`
   flex-direction: column;
   align-items: center;
   jusitfy-content: center;
-  width: 50%
+  width: 50%;
 `;
 
 export const FormContainer = styled.div`
@@ -38,7 +41,6 @@ export const FormContainer = styled.div`
     text-align: center;
 
     h1 {
-      color: white;
       margin-bottom: 32px;
     }
 
