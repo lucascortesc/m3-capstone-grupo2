@@ -1,4 +1,5 @@
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import Carousel from "../../Components/Carousel";
 import * as Styled from "./styles";
 
 export const Home = () => {
@@ -13,8 +14,10 @@ export const Home = () => {
           <br></br> muitos.
         </h2>
         <Styled.BackgroundImage></Styled.BackgroundImage>
-        <div className="carrossel">Div do carrossel aqui</div>
-        <div className="deslizePopUp">Deslize para ver mais</div>
+        <div>
+          <Carousel />
+          <div className="deslizePopUp">Deslize para ver mais</div>
+        </div>
       </Styled.ImageDiv>
       <Styled.InfosDiv>
         <div className="whoAreDiv">
@@ -37,7 +40,7 @@ export const Home = () => {
           <div className="whyHelpDiv">
             <h3>Por que ajudar?</h3>
             <p>
-              A cada <span className="highlighted">5 minutos</span> uma crinaça
+              A cada <span className="highlighted">5 minutos</span> uma criança
               é diagnosticada com{" "}
               <span className="highlighted">desnutrição</span>!
             </p>
