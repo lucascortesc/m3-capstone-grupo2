@@ -26,7 +26,10 @@ export const Content = styled.div`
   flex-direction: column;
   align-items: center;
   jusitfy-content: center;
-  width: 50%;
+
+  @media (min-width: 1024px) {
+    width: 50%;
+  }
 `;
 
 export const FormContainer = styled.div`
