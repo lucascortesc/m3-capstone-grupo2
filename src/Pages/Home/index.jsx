@@ -35,7 +35,7 @@ export const Home = () => {
             <span className="highlighted">planeta</span>.
           </p>
           <button
-            onClick={() => history.push("/eventos")}
+            onClick={() => history.push("/events")}
             className="InteresseButton"
           >
             <p>

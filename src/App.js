@@ -6,9 +6,7 @@ const App = () => {
     <div className="App">
       <GlobalStyle />
       <Routes />
-      <Toaster
-        position="top-right"
-        />
+      <Toaster />
     </div>
   );
 };

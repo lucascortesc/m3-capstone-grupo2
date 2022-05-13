@@ -17,7 +17,7 @@ const Carousel = () => {
 
   return (
     <Styled.Container>
-      <button onClick={() => history.push("/eventos")}>
+      <button onClick={() => history.push("/events")}>
         Ver todos os nossos eventos
       </button>
       <Styled.ContainerCarousel>
