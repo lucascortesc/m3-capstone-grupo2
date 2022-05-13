@@ -10,6 +10,8 @@ import { Button } from "../../Components/Button";
 import api from "../../services/api"
 import { useHistory } from "react-router-dom";
 import toast from "react-hot-toast";
+import { useUser } from "../../Providers/User";
+import { Redirect } from "react-router-dom";
 
 export const Register = () => {
   const [type, setType] = useState("voluntary");
@@ -20,6 +22,11 @@ export const Register = () => {
       type === "voluntary" ? RegisterSchemaCpf : RegisterSchemaCnpj
     ),
   });
+
+  const { user } = useUser()
+  if(user){
+    return <Redirect to="/" />
+  }
 
   const onSubmitFunction = (data) => {
     if (type === "organization") {

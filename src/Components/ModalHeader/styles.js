@@ -24,6 +24,7 @@ export const Container = styled.div`
     width: 100px;
     border-radius: 15px;
     position: absolute;
+    animation: appearFromTop 1s;
   }
   .modal > button {
     width: 100%;
@@ -55,6 +56,15 @@ export const Container = styled.div`
     .pontinha {
       margin-top: 97px;
       margin-right: 80px;
+    }
+  }
+
+  @keyframes appearFromTop {
+    from {
+      transform: translateY(-10px)
+    }
+    to {
+      transform: translateY(0px);
     }
   }
 `;

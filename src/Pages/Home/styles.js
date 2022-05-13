@@ -40,6 +40,26 @@ export const ImageDiv = styled.div`
       text-align: center;
       background-color: #193e51;
       color: #c3bd2e;
+      animation: jumpButton infinite 2s;
+    }
+  }
+
+  @keyframes jumpButton {
+    0% {
+      transform: translateY(0px);
+    }
+    20% {
+      transform: translateY(5px);
+    }
+    40% {
+      transform: translateY(0px);
+    }
+    60% {
+      transform: translateY(5px);
+    }
+    100% {
+      transition: 1.5s;
+      transform: translateY(0px);
     }
   }
 `;

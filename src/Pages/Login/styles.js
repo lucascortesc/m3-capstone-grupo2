@@ -11,14 +11,22 @@ export const Container = styled.div`
   flex-direction: column;
   align-items: stretch;
   background-color: #193e51;
+
+  @media (max-width: 1023px) {
+    justify-content: center;
+  }
+
   @media (min-width: 1024px){
     flex-direction: row;
   }
 `;
 
 export const Background = styled.div`
+  display: none;
+
   @media (min-width: 1024px) {
-    flex: 1;
+    display: inline-block;
+    width: 50%;
     background: url(${LoginImage}) no-repeat center, #193e51;
     background-size: cover;
   }
@@ -31,35 +39,37 @@ export const Content = styled.div`
   justify-content: center;
   place-content: center;
   width: 100%;
-  max-width: 700px;
+  @media (min-width: 1024px) {
+    width: 50%;
+  }
 `;
 export const Arrow = styled.button`
   border: none;
   background: transparent;
   color: white;
   font-size: 50px;
-  
-  /* @media (max-width: 1024px) {
-    flex: 1;
-    height: 0px;
-    
-  } */
 `;
 export const FormContainer = styled.div`
+width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-top: 100px;
 
   form {
-    /* margin: 80px 0; */
-    width: 340px;
-
+    width: 100%;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+
+    @media (max-width: 1023px) {
+      max-width: 400px;
+    }
 
     h1 {
-      margin-bottom: 3rem;
+      margin-bottom: 20px;
       color: #fff;
     }
 
@@ -70,6 +80,10 @@ export const FormContainer = styled.div`
         font-weight: bold;
         color: #c3bd2e;
       }
+    }
+
+    @media (min-width: 1024px) {
+      width: 80%;
     }
   }
 `;
