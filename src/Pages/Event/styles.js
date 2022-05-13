@@ -37,7 +37,7 @@ export const Container = styled.div`
   .subscribeDiv > .defaultBtnSub {
     padding: 10px;
     width: 100%;
-    /* background-color: #146666; */
+    background-color: #146666;
     color: white;
     border: none;
     font-weight: bold;
@@ -65,8 +65,13 @@ export const Container = styled.div`
     background-color: red;
   }
   .googleMaps {
-    height: 300px;
-    background-color: red;
+    height: 400px;
+    /* background-color: red; */
+    margin: 40px 20px;
+    font-size: 20px;
+    font-family: "Montserrat", monospace;
+    color: white;
+    font-weight: bold;
   }
   @media (min-width: 1024px) {
     .divHeader {
@@ -110,7 +115,8 @@ export const Container = styled.div`
       color: white;
     }
     .googleMaps {
-      margin: 70px 350px;
+      margin: 70px auto;
+      width: 855px;
     }
   }
 `;
