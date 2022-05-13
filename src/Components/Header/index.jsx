@@ -2,14 +2,26 @@ import * as Styled from "./styles";
 import headerUserLogo from "../../Assets/img/header-user-logo.svg";
 import { Button } from "../Button";
 import { Link } from "react-router-dom";
+import { useUser } from "../../Providers/User/index";
+import { useState } from "react";
+import ModalHeader from "../ModalHeader";
 
-export const Header = ({ isLogged = false }) => {
+export const Header = () => {
+  const { user } = useUser();
+  const [modalHeader, setModalHeader] = useState(false);
   return (
     <Styled.Container>
       <Styled.HeaderContainer>
         <h1>Titulo</h1>
-        {isLogged ? (
-          <img src={headerUserLogo} alt="the user image" />
+        {!!user ? (
+          <>
+            <img
+              onClick={() => setModalHeader(true)}
+              src={headerUserLogo}
+              alt="the user logo"
+            />
+            {modalHeader && <ModalHeader setModalHeader={setModalHeader} />}
+          </>
         ) : (
           <div>
             <Link to="/login">
