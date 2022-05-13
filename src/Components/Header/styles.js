@@ -6,17 +6,12 @@ export const Container = styled.div`
   display: flex;
   justify-content: center;
   background: #193e51;
-  z-index: 9999999;
 
   img {
     cursor: pointer;
   }
   @media (min-width: 1024px) {
     height: 115px;
-    position: absolute;
-    top: 0;
-    left: 0;
-    background: none;
   }
 `;
 
