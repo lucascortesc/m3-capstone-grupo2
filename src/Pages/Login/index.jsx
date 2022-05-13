@@ -17,11 +17,10 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { FiArrowLeftCircle, FiArrowRightCircle } from "react-icons/fi";
 
 export const Login = () => {
-  
   const history = useHistory();
-  
-  const {loginUser, user} = useUser()
-  
+
+  const { loginUser, user } = useUser();
+
   const schema = yup.object().shape({
     email: yup.string().email("Email inválido").required("Campo obrigatório!"),
     password: yup
@@ -29,7 +28,6 @@ export const Login = () => {
       .min(6, "Mínimo de 6 dígitos")
       .required("Campo obrigatório"),
   });
-  
 
   const {
     register,
@@ -37,35 +35,28 @@ export const Login = () => {
     formState: { errors },
   } = useForm({ resolver: yupResolver(schema) });
 
-
-  if(user){
-    return <Redirect to="/" />
+  if (user) {
+    return <Redirect to="/" />;
   }
 
-
-
   const onSubmit = async (data) => {
-    
-    const status =  await loginUser(data)
+    const status = await loginUser(data);
 
-    if(status === "OK"){
-      toast.success("Login realizado com sucesso!")
+    if (status === "OK") {
+      toast.success("Login realizado com sucesso!");
       setTimeout(() => {
-        history.goBack()
+        history.goBack();
       }, 1500);
-     
-    }else{
-      toast.error("Email ou senha incorretos!")
-
+    } else {
+      toast.error("Email ou senha incorretos!");
     }
-   
   };
 
   return (
     <Container>
       <Background>
         <Arrow>
-          <FiArrowLeftCircle onClick={() => history.goBack()} />
+          <FiArrowLeftCircle onClick={() => history.push("./")} />
         </Arrow>
       </Background>
       <Content>
@@ -100,4 +91,3 @@ export const Login = () => {
     </Container>
   );
 };
-

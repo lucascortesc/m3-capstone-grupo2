@@ -1,11 +1,11 @@
 import styled from "styled-components";
 
-import LoginImage from "../../assets/login.png";
+import LoginImage from "../../Assets/login.png";
 
 export const Container = styled.div`
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  
+
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -16,7 +16,7 @@ export const Container = styled.div`
     justify-content: center;
   }
 
-  @media (min-width: 1024px){
+  @media (min-width: 1024px) {
     flex-direction: row;
   }
 `;
@@ -50,7 +50,7 @@ export const Arrow = styled.button`
   font-size: 50px;
 `;
 export const FormContainer = styled.div`
-width: 100%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -104,9 +104,9 @@ export const Button = styled.button`
   color: #fff;
   font-size: 16px;
   font-weight: bold;
-  div{
+  div {
     padding-left: 5px;
-    color: #C3BD2E;
+    color: #c3bd2e;
     display: flex;
   }
 `;
