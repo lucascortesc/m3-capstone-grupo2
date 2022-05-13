@@ -14,7 +14,7 @@ const ModalCancelSubs = ({ setModalCancel, event }) => {
     const statusEvent = await removeUserFromEvent(id);
     const statusUser = await removeEventFromUser(id);
     if (statusUser === "OK" && statusEvent === "OK") {
-      toast.success("Inscrição feita com sucesso");
+      toast.success("Inscrição removida com sucesso");
     } else {
       toast.error("Ops! Algo de errado.");
     }
