@@ -93,6 +93,7 @@ export const AllEventsProvider = ({ children }) => {
       )
       .then((res) => {
         response = res.statusText;
+        api.get("/eventos").then((res) => setAllEvents(res.data));
       })
       .catch((err) => (response = err.response.statusText));
 
@@ -125,7 +126,10 @@ export const AllEventsProvider = ({ children }) => {
           },
         }
       )
-      .then((res) => (response = res.statusText))
+      .then((res) => {
+        response = res.statusText;
+        api.get("/eventos").then((res) => setAllEvents(res.data));
+      })
       .catch((err) => (response = err.response.statusText));
 
     return response;
