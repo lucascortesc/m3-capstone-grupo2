@@ -10,9 +10,6 @@ export const Container = styled.div`
   img {
     cursor: pointer;
   }
-  @media (min-width: 1024px) {
-    height: 115px;
-  }
 `;
 
 export const HeaderContainer = styled.div`
