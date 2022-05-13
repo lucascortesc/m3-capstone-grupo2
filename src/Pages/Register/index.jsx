@@ -1,6 +1,6 @@
 import * as Styled from "./styles";
 import { Link } from "react-router-dom";
-import { BsArrowRightCircle } from "react-icons/bs";
+import { BsArrowRightCircle, BsArrowLeftCircle } from "react-icons/bs";
 import { RegisterSchemaCnpj, RegisterSchemaCpf } from "../../Validation";
 import Input from "../../Components/Input";
 import { useForm } from "react-hook-form";
@@ -88,7 +88,11 @@ export const Register = () => {
 
   return (
     <Styled.Container>
-      <Styled.Background />
+      <Styled.Background>
+        <Link to="/">
+          <BsArrowLeftCircle color="white" size="30px" />
+        </Link>
+      </Styled.Background>
       <Styled.Content>
         <Styled.FormContainer onSubmit={handleSubmit(onSubmitFunction)}>
           <form>
