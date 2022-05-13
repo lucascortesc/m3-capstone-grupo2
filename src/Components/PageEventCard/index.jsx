@@ -1,15 +1,6 @@
-import { useEffect } from "react";
-import { useState } from "react";
-import { useParams } from "react-router-dom";
 import * as Styled from "./styles";
-import api from "../../services/api";
-import { useAllEvents } from "../../Providers/AllEvents";
 
 const PageEventCard = ({ event }) => {
-  const { id } = useParams();
-
-  const { allEvents } = useAllEvents();
-
   return (
     <Styled.Container>
       <img src={event?.img} alt="" />

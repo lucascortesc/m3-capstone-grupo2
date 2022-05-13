@@ -4,8 +4,8 @@ import { useAllEvents } from "../../Providers/AllEvents";
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 import toast from "react-hot-toast";
 
-const ModalAddSubs = ({ setModalAdd }) => {
-  const { addEventToUser, user } = useUser();
+const ModalAddSubs = ({ setModalAdd, event }) => {
+  const { addEventToUser } = useUser();
   const { addUserToEvent } = useAllEvents();
   const { id } = useParams();
 
@@ -25,7 +25,7 @@ const ModalAddSubs = ({ setModalAdd }) => {
       <div className="modalContainer">
         <div className="modalHeader">
           <p>Você tentou se inscrever em:</p>
-          <p>Nome do Evento</p>
+          <p>{event.name}</p>
         </div>
         <div className="modalButtons">
           <p>Inscrever-se?</p>

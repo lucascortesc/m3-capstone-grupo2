@@ -25,31 +25,32 @@ export const Event = () => {
   const [longitude, setLongitude] = useState("");
 
   useEffect(() => {
-    const actualEvent = allEvents.find((e) => e.id == id);
+    const actualEvent = allEvents.find((e) => e.id === Number(id));
     setEvent(actualEvent);
 
     if (user) {
       setRegistered(
-        actualEvent && actualEvent.voluntarys.find((e) => e.id == user.id)
+        actualEvent &&
+          actualEvent.voluntarys.find((e) => e.id === Number(user.id))
       );
     }
   }, [allEvents]);
 
-  //   useEffect(() => {
-  //     if (!!event) {
-  //       axios
-  //         .get(
-  //           `https://maps.googleapis.com/maps/api/geocode/json?address=${event?.location},Brasil,+CA&key=AIzaSyAJ8vU8FUxOZ7NtZnBKF_0nDdZ1qa47KWk
-  //  `
-  //         )
-  //         .then((res) => {
-  //           console.log(res);
-  //           setLatitude(res.data.results[0].geometry.location.lat);
-  //           setLongitude(res.data.results[0].geometry.location.lng);
-  //         })
-  //         .catch((err) => console.log(err));
-  //     }
-  //   }, [event]);
+  useEffect(() => {
+    if (!!event) {
+      axios
+        .get(
+          `https://maps.googleapis.com/maps/api/geocode/json?address=${event?.location},Brasil,+CA&key=AIzaSyAJ8vU8FUxOZ7NtZnBKF_0nDdZ1qa47KWk
+   `
+        )
+        .then((res) => {
+          console.log(res);
+          setLatitude(res.data.results[0].geometry.location.lat);
+          setLongitude(res.data.results[0].geometry.location.lng);
+        })
+        .catch((err) => console.log(err));
+    }
+  }, [event]);
 
   const history = useHistory();
 
@@ -69,12 +70,12 @@ export const Event = () => {
       <PageEventCard event={event} />
       <div className="subscribeDiv">
         <p>Tem interesse?</p>
-        {event?.voluntarys.length >= event?.maxVoluntarys ? (
-          <p>Número de voluntários máximo atingido</p>
-        ) : registered ? (
+        {registered ? (
           <button onClick={() => setModalCancel(true)} className="cancelSub">
             Cancelar inscrição
           </button>
+        ) : event?.voluntarys.length >= event?.maxVoluntarys ? (
+          <p>Número de voluntários máximo atingido</p>
         ) : !!user ? (
           <button className="defaultBtnSub" onClick={() => setModalAdd(true)}>
             Inscrever-se no evento
@@ -90,7 +91,7 @@ export const Event = () => {
       </div>
       <div className="googleMaps">
         <p>Não sabe onde encontrar?</p>
-        {/* {event && (
+        {latitude && (
           <MapWithAMarker
             location={event.location}
             latitude={latitude}
@@ -100,11 +101,13 @@ export const Event = () => {
             containerElement={<div style={{ height: `400px` }} />}
             mapElement={<div style={{ height: `100%` }} />}
           />
-        )} */}
+        )}
       </div>
       <Footer />
-      {modalAdd && <ModalAddSubs setModalAdd={setModalAdd} />}
-      {modalCancel && <ModalCancelSubs setModalCancel={setModalCancel} />}
+      {modalAdd && <ModalAddSubs setModalAdd={setModalAdd} event={event} />}
+      {modalCancel && (
+        <ModalCancelSubs setModalCancel={setModalCancel} event={event} />
+      )}
     </Styled.Container>
   );
 };
