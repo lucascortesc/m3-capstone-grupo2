@@ -17,9 +17,11 @@ const Carousel = () => {
 
   return (
     <Styled.Container>
-      <button onClick={() => history.push("/events")}>
-        Ver todos os nossos eventos
-      </button>
+      <div className="initialButton">
+        <button onClick={() => history.push("/events")}>
+          Ver todos os nossos eventos
+        </button>
+      </div>
       <Styled.ContainerCarousel>
         {eventsCarousel.data &&
           eventsCarousel.data.map((element) => (

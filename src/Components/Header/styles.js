@@ -6,7 +6,7 @@ export const Container = styled.div`
   display: flex;
   justify-content: center;
   background: #193e51;
-
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   img {
     cursor: pointer;
   }

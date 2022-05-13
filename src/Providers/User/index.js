@@ -33,6 +33,34 @@ export const UserProvider = ({ children }) => {
     return true;
   };
 
+  const updateUser = async (data) => {
+    const token = JSON.parse(localStorage.getItem("token"));
+    const user = JSON.parse(localStorage.getItem("user"));
+
+    if (!(await verificarToken(token, user))) {
+      setUser("");
+      localStorage.clear();
+      return "missing or expired token";
+    }
+
+    let response;
+
+    await api
+      .patch(`/users/${user.id}`, data, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then((res) => {
+        delete res.data.password;
+        setUser(res.data);
+        response = res.statusText;
+      })
+      .catch((err) => (response = err.response.statusText));
+
+    return response;
+  };
+
   const addEventToUser = async (event) => {
     const token = JSON.parse(localStorage.getItem("token"));
     const user = JSON.parse(localStorage.getItem("user"));
@@ -108,6 +136,7 @@ export const UserProvider = ({ children }) => {
         setUser,
         loginUser,
         logoutUser,
+        updateUser,
         addEventToUser,
         removeEventFromUser,
       }}
