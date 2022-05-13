@@ -1,6 +1,6 @@
 import * as yup from "yup";
 
-const RegisterSchemaCnpj = yup.object().shape({
+export const RegisterSchemaCnpj = yup.object().shape({
   name: yup
     .string()
     .required("Nome da organização obrigatório")
@@ -26,7 +26,7 @@ const RegisterSchemaCnpj = yup.object().shape({
   cnpj: yup
     .string()
     .required("O CNPJ é obrigatório")
-    .min(14, "O CNPJ deve conter ao menos 14 dígitos")
+    .min(14, "CNPJ Inválido")
     .matches(
       /^[0-9]{2}[\.]?[0-9]{3}[\.]?[0-9]{3}[\/]?[0-9]{4}[-]?[0-9]{2}$/g,
       "CNPJ inválido, tente novamente"
@@ -44,7 +44,7 @@ const RegisterSchemaCnpj = yup.object().shape({
   type: yup.string(),
 });
 
-const RegisterSchemaCpf = yup.object().shape({
+export const RegisterSchemaCpf = yup.object().shape({
   name: yup
     .string()
     .required("Nome completo obrigatório")
@@ -70,12 +70,11 @@ const RegisterSchemaCpf = yup.object().shape({
   cpf: yup
     .string()
     .required("O CPF é obrigatório")
-    .min(11, "O CPF deve conter ao menos 11 dígitos")
     .matches(
       /^([0-9]{3})\.?([0-9]{3})\.?([0-9]{3})\-?([0-9]{2})$/gm,
-      "CNPJ inválido, tente novamente"
+      "CPF inválido"
     ),
   policy: yup.boolean().oneOf([true], "Termos obrigatórios"),
 });
 
-export default { RegisterSchemaCnpj, RegisterSchemaCpf };
+

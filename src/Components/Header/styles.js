@@ -5,14 +5,18 @@ export const Container = styled.div`
   height: 70px;
   display: flex;
   justify-content: center;
-  background: none;
+  background: #193e51;
   z-index: 9999999;
 
+  img {
+    cursor: pointer;
+  }
   @media (min-width: 1024px) {
     height: 115px;
     position: absolute;
     top: 0;
     left: 0;
+    background: none;
   }
 `;
 
@@ -25,9 +29,9 @@ export const HeaderContainer = styled.div`
   background: none;
   padding: 0px 25px;
 
-  >div {
-      display: flex;
-      gap: 20px;
+  > div {
+    display: flex;
+    gap: 20px;
   }
 
   h1 {
@@ -38,8 +42,8 @@ export const HeaderContainer = styled.div`
   }
 
   @media (max-width: 280px) {
-      flex-direction: column;
-  } 
+    flex-direction: column;
+  }
 
   @media (min-width: 1024px) {
     padding: 0px 70px;

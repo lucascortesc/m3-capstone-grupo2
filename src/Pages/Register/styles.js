@@ -2,8 +2,8 @@ import styled from "styled-components";
 import ImageRegister from "../../Assets/ImageRegister.png";
 
 export const Container = styled.div`
-  height 100vh;
-  width:100%;
+  width: 100vw;
+  height: 100vh;
 
   display: flex;
   align-items: stretch;
@@ -12,63 +12,151 @@ export const Container = styled.div`
 
   background-color: var(--primaryColor);
   color: white;
-  
 `;
 
 export const Background = styled.div`
+  display: none;
+
   @media (min-width: 1024px) {
-    flex: 1;
-    background: url(${ImageRegister}) no-repeat left;
+    display: inline-block;
+    width: 50vw;
+    height: 100vh;
+    background: url(${ImageRegister}) no-repeat center;
     background-size: cover;
   }
 `;
 
 export const Content = styled.div`
+  width: 100vw;
+  height: 100vh;
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  jusitfy-content: center;
 
   @media (min-width: 1024px) {
-    width: 50%;
+    width: 50vw;
+    height: 100vh;
+    max-height: 1024px;
   }
 `;
 
 export const FormContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  width: 100%;
+  max-width: 428px;
 
   form {
-    margin: 80px 0;
-    width: 340px;
-    text-align: center;
-    .loginButton {
-      padding: 10px;
-      width: 200px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
-      background-color: var(--primaryColor50);
-      color: white;
+    a {
+          color: var(--color-highlight);
+          font-weight: 700;
+    }
 
-      border: none;
-      border-radius: 5px;
-
-      margin: 10px auto;
-      font-weight: bold;
+    .signupButton {
+      @media (max-width: 1023px) {
+        margin: 15px 0px 15px 0px;
+      }
     }
 
     h1 {
-      margin-bottom: 32px;
+      font-weight: 800;
     }
+  }
 
-    p {
-      margin-top: 8px;
-
-      a {
-        font-weight: bold;
-        color: var(--color-highlight);
+  @media (min-width: 1024px) {
+    form {
+      p {
+        margin-top: 15px;
       }
     }
   }
 `;
+
+export const VolundaryForm = styled.div`
+  width: 100%;
+
+  > div {
+    width: 80%;
+
+    > div {
+      font-size: 14px;
+    }
+  }
+`;
+
+export const OrganizationForm = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+
+  > div {
+    width: 80%;
+
+    > div {
+      font-size: 14px;
+    }
+  }
+`;
+
+export const GoalsContainer = styled.div`
+width: 80%;
+align-self: center;
+display: flex;
+flex-wrap: wrap;
+margin-top: 10px;
+
+>aside {
+  width: 50%;
+  font-size: 13.5px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+
+  >div {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+  }
+}
+`;
+
+export const TypeContainer = styled.div`
+  width: 80%;
+  font-size: 14px;
+
+  > div {
+    width: 100%;
+    padding: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    background: #c4c4c4;
+
+    select {
+      width: 95%;
+      height: 100%;
+      background: none;
+      border: none;
+      color: var(--primaryColor);
+      font-weight: 700;
+      cursor: pointer;
+    }
+  }
+`;
+
+export const TermsContainer = styled.div`
+width: 80%;
+margin-top: 10px;
+
+input {
+  margin-right: 5px;
+}
+
+@media (min-width: 1024px) {
+  margin: 20px 0px 20px 0px;
+}
+`
