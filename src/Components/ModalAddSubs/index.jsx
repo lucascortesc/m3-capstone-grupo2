@@ -10,6 +10,7 @@ const ModalAddSubs = ({ setModalAdd, event }) => {
   const { id } = useParams();
 
   const confirmSubs = async () => {
+    setModalAdd(false);
     const statusUser = await addEventToUser(id);
     const statusEvent = await addUserToEvent(id);
     if (statusUser === "OK" && statusEvent === "OK") {
@@ -17,7 +18,6 @@ const ModalAddSubs = ({ setModalAdd, event }) => {
     } else {
       toast.error("Ops! Algo de errado.");
     }
-    setModalAdd(false);
   };
 
   return (
