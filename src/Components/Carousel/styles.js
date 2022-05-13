@@ -21,6 +21,10 @@ export const Container = styled.div`
       width: 200px;
       margin: 0px 20px 0px 20px;
     }
+    .initialButton {
+      display: flex;
+      justify-content: flex-end;
+    }
   }
 `;
 

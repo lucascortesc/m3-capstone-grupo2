@@ -23,18 +23,21 @@ export const Container = styled.div`
   }
   .subscribeDiv {
     margin: 20px;
+    text-align: center;
   }
   .subscribeDiv > p {
     color: #c3bd2e;
     font-weight: bold;
     font-size: 16px;
+    margin: 6px;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
       Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   }
-  .subscribeDiv > button {
+
+  .subscribeDiv > .defaultBtnSub {
     padding: 10px;
     width: 100%;
-    background-color: #146666;
+    /* background-color: #146666; */
     color: white;
     border: none;
     font-weight: bold;
@@ -44,9 +47,22 @@ export const Container = styled.div`
     border-radius: 5px;
     margin-top: 5px;
   }
-  .teste {
-    height: 300px;
-    /* background-color: red; */
+  .cancelSub {
+    padding: 10px;
+    width: 100%;
+    color: white;
+    border: none;
+    font-weight: bold;
+    font-size: 16px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+      Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    border-radius: 5px;
+    margin-top: 5px;
+    background-color: #ff2b2b;
+    color: white;
+  }
+  .cancelSub:hover {
+    background-color: red;
   }
   .googleMaps {
     height: 300px;
@@ -56,14 +72,19 @@ export const Container = styled.div`
     .divHeader {
       display: block;
       background-color: red;
-      height: 40px;
     }
     .buttonMobile {
       display: none;
     }
+    .buttonsDiv {
+      width: 855px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: flex-start;
+    }
     .buttonDesktop {
       display: block;
-      margin: 15px 140px 15px 140px;
+      margin: 15px 0;
       padding: 10px;
       border: none;
       border-radius: 5px;
@@ -79,12 +100,17 @@ export const Container = styled.div`
     .subscribeDiv > p {
       font-size: 20px;
     }
-    .subscribeDiv > button {
+
+    .subscribeDiv > .defaultBtnSub {
       background-color: #c3bd2e;
       color: #146666;
     }
+    .cancelSub {
+      background-color: #ff2b2b;
+      color: white;
+    }
     .googleMaps {
-      margin: 70px 140px;
+      margin: 70px 350px;
     }
   }
 `;
