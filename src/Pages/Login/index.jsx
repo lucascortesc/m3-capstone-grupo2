@@ -86,7 +86,7 @@ export const Login = () => {
               type="password"
             />
             <p>
-              Não tem conta? <Link to="/signup">Clique aqui</Link>
+              Não tem conta? <Link to="/register">Clique aqui</Link>
             </p>
             <Button type="submit">
               Entrar
