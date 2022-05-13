@@ -3,13 +3,12 @@ import { useState } from "react";
 import { useParams } from "react-router-dom";
 import * as Styled from "./styles";
 import api from "../../services/api";
+import { useAllEvents } from "../../Providers/AllEvents";
 
-const PageEventCard = () => {
+const PageEventCard = ({ event }) => {
   const { id } = useParams();
-  const [event, setEvent] = useState();
-  useEffect(() => {
-    api.get(`/eventos/${id}`).then((res) => setEvent(res.data));
-  }, []);
+
+  const { allEvents } = useAllEvents();
 
   return (
     <Styled.Container>
