@@ -10,6 +10,7 @@ const ModalCancelSubs = ({ setModalCancel, event }) => {
   const { id } = useParams();
 
   const cancelSubs = async () => {
+    setModalCancel(false);
     const statusEvent = await removeUserFromEvent(id);
     const statusUser = await removeEventFromUser(id);
     console.log(statusUser);
@@ -18,7 +19,6 @@ const ModalCancelSubs = ({ setModalCancel, event }) => {
     } else {
       toast.error("Ops! Algo de errado.");
     }
-    setModalCancel(false);
   };
 
   return (
