@@ -78,3 +78,13 @@ export const RegisterSchemaCpf = yup.object().shape({
     .boolean()
     .oneOf([true], "Termos obrigatórios"),
 });
+
+export const CreateEventSchema = yup.object().shape({
+  name: yup.string().required("O nome do evento é obrigatório"),
+  description: yup.string().required("A descrição do evento é obrigatória"),
+  maxVoluntarys: yup.string().required("A quantidade de voluntários necessária é obrigatória"),
+  date: yup.string().required("A data é obrigatória"),
+  location: yup.string().required("Localização do evento obrigatória"),
+  img: yup.string().required("A url da imagem é obrigatória"),
+  category: yup.string().required("A categoria do evento é obrigatória")
+})
