@@ -3,74 +3,70 @@ import styled from "styled-components";
 export const Container = styled.div`
   width: 100vw;
   height: 100vh;
+  position: absolute;
   display: flex;
   justify-content: center;
   align-items: center;
-  position: absolute;
-  background-color: rgba(0, 0, 0, 0.5);
-  font-family: "Montserrat";
-`;
+  top: 0px;
+  left: 0px;
+  background-color: rgb(0, 0, 0, 0.5);
 
-export const FormContainer = styled.div`
-  width: 95%;
-  height: 90%;
-  max-width: 341px;
-  max-height: 585px;
   form {
-    width: 100%;
-    height: 100%;
-    position: relative;
+    width: 95%;
+    max-width: 341px;
+    padding: 20px;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    background-color: #193e51;
+    gap: 5px;
     color: white;
+    border-radius: 5px;
+    background-color: var(--primaryColor);
+    position: relative;
 
     h1 {
+      font-family: "Montserrat";
       font-size: 22px;
-      font-weight: 800;
+      margin-left: 24px;
+    }
+
+    > div {
+      div {
+        font-size: 13px;
+        .error {
+          font-size: 15px;
+          color: #e14545;
+        }
+      }
+    }
+
+    .btn-createEvent {
+      margin: 10px 0px 10px 0px;
+      align-self: center;
     }
   }
 `;
 
-export const CloseButton = styled.div`
-  cursor: pointer;
-  height: 30px;
+export const CloseModal = styled.div`
   width: 30px;
+  height: 30px;
+  border: 1px solid white;
+  border-radius: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   position: absolute;
-  top: -5px;
-  right: -5px;
-  border: 1px solid transparent;
-  border-radius: 100%;
-  font-weight: 700;
-  background-color: #193e51;
+  top: 10px;
+  right: 10px;
+  font-size: 18px;
+  cursor: pointer;
 
   :hover {
-    animation: createBorder 2s;
+    color: var(--color-highlight);
+    border: 2px solid var(--color-highlight);
+    font-weight: 800;
   }
 
-  @keyframes createBorder {
-    /* 25% {
-      border-left: 1px solid white;
-    }
-    50% {
-      border-top: 1px solid white;
-    }
-    75% {
-      border-right: 1px solid white;
-    }
-    100% {
-      border-bottom: 1px solid white;
-    } */
-    from {
-        border-left: 100px solid #193e51;
-    }
-    to {
-        border-left: 0px;
-        border-top: 100px solid #193e51;
-    }
+  span {
+    margin-bottom: 2px;
   }
 `;

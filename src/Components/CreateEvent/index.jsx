@@ -1,34 +1,83 @@
 import * as Styled from "./styles";
-import Input from "../Input";
-import { Button } from "../Button";
+import Input from "../../Components/Input";
+import { Button } from "../../Components/Button";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { CreateEventSchema } from "../../Validation";
 import { FiArrowRightCircle } from "react-icons/fi";
+import { useContext } from "react";
+import { AllEventsContext } from "../../Providers/AllEvents"
 
-export const CreateEvent = () => {
+export const CreateEvent = ({ setModal }) => {
+  const { addEvent } = useContext(AllEventsContext)
+
+  const { register, handleSubmit, formState } = useForm({
+    resolver: yupResolver(CreateEventSchema),
+  });
+
+  const onSubmitFunction = (data) => addEvent(data);
+
   return (
     <Styled.Container>
-      <Styled.FormContainer>
-        <form>
-          <Styled.CloseButton>x</Styled.CloseButton>
-          <h1>Criar um evento</h1>
-          <input />
-          <input />
-          <input />
-          <input />
-          <input />
-          <input />
+      <form onSubmit={handleSubmit(onSubmitFunction)}>
+        <Styled.CloseModal onClick={() => setModal(false)}><span>x</span></Styled.CloseModal>
+        <h1>Criar um evento</h1>
+        <Input
+          label="Nome do evento"
+          register={register}
+          name="name"
+          error={formState.errors.name?.message}
+        />
+        <Input
+          label="Descrição do evento"
+          register={register}
+          name="description"
+          error={formState.errors.description?.message}
+        />
+        <Input
+          label="Categoria"
+          register={register}
+          name="category"
+          error={formState.errors.category?.message}
+        />
+        <Input
+          label="URL da imagem"
+          register={register}
+          name="img"
+          error={formState.errors.img?.message}
+        />
+        <Input
+          label="Capacidade de voluntários"
+          register={register}
+          name="maxVoluntarys"
+          error={formState.errors.maxVoluntarys?.message}
+        />
+        <Input
+          label="Local de realização"
+          register={register}
+          name="location"
+          error={formState.errors.date?.message}
+        />
+        <Input
+          label="Data de realização"
+          register={register}
+          name="date"
+          error={formState.errors.date?.message}
+        />
+        <div className="btn-createEvent">
           <Button
-            color="white"
-            weigth="700"
-            fontSize="16px"
-            gap="15px"
+            padding="10px 30px"
+            gap="20px"
             align="center"
-            padding="7px 35px"
-            background="#146666"
+            background="var(--primaryColor50)"
+            weigth="700"
+            color="white"
           >
-            Criar <FiArrowRightCircle size="18px" color="#C3BD2E" />
+            Criar evento{" "}
+            <FiArrowRightCircle color="var(--color-highlight)" size="16px" />
           </Button>
-        </form>
-      </Styled.FormContainer>
+        </div>
+      </form>
     </Styled.Container>
   );
 };
