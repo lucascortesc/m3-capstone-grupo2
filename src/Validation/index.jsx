@@ -81,7 +81,10 @@ export const RegisterSchemaCpf = yup.object().shape({
 
 export const CreateEventSchema = yup.object().shape({
   name: yup.string().required("O nome do evento é obrigatório"),
-  description: yup.string.required("A descrição do evento é obrigatório"),
-  maxVoluntaries: number().required("A quantidade de voluntários necessária é obrigatória").positive("A quantidade de voluntários necessária deve ser maior do que zero").integer("A quantidade de voluntários necessária deve ser inteira"),
-  date: yup.string().required("A data é obrigatória")
+  description: yup.string().required("A descrição do evento é obrigatória"),
+  maxVoluntarys: yup.string().required("A quantidade de voluntários necessária é obrigatória"),
+  date: yup.string().required("A data é obrigatória"),
+  location: yup.string().required("Localização do evento obrigatória"),
+  img: yup.string().required("A url da imagem é obrigatória"),
+  category: yup.string().required("A categoria do evento é obrigatória")
 })
