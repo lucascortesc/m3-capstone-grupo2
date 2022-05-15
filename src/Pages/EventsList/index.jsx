@@ -2,33 +2,37 @@ import { Header } from "../../Components/Header";
 import Footer from "../../Components/Footer";
 import { useAllEvents } from "../../Providers/AllEvents";
 import { EventsListCard } from "../../Components/EventsListCard";
-import { Container } from "../../Components/EventsListCard/styles";
-
+import { Conteiner, Content, DivHeader, Section } from "./styles";
+import { useHistory } from "react-router-dom";
 export const EventsList = () => {
   const { allEvents } = useAllEvents();
+  const history = useHistory();
 
   return (
-    <>
-      <Header />
-      {/* <section>
-        <button>Voltar</button>
-        <select name="Categoria" id="">
+    <Conteiner>
+      <DivHeader>
+        <Header />
+      </DivHeader>
+
+      <Section>
+        <button onClick={() => history.push("/")}>Voltar</button>
+        {/* <select name="Categoria" id="">
           <option value="">Categoria</option>
           <option value="">Categoria</option>
           <option value="">Categoria</option>
         </select>
-        <button>Pesquisar</button>
-      </section> */}
+        <button>Pesquisar</button> */}
+      </Section>
 
-      <Container>
+      <Content>
         <div>
           {allEvents.map((event) => (
             <EventsListCard key={event.id} event={event} />
           ))}
         </div>
-      </Container>
+      </Content>
 
       <Footer />
-    </>
+    </Conteiner>
   );
 };

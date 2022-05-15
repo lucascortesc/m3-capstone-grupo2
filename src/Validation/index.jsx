@@ -41,7 +41,7 @@ export const RegisterSchemaCnpj = yup.object().shape({
   policy: yup
     .boolean()
     .oneOf([true], "Termos de politica e privacidade obrigatórios"),
-  type: yup.string()
+  type: yup.string(),
 });
 
 export const RegisterSchemaCpf = yup.object().shape({
@@ -74,7 +74,7 @@ export const RegisterSchemaCpf = yup.object().shape({
       /^([0-9]{3})\.?([0-9]{3})\.?([0-9]{3})\-?([0-9]{2})$/gm,
       "CPF inválido"
     ),
-  policy: yup
-    .boolean()
-    .oneOf([true], "Termos obrigatórios"),
+  policy: yup.boolean().oneOf([true], "Termos obrigatórios"),
 });
+
+

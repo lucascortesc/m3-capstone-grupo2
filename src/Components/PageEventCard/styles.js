@@ -36,8 +36,9 @@ export const Container = styled.div`
   }
   @media (min-width: 1024px) {
     background-color: #146666;
-    margin: 0 140px;
+    margin: 0 auto;
     border-radius: 10px;
+    width: 855px;
 
     img {
       width: 100%;
