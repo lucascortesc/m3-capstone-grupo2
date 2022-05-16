@@ -14,7 +14,7 @@ export const User = () => {
       >
         Alterar Cadastro
       </button>
-      {openModal && <ModalUser closeModal={setOpenModal}/>}
+      {openModal && <ModalUser closeModal={setOpenModal} />}
     </div>
   );
 };
