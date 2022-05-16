@@ -15,7 +15,7 @@ export const User = () => {
         Alterar Cadastro
       </button>
       {openModal ? (
-        <ModalUser onClose={() => setOpenModal(false)}></ModalUser>
+        <ModalUser setOpenModal={setOpenModal} onClose={() => setOpenModal(false)}></ModalUser>
       ) : null}
     </div>
   );

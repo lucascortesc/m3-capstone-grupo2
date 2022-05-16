@@ -4,28 +4,29 @@ import { Button } from "../Button";
 import { BsArrowRightCircle } from "react-icons/bs";
 
 import { useUser } from "../../Providers/User";
-import { useContext } from "react";
 
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 
-import { UserContext } from "../../Providers/User";
-
 import { UpdateUserSchema } from "../../Validation";
 
 import Input from "../Input";
+import toast from "react-hot-toast";
 
-const ModalUser = ({ id = "modal", onClose = () => {} }) => {
-  const { updateUser } = useContext(UserContext);
-  const { updateUserToUser } = useUser();
+const ModalUser = ({ id = "modal", onClose = () => {}, setOpenModal }) => {
+  const { updateUser } = useUser();
 
   const { register, handleSubmit, formState } = useForm({
     resolver: yupResolver(UpdateUserSchema),
   });
 
-  const onSubmitFunction = (data) => {
-    updateUser(data);
-    updateUserToUser(data);
+  const onSubmitFunction = async (data) => {
+    const statusUser = await updateUser(data);
+
+    if (statusUser === "OK") {
+      setOpenModal(false);
+      toast.success("Alteração feita com sucesso!");
+    };
   };
 
   const handleOutsideClick = (e) => {
@@ -34,7 +35,7 @@ const ModalUser = ({ id = "modal", onClose = () => {} }) => {
 
   return (
     <Styled.Container id={id} onClick={handleOutsideClick}>
-      <div  className="modalContainer" >
+      <div className="modalContainer">
         <div className="title">
           <h1>Alteração de Cadastro</h1>
         </div>
