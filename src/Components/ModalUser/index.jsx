@@ -15,6 +15,7 @@ import { UpdateUserSchema } from "../../Validation";
 
 import Input from "../Input";
 
+
 const ModalUser = ({ closeModal }) => {
   const { updateUser } = useContext(UserContext);
   const { updateUserToUser } = useUser();
@@ -40,16 +41,18 @@ const ModalUser = ({ closeModal }) => {
         <div className="body">
           <form onSubmit={handleSubmit(onSubmitFunction)}>
             <Input
-              label="Alterar senha"
+              label="Nova senha"
               register={register}
               name="password"
               error={formState.errors.password?.message}
+              type="password"
             />
             <Input
               label="Confirmar senha"
               register={register}
               name="confirmPassword"
               error={formState.errors.confirmPassword?.message}
+              type="password"
             />
             <div className="signupButton">
               <Button
