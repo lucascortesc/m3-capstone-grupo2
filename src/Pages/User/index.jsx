@@ -43,7 +43,7 @@ export const User = () => {
           <ModalUser
             setOpenModal={setOpenModal}
             onClose={() => setOpenModal(false)}
-          ></ModalUser>
+          />
         ) : null}
       </div>
 
