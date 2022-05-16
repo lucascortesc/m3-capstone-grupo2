@@ -4,19 +4,22 @@ import { useAllEvents } from "../../Providers/AllEvents";
 import { useUser } from "../../Providers/User";
 import * as Styled from "./styles";
 
-const ModalCancelSubs = ({ setModalCancel, event }) => {
+const ModalCancelSubs = ({ setModalCancel, event, setIsLoading }) => {
   const { removeUserFromEvent } = useAllEvents();
   const { removeEventFromUser } = useUser();
   const { id } = useParams();
 
   const cancelSubs = async () => {
     setModalCancel(false);
+    setIsLoading(true);
     const statusEvent = await removeUserFromEvent(id);
     const statusUser = await removeEventFromUser(id);
     if (statusUser === "OK" && statusEvent === "OK") {
       toast.success("Inscrição removida com sucesso");
+      setIsLoading(false);
     } else {
       toast.error("Ops! Algo de errado.");
+      setIsLoading(false);
     }
   };
 
