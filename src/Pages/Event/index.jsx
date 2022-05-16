@@ -19,7 +19,6 @@ export const Event = () => {
   useEffect(() => {
     const actualEvent = allEvents.find((e) => e.id == id);
     setEvent(actualEvent);
-    console.log(event);
     if (user) {
       setRegistered(
         actualEvent && actualEvent.voluntarys.find((e) => e.id == user.id)

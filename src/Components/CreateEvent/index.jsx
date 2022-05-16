@@ -7,15 +7,20 @@ import { CreateEventSchema } from "../../Validation";
 import { FiArrowRightCircle } from "react-icons/fi";
 import { useContext } from "react";
 import { AllEventsContext } from "../../Providers/AllEvents"
+import { useUser } from "../../Providers/User";
 
 export const CreateEvent = ({ setModal }) => {
   const { addEvent } = useContext(AllEventsContext)
+  const { addEventToUser, user } = useUser()
 
   const { register, handleSubmit, formState } = useForm({
     resolver: yupResolver(CreateEventSchema),
   });
 
-  const onSubmitFunction = (data) => addEvent(data);
+  const onSubmitFunction = (data) => {
+    const eventId = addEvent(data)
+    addEventToUser(eventId)
+  };
 
   return (
     <Styled.Container>
@@ -51,6 +56,12 @@ export const CreateEvent = ({ setModal }) => {
           register={register}
           name="maxVoluntarys"
           error={formState.errors.maxVoluntarys?.message}
+        />
+        <Input
+          label="Contato"
+          register={register}
+          name="contact"
+          error={formState.errors.contact?.message}
         />
         <Input
           label="Local de realização"

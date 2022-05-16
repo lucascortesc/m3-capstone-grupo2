@@ -10,6 +10,7 @@ export const Container = styled.div`
   top: 0px;
   left: 0px;
   background-color: rgb(0, 0, 0, 0.5);
+  z-index: 1;
 
   form {
     width: 95%;

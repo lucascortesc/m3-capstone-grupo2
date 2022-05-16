@@ -97,7 +97,7 @@ export const Register = () => {
             <Styled.TypeContainer>
               <label>Eu sou</label>
               <div>
-                <select onChange={(event) => setType(event.target.value)}>
+                <select {...register("type")} onChange={(event) => setType(event.target.value)}>
                   <option value="voluntary">Voluntário</option>
                   <option value="organization">Organização</option>
                 </select>

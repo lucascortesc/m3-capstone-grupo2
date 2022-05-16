@@ -34,7 +34,7 @@ export const AllEventsProvider = ({ children }) => {
       })
       .then((res) => {
         setAllEvents([...allEvents, event]);
-        response = res.statusText;
+        response = res.data.id;
       })
       .catch((err) => (response = err.response.statusText));
 

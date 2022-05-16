@@ -15,7 +15,6 @@ import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { FiArrowLeftCircle, FiArrowRightCircle } from "react-icons/fi";
-import { CreateEvent } from "../../Components/CreateEvent";
 
 export const Login = () => {
   
@@ -64,7 +63,6 @@ export const Login = () => {
 
   return (
     <Container>
-      <CreateEvent/>
       <Background>
         <Arrow>
           <FiArrowLeftCircle onClick={() => history.goBack()} />
