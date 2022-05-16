@@ -26,7 +26,7 @@ export const Container = styled.div`
  
 
   .modalContainer {
-    width: 60%;
+    width: 50%;
     height: 40%;
     border-radius: 12px;
     background-color: var(--primaryColor);
