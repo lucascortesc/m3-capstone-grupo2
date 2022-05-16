@@ -2,6 +2,7 @@ import styled from "styled-components"
 
 export const Container = styled.div`
 min-width: 300px;
+max-width: 300px;
 border: 2px solid white;
 border-radius: 5px;
 font-family: "Montserrat";

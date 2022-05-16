@@ -9,6 +9,7 @@ import { EventCardVoluntary } from "../../Components/EventCardVoluntary";
 import { Link } from "react-router-dom";
 import { CreateEvent } from "../../Components/CreateEvent";
 import { useState } from "react";
+import { useEffect } from "react";
 
 export const User = () => {
   const { user } = useUser();
@@ -39,13 +40,11 @@ export const User = () => {
             {user?.events.length > 0 ? (
               <div className="events-filled">
                 <ul>
-                  {user.events && (
                     <>
-                      {user.events.map((element) => (
-                        <EventCardVoluntary element={element} alreadyHave={true} />
+                      {user.events.map((id, index) => (
+                        <EventCardVoluntary alreadyHave={true} eventId={id} key={index} />
                       ))}
                     </>
-                  )}
                 </ul>
               </div>
             ) : (
@@ -99,7 +98,7 @@ export const User = () => {
                 </Styled.AddModal>
                 <ul>
                     <>
-                      {user.events.map((id, index) => (
+                      {user?.events.map((id, index) => (
                         <EventCardOrganization eventId={id} key={index} />
                       ))}
                     </>

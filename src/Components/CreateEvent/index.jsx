@@ -17,9 +17,10 @@ export const CreateEvent = ({ setModal }) => {
     resolver: yupResolver(CreateEventSchema),
   });
 
-  const onSubmitFunction = (data) => {
-    const eventId = addEvent(data)
-    addEventToUser(eventId)
+  const onSubmitFunction = async (data) => {
+    const eventId = await addEvent(data)
+    const teste = await addEventToUser(eventId)
+    console.log(teste)
   };
 
   return (

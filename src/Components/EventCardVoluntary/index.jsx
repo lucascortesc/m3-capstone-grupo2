@@ -1,8 +1,12 @@
 import * as Styled from "./styles";
 import { Button } from "../Button";
 import { Link } from "react-router-dom";
+import { useAllEvents } from "../../Providers/AllEvents";
 
-export const EventCardVoluntary = ({ element, alreadyHave = false }) => {
+export const EventCardVoluntary = ({ eventId, alreadyHave = false }) => {
+  const { allEvents } = useAllEvents();
+  const element = allEvents.find(({ id }) => id === Number(eventId))
+
   return (
     <Styled.Container>
       <Styled.ImageContainer>

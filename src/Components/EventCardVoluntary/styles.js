@@ -2,6 +2,7 @@ import styled from "styled-components"
 
 export const Container = styled.div`
 min-width: 300px;
+max-width: 300px;
 border: 2px solid white;
 border-radius: 5px;
 font-family: "Montserrat";
@@ -10,11 +11,12 @@ background-color: white;
 
 export const ImageContainer = styled.div`
 width: 100%;
+height: 200px;
+background-color: pink;
 
 img {
     width: 100%;
-    height: 200px;
-    object-fit: contain;
+    height: 100%;
 }
 `
 

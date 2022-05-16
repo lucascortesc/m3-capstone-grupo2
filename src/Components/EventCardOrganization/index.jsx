@@ -4,7 +4,7 @@ import { useAllEvents } from "../../Providers/AllEvents";
 
 export const EventCardOrganization = ({ eventId }) => {
   const { allEvents } = useAllEvents();
-  const element = allEvents.find(({ id }) => id === eventId);
+  const element = allEvents.find(({ id }) => id === Number(eventId));
 
   return (
     <Styled.Container>

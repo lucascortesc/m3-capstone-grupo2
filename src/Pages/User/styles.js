@@ -31,10 +31,13 @@ export const MessageContainer = styled.div`
 `;
 
 export const VoluntaryContainer = styled.div`
-  > div {
+  > .events-filled {
+    width: 100vw;
     display: flex;
     flex-direction: column;
-    gap: 30px;
+    align-items: center;
+    gap: 10px;
+    position: relative;
 
     p {
       font-weight: 800;
@@ -43,6 +46,19 @@ export const VoluntaryContainer = styled.div`
       font-size: 20px;
       align-self: center;
     }
+
+    ul {
+      width: 95%;
+      display: flex;
+      gap: 30px;
+      overflow-x: scroll;
+      padding: 30px 30px 20px 30px;
+
+      @media (min-width: 1024px) {
+        max-width: 65%;
+      }
+    }
+
     > div {
       display: flex;
       flex-direction: column;
@@ -88,23 +104,23 @@ export const OrganizationContainer = styled.div`
 `;
 
 export const AddModal = styled.div`
-width: 50px;
-height: 50px;
-display: flex;
-justify-content: center;
-align-items: center;
-font-size: 40px;
-font-weight: 800;
-border-radius: 5px;
-color: var(--color-highlight);
-background-color: var(--primaryColor50);
-cursor: pointer;
-position: absolute;
-left: 10px;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 40px;
+  font-weight: 800;
+  border-radius: 5px;
+  color: var(--color-highlight);
+  background-color: var(--primaryColor50);
+  cursor: pointer;
+  position: absolute;
+  left: 10px;
 
-@media (min-width: 1024px) {
-  left: 50%;
-  top: -25px;
-  transform: translateX(-50%);
-}
-`
+  @media (min-width: 1024px) {
+    left: 50%;
+    top: -25px;
+    transform: translateX(-50%);
+  }
+`;

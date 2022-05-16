@@ -18,7 +18,6 @@ export const UserProvider = ({ children }) => {
         localStorage.setItem("token", JSON.stringify(res.data.accessToken));
         localStorage.setItem("user", JSON.stringify(res.data.user));
         setUser(res.data.user);
-
         response = res.statusText;
       })
       .catch((err) => (response = err.response.data));
@@ -90,7 +89,7 @@ export const UserProvider = ({ children }) => {
         localStorage.setItem("user", JSON.stringify(user));
         setUser(user);
 
-        response = res.statusText;
+        response = res.data;
       })
       .catch((err) => (response = err.response.statusText));
 
