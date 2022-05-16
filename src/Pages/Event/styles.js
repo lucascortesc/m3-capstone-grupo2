@@ -73,6 +73,18 @@ export const Container = styled.div`
     color: white;
     font-weight: bold;
   }
+  .canceled {
+    color: #ff2b2b;
+    font-weight: bold;
+    font-size: 20px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+      Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  }
+  .loading {
+    text-align: center;
+    margin: 10px auto;
+    width: 30px;
+  }
   @media (min-width: 1024px) {
     .divHeader {
       display: block;

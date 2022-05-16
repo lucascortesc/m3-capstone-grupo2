@@ -56,10 +56,10 @@ export const User = () => {
                 <div>
                   {allEvents && (
                     <EventCardVoluntary
-                      element={
+                      eventId={
                         allEvents[
                           Math.floor(Math.random() * allEvents.length - 1)
-                        ]
+                        ].id
                       }
                     />
                   )}

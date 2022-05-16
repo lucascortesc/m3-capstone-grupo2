@@ -8,10 +8,11 @@ import { FiArrowRightCircle } from "react-icons/fi";
 import { useContext } from "react";
 import { AllEventsContext } from "../../Providers/AllEvents";
 import { useUser } from "../../Providers/User";
+import toast from "react-hot-toast";
 
 export const CreateEvent = ({ setModal }) => {
   const { addEvent } = useContext(AllEventsContext);
-  const { addEventToUser, user } = useUser();
+  const { addEventToUser } = useUser();
 
   const { register, handleSubmit, formState } = useForm({
     resolver: yupResolver(CreateEventSchema),
@@ -19,8 +20,13 @@ export const CreateEvent = ({ setModal }) => {
 
   const onSubmitFunction = async (data) => {
     const eventId = await addEvent(data);
-    await addEventToUser(eventId);
-    console.log(user);
+    const status = await addEventToUser(eventId);
+
+    if (status === "OK") {
+      toast.success("Inscrição feita com sucesso");
+    } else {
+      toast.error("Sessão expirada");
+    }
   };
 
   return (

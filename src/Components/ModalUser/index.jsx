@@ -3,23 +3,57 @@ import * as Styled from "./styles";
 import { Button } from "../Button";
 import { BsArrowRightCircle } from "react-icons/bs";
 
+import { useUser } from "../../Providers/User";
+import { useContext } from "react";
+
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+
+import { UserContext } from "../../Providers/User";
+
+import { UpdateUserSchema } from "../../Validation";
+
+import Input from "../Input";
+
+
 const ModalUser = ({ closeModal }) => {
+  const { updateUser } = useContext(UserContext);
+  const { updateUserToUser } = useUser();
+
+  const { register, handleSubmit, formState } = useForm({
+    resolver: yupResolver(UpdateUserSchema),
+  });
+
+  const onSubmitFunction = (data) => {
+    updateUser(data);
+    updateUserToUser(data);
+  };
+
   return (
     <Styled.Container>
       <div className="modalContainer">
         <button className="closeModal" onClick={() => closeModal(false)}>
-          {" "}
-          X{" "}
+          X
         </button>
         <div className="title">
           <h1>Alteração de Cadastro</h1>
         </div>
         <div className="body">
-          <form>
-            <input placeholder="Nome"></input>
-            <input placeholder="email"></input>
-            <input placeholder="Nova Senha"></input>
-            <input placeholder="Confirme a Senha"></input>
+          <form onSubmit={handleSubmit(onSubmitFunction)}>
+            <Input
+              label="Nova senha"
+              register={register}
+              name="password"
+              error={formState.errors.password?.message}
+              type="password"
+            />
+            <Input
+              label="Confirmar senha"
+              register={register}
+              name="confirmPassword"
+              error={formState.errors.confirmPassword?.message}
+              type="password"
+            />
             <div className="signupButton">
               <Button
                 type="submit"

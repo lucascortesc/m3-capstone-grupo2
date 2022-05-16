@@ -5,7 +5,7 @@ import { useAllEvents } from "../../Providers/AllEvents";
 
 export const EventCardVoluntary = ({ eventId, alreadyHave = false }) => {
   const { allEvents } = useAllEvents();
-  const element = allEvents.find(({ id }) => id === Number(eventId))
+  const element = allEvents.find(({ id }) => id === Number(eventId));
 
   return (
     <Styled.Container>
@@ -16,7 +16,10 @@ export const EventCardVoluntary = ({ eventId, alreadyHave = false }) => {
         <h3>{element?.name}</h3>
         <span>{element?.category}</span>
         <span>
-          Vagas disponíveis <span>{element?.voluntarys.length}/{element?.maxVoluntarys}</span>
+          Vagas disponíveis{" "}
+          <span>
+            {element?.voluntarys.length}/{element?.maxVoluntarys}
+          </span>
         </span>
         {alreadyHave ? (
           <Button
@@ -26,7 +29,7 @@ export const EventCardVoluntary = ({ eventId, alreadyHave = false }) => {
             weigth="700"
             align="flex-start"
           >
-            Remover
+            Cancelar Inscrição
           </Button>
         ) : (
           <Link to={`/events/${element?.id}`}>

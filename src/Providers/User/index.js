@@ -60,7 +60,7 @@ export const UserProvider = ({ children }) => {
     return response;
   };
 
-  const addEventToUser = async (event) => {
+  const addEventToUser = async (eventId) => {
     const token = JSON.parse(localStorage.getItem("token"));
     const user = JSON.parse(localStorage.getItem("user"));
 
@@ -70,7 +70,8 @@ export const UserProvider = ({ children }) => {
       return "missing or expired token";
     }
 
-    const newEvents = [...user.events, event];
+    const newEvents = [...user.events, eventId];
+    console.log(newEvents);
 
     let response;
 
@@ -106,7 +107,7 @@ export const UserProvider = ({ children }) => {
       return "missing or expired token";
     }
 
-    const newEvents = [user.events.filter(({ id }) => id !== eventId)];
+    const newEvents = user.events.filter((id) => id !== eventId);
 
     let response;
 
@@ -121,6 +122,10 @@ export const UserProvider = ({ children }) => {
         }
       )
       .then((res) => {
+        user.events = newEvents;
+        localStorage.setItem("user", JSON.stringify(user));
+        setUser(user);
+
         response = res.statusText;
       })
       .catch((err) => (response = err.data.statusText));
