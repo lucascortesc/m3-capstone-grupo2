@@ -78,7 +78,7 @@ const ModalUser = ({ id = "modal", onClose = () => {}, setOpenModal }) => {
               background="red"
               padding="10px"
             >
-              Sair
+              Voltar
             </Button>
           </div>
         </div>
