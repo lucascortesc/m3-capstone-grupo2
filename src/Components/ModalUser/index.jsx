@@ -15,7 +15,7 @@ import { UpdateUserSchema } from "../../Validation";
 
 import Input from "../Input";
 
-const ModalUser = ({ id = "modal", onClose = () => {}, closeModal }) => {
+const ModalUser = ({ id = "modal", onClose = () => {} }) => {
   const { updateUser } = useContext(UserContext);
   const { updateUserToUser } = useUser();
 
