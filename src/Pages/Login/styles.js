@@ -47,7 +47,7 @@ export const Arrow = styled.button`
   border: none;
   background: transparent;
   color: white;
-  font-size: 50px;
+  font-size: 30px;
 `;
 export const FormContainer = styled.div`
   width: 100%;
