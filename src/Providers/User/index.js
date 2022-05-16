@@ -89,7 +89,7 @@ export const UserProvider = ({ children }) => {
         localStorage.setItem("user", JSON.stringify(user));
         setUser(user);
 
-        response = res.data;
+        response = res.statusText;
       })
       .catch((err) => (response = err.response.statusText));
 

@@ -6,27 +6,29 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { CreateEventSchema } from "../../Validation";
 import { FiArrowRightCircle } from "react-icons/fi";
 import { useContext } from "react";
-import { AllEventsContext } from "../../Providers/AllEvents"
+import { AllEventsContext } from "../../Providers/AllEvents";
 import { useUser } from "../../Providers/User";
 
 export const CreateEvent = ({ setModal }) => {
-  const { addEvent } = useContext(AllEventsContext)
-  const { addEventToUser, user } = useUser()
+  const { addEvent } = useContext(AllEventsContext);
+  const { addEventToUser, user } = useUser();
 
   const { register, handleSubmit, formState } = useForm({
     resolver: yupResolver(CreateEventSchema),
   });
 
   const onSubmitFunction = async (data) => {
-    const eventId = await addEvent(data)
-    const teste = await addEventToUser(eventId)
-    console.log(teste)
+    const eventId = await addEvent(data);
+    await addEventToUser(eventId);
+    console.log(user);
   };
 
   return (
     <Styled.Container>
       <form onSubmit={handleSubmit(onSubmitFunction)}>
-        <Styled.CloseModal onClick={() => setModal(false)}><span>x</span></Styled.CloseModal>
+        <Styled.CloseModal onClick={() => setModal(false)}>
+          <span>x</span>
+        </Styled.CloseModal>
         <h1>Criar um evento</h1>
         <Input
           label="Nome do evento"
