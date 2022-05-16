@@ -31,6 +31,7 @@ export const Container = styled.div`
 export const ContainerCarousel = styled.div`
   display: flex;
   justify-content: space-between;
+  align-items: center;
   overflow-x: scroll;
   overflow-y: hidden;
 
