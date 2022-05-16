@@ -5,11 +5,11 @@ const CarouselCard = ({ element }) => {
   const history = useHistory();
   return (
     <Styled.Container
-      id={element.id}
+      id={element?.id}
       onClick={(e) => history.push(`/events/${e.currentTarget.id}`)}
     >
-      <img src={element.img} alt="" />
-      <p>{element.name}</p>
+      <img src={element?.img} alt="" />
+      <p>{element?.name}</p>
     </Styled.Container>
   );
 };
