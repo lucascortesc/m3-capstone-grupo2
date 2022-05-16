@@ -26,13 +26,16 @@ export const Container = styled.div`
  
 
   .modalContainer {
-    width: 50%;
+    width: 60%;
     height: 40%;
     border-radius: 12px;
     background-color: var(--primaryColor);
     display:flex;
     align-items: center;
     flex-direction: column;
+    @media (min-width: 1024px){
+        width: 30%;
+    }
     
    
 }
