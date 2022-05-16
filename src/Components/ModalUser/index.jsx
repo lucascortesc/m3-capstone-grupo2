@@ -15,8 +15,7 @@ import { UpdateUserSchema } from "../../Validation";
 
 import Input from "../Input";
 
-
-const ModalUser = ({ closeModal }) => {
+const ModalUser = ({ id = "modal", onClose = () => {}, closeModal }) => {
   const { updateUser } = useContext(UserContext);
   const { updateUserToUser } = useUser();
 
@@ -29,17 +28,18 @@ const ModalUser = ({ closeModal }) => {
     updateUserToUser(data);
   };
 
+  const handleOutsideClick = (e) => {
+    if (e.target.id === id) onClose();
+  };
+
   return (
-    <Styled.Container>
-      <div className="modalContainer">
-        <button className="closeModal" onClick={() => closeModal(false)}>
-          X
-        </button>
+    <Styled.Container id={id} onClick={handleOutsideClick}>
+      <div  className="modalContainer" >
         <div className="title">
           <h1>Alteração de Cadastro</h1>
         </div>
         <div className="body">
-          <form onSubmit={handleSubmit(onSubmitFunction)}>
+          <form className="form" onSubmit={handleSubmit(onSubmitFunction)}>
             <Input
               label="Nova senha"
               register={register}
@@ -72,7 +72,7 @@ const ModalUser = ({ closeModal }) => {
           <div className="leave">
             <Button
               className="buttonLeave"
-              onClick={() => closeModal(false)}
+              onClick={onClose}
               color="white"
               background="red"
               padding="10px"

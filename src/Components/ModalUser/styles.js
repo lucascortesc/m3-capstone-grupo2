@@ -1,68 +1,85 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  background-color: var(--primaryColor);
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    top:0;
+    left:0
+    z-index: 10;
+
+  background-color: rgba(0,0,0,0.8);
 
   color: white;
   
   font-family: Nunito, sans-serif;
   
   position: absolute;
-  top:80px;
-  left:50px;
-  
-  max-width: 300px;
- 
   
   display: flex;
+
+  
   justify-content: center;
   align-items: center;
   border-radius: 12px;
   
-  .body {
-    text-align: left;
-    margin: 0 auto;
-    width: 80%;
-
-  }
-
+ 
 
   .modalContainer {
-    width: 301px;
-    height: 500px;
+    width: 60%;
+    height: 40%;
     border-radius: 12px;
     background-color: var(--primaryColor);
-    box-shadow: var(--primaryColor) 0px 5px 15px;
-    display: flex;
+    display:flex;
+    align-items: center;
     flex-direction: column;
-    padding: 25px;
+    
+   
 }
 
 .closeModal {
-    width: 20px;
-    margin-left: 220px;
-
-    border: none;
+    background-color: transparent;
+    border:none;
+    outline: none;
+    width: 32px;
+    height: 32px;
+    right: calc(-100% + 64px;);
+    top: 16px;
+    display: flex;
+    position: relative;
+    align-items: center;
     
-    color: white;
-    background-color: var(--primaryColor);
+     
+        
+    
+}
+
+.body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .title {
     display: inline-block;
     text-align: center;
     margin-top: 20px;
-    font-size: 15px;
-}
-
-.leave {
-    margin: 20px 0px 0px 79px;
+    font-size: 10px;
 }
 
 .signupButton {
-    margin: 20px 0px 0px 22px;
+    margin-top:15px;
+}
+
+.leave {
+    margin-top: 15px;
 
 }
 
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
+
 `;
