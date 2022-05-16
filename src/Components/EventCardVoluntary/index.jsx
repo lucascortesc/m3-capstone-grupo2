@@ -2,10 +2,20 @@ import * as Styled from "./styles";
 import { Button } from "../Button";
 import { Link } from "react-router-dom";
 import { useAllEvents } from "../../Providers/AllEvents";
+import ModalCancelSubs from "../ModalCancelSubs";
+import { useState } from "react";
+import ReactLoading from "react-loading";
 
 export const EventCardVoluntary = ({ eventId, alreadyHave = false }) => {
   const { allEvents } = useAllEvents();
+  const [modalCancel, setModalCancel] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+
   const element = allEvents.find(({ id }) => id === Number(eventId));
+
+  const cancelSub = () => {
+    setModalCancel(true);
+  };
 
   return (
     <Styled.Container>
@@ -21,8 +31,13 @@ export const EventCardVoluntary = ({ eventId, alreadyHave = false }) => {
             {element?.voluntarys.length}/{element?.maxVoluntarys}
           </span>
         </span>
-        {alreadyHave ? (
+        {isLoading ? (
+          <div className="loading">
+            <ReactLoading type="spin" color="#c3bd2e" height={30} width={30} />
+          </div>
+        ) : alreadyHave ? (
           <Button
+            onClick={() => cancelSub()}
             background="red"
             padding="10px 15px"
             color="white"
@@ -44,6 +59,13 @@ export const EventCardVoluntary = ({ eventId, alreadyHave = false }) => {
           </Link>
         )}
       </Styled.DescriptionContainer>
+      {modalCancel && (
+        <ModalCancelSubs
+          setModalCancel={setModalCancel}
+          event={element}
+          setIsLoading={setIsLoading}
+        />
+      )}
     </Styled.Container>
   );
 };
