@@ -4,19 +4,22 @@ import { useAllEvents } from "../../Providers/AllEvents";
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 import toast from "react-hot-toast";
 
-const ModalAddSubs = ({ setModalAdd, event }) => {
+const ModalAddSubs = ({ setModalAdd, event, setIsLoading }) => {
   const { addEventToUser } = useUser();
   const { addUserToEvent } = useAllEvents();
   const { id } = useParams();
 
   const confirmSubs = async () => {
     setModalAdd(false);
+    setIsLoading(true);
     const statusUser = await addEventToUser(id);
     const statusEvent = await addUserToEvent(id);
     if (statusUser === "OK" && statusEvent === "OK") {
       toast.success("Inscrição feita com sucesso");
+      setIsLoading(false);
     } else {
       toast.error("Ops! Algo de errado.");
+      setIsLoading(false);
     }
   };
 

@@ -12,6 +12,7 @@ import ModalCancelSubs from "../../Components/ModalCancelSubs";
 import ModalAddSubs from "../../Components/ModalAddSubs";
 import MapWithAMarker from "../../Components/GoogleMaps";
 import axios from "axios";
+import ReactLoading from "react-loading";
 
 export const Event = () => {
   const { allEvents } = useAllEvents();
@@ -23,6 +24,7 @@ export const Event = () => {
   const [modalCancel, setModalCancel] = useState(false);
   const [latitude, setLatitude] = useState("");
   const [longitude, setLongitude] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     const actualEvent = allEvents.find((e) => e.id === Number(id));
@@ -44,7 +46,6 @@ export const Event = () => {
    `
         )
         .then((res) => {
-          console.log(res);
           setLatitude(res.data.results[0].geometry.location.lat);
           setLongitude(res.data.results[0].geometry.location.lng);
         })
@@ -60,33 +61,52 @@ export const Event = () => {
         <Header />
       </div>
       <div className="buttonsDiv">
-        <button onClick={() => history.push("../")} className="buttonMobile">
+        <button onClick={() => history.goBack()} className="buttonMobile">
           <BsArrowLeft />
         </button>
-        <button onClick={() => history.push("../")} className="buttonDesktop">
+        <button onClick={() => history.goBack()} className="buttonDesktop">
           Voltar
         </button>
       </div>
       <PageEventCard event={event} />
       <div className="subscribeDiv">
-        <p>Tem interesse?</p>
-        {registered ? (
-          <button onClick={() => setModalCancel(true)} className="cancelSub">
-            Cancelar inscrição
-          </button>
+        {isLoading ? (
+          <div className="loading">
+            <ReactLoading type="spin" color="#c3bd2e" height={30} width={30} />
+          </div>
+        ) : event?.status === "canceled" ? (
+          <span className="canceled">Evento cancelado</span>
+        ) : user.type === "organization" ? (
+          <></>
+        ) : registered ? (
+          <>
+            <p>Usuário já cadastrado</p>
+            <button onClick={() => setModalCancel(true)} className="cancelSub">
+              Cancelar inscrição
+            </button>
+          </>
         ) : event?.voluntarys.length >= event?.maxVoluntarys ? (
-          <p>Número de voluntários máximo atingido</p>
+          <>
+            <p>Tem interesse?</p>
+            <p>Número de voluntários máximo atingido</p>
+          </>
         ) : !!user ? (
-          <button className="defaultBtnSub" onClick={() => setModalAdd(true)}>
-            Inscrever-se no evento
-          </button>
+          <>
+            <p>Tem interesse?</p>{" "}
+            <button className="defaultBtnSub" onClick={() => setModalAdd(true)}>
+              Inscrever-se no evento
+            </button>
+          </>
         ) : (
-          <button
-            className="defaultBtnSub"
-            onClick={() => history.push("/login")}
-          >
-            Faça o login para se inscrever
-          </button>
+          <>
+            <p>Tem interesse?</p>
+            <button
+              className="defaultBtnSub"
+              onClick={() => history.push("/login")}
+            >
+              Faça o login para se inscrever
+            </button>
+          </>
         )}
       </div>
       <div className="googleMaps">
@@ -104,9 +124,19 @@ export const Event = () => {
         )}
       </div>
       <Footer />
-      {modalAdd && <ModalAddSubs setModalAdd={setModalAdd} event={event} />}
+      {modalAdd && (
+        <ModalAddSubs
+          setModalAdd={setModalAdd}
+          event={event}
+          setIsLoading={setIsLoading}
+        />
+      )}
       {modalCancel && (
-        <ModalCancelSubs setModalCancel={setModalCancel} event={event} />
+        <ModalCancelSubs
+          setModalCancel={setModalCancel}
+          setIsLoading={setIsLoading}
+          event={event}
+        />
       )}
     </Styled.Container>
   );
