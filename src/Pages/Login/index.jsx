@@ -10,12 +10,12 @@ import {
   Arrow,
   Button,
 } from "./styles";
+
 import { Link, useHistory, Redirect } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { FiArrowLeftCircle, FiArrowRightCircle } from "react-icons/fi";
-
+import { BsArrowRightCircle, BsArrowLeftCircle } from "react-icons/bs";
 export const Login = () => {
   const history = useHistory();
 
@@ -56,7 +56,7 @@ export const Login = () => {
     <Container>
       <Background>
         <Arrow>
-          <FiArrowLeftCircle onClick={() => history.push("./")} />
+          <BsArrowLeftCircle onClick={() => history.push("./")} />
         </Arrow>
       </Background>
       <Content>
@@ -82,7 +82,7 @@ export const Login = () => {
             <Button type="submit">
               Entrar
               <div>
-                <FiArrowRightCircle />
+                <BsArrowRightCircle />
               </div>
             </Button>
           </form>

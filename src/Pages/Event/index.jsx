@@ -29,7 +29,6 @@ export const Event = () => {
   useEffect(() => {
     const actualEvent = allEvents.find((e) => e.id === Number(id));
     setEvent(actualEvent);
-
     if (user) {
       setRegistered(
         actualEvent &&

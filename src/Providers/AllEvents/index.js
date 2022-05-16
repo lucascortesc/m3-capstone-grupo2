@@ -33,8 +33,8 @@ export const AllEventsProvider = ({ children }) => {
         },
       })
       .then((res) => {
-        setAllEvents([...allEvents, event]);
-        response = res.statusText;
+        api.get("/eventos").then((res) => setAllEvents(res.data));
+        response = res.data.id;
       })
       .catch((err) => (response = err.response.statusText));
 
