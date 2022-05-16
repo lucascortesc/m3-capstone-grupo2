@@ -24,18 +24,6 @@ export const Container = styled.div`
     margin: 0 auto;
     width: 80%;
 
-    input {
-      margin-top:10px;
-      width: 100%;
-      border: none;
-      box-sizing: border-box;
-      border-radius: 5px;
-      background: #c4c4c4;
-      padding: 8px;
-      color: black;
-  
-    }
-
   }
 
 
