@@ -26,7 +26,7 @@ const ModalUser = ({ id = "modal", onClose = () => {}, setOpenModal }) => {
     if (statusUser === "OK") {
       setOpenModal(false);
       toast.success("Alteração feita com sucesso!");
-    };
+    }
   };
 
   const handleOutsideClick = (e) => {
