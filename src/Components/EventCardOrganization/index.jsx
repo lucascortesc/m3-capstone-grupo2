@@ -4,21 +4,29 @@ import { useAllEvents } from "../../Providers/AllEvents";
 import ReactLoading from "react-loading";
 import { useState } from "react";
 import { EditEvent } from "../../Components/EditEvent"
+import toast from "react-hot-toast";
+import { CancelEvent } from "../CancelEvent";
 
 export const EventCardOrganization = ({ eventId }) => {
   const { allEvents, removeEvent } = useAllEvents();
   const element = allEvents.find(({ id }) => id === Number(eventId));
   const [isLoading, setIsLoading] = useState(false);
   const [modalEdit, setModalEdit] = useState(false)
+  const [modalCancel, setModalCancel] = useState(false)
 
   const cancelEvent = () => {
-    removeEvent(eventId)
-    console.log(1)
+   const status = removeEvent(eventId)
+   if (status === "OK") {
+      toast.success("Evento cancelado com sucesso")
+   } else {
+
+   }
   }
   
   return (
     <>
     {modalEdit && <EditEvent eventId={eventId} setModal={setModalEdit}/>}
+    {modalCancel && <CancelEvent eventId={eventId} />}
     <Styled.Container>
       <Styled.ImageContainer>
         <img src={element?.img} alt={element?.name} />
