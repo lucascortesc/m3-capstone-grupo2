@@ -66,7 +66,6 @@ export const AllEventsProvider = ({ children }) => {
         response = res.statusText;
       })
       .catch((err) => (response = err.response.statusText));
-
     return response;
   };
 

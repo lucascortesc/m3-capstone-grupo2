@@ -12,7 +12,6 @@ export const Container = styled.div`
 export const ImageContainer = styled.div`
   width: 100%;
   height: 200px;
-  background-color: pink;
 
   img {
     width: 100%;

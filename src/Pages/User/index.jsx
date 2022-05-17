@@ -9,17 +9,20 @@ import { EventCardVoluntary } from "../../Components/EventCardVoluntary";
 import { Link } from "react-router-dom";
 import { CreateEvent } from "../../Components/CreateEvent";
 import { useState } from "react";
+import Footer from "../../Components/Footer"
 
 export const User = () => {
   const { user } = useUser();
   const { allEvents } = useAllEvents();
   const [modalCreateEvent, setModalCreateEvent] = useState(false);
 
+
   if (!user) {
     return <Redirect to="/" />;
   }
 
   return (
+    <>
     <Styled.Container>
       <Header userName={user?.name} />
       {user?.type === "voluntary" ? (
@@ -59,7 +62,7 @@ export const User = () => {
                       eventId={
                         allEvents[
                           Math.floor(Math.random() * allEvents.length - 1)
-                        ].id
+                        ]?.id
                       }
                     />
                   )}
@@ -97,12 +100,12 @@ export const User = () => {
             {user?.events.length > 0 ? (
               <div className="events-filled">
                 <Styled.AddModal onClick={() => setModalCreateEvent(true)}>
-                  +
+                  Criar evento
                 </Styled.AddModal>
                 <ul>
                   <>
                     {user?.events.map((id, index) => (
-                      <EventCardOrganization eventId={id} key={index} />
+                      <EventCardOrganization eventId={id} key={index}/>
                     ))}
                   </>
                 </ul>
@@ -119,5 +122,7 @@ export const User = () => {
         </>
       )}
     </Styled.Container>
+    <Footer/>
+    </>
   );
 };

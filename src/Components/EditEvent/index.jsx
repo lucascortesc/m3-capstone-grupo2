@@ -6,13 +6,13 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { CreateEventSchema } from "../../Validation";
 import { FiArrowRightCircle } from "react-icons/fi";
 import { useContext, useState } from "react";
-import { AllEventsContext } from "../../Providers/AllEvents";
+import { useAllEvents } from "../../Providers/AllEvents";
 import { useUser } from "../../Providers/User";
 import toast from "react-hot-toast";
 import ReactLoading from "react-loading";
 
-export const CreateEvent = ({ setModal }) => {
-  const { addEvent } = useContext(AllEventsContext);
+export const EditEvent = ({ setModal, id }) => {
+  const { addEvent, allEvents } = useAllEvents()
   const { addEventToUser } = useUser();
   const [isLoading, setIsLoading] = useState(false);
 
@@ -20,29 +20,18 @@ export const CreateEvent = ({ setModal }) => {
     resolver: yupResolver(CreateEventSchema),
   });
 
-  const onSubmitCreateEvent = async (data) => {
-    setIsLoading(true)
-    const eventId = await addEvent(data);
-    const status = await addEventToUser(eventId);
-    if (status === "OK") {
-      toast.success("Evento criado com sucesso");
-      setModal(false)
-    } else {
-      toast.error("Sessão expirada");
-      setModal(false)
-    }
-    setIsLoading(false)
+  const onSubmitEditEvent = async (data) => {
   };
 
   return (
     <Styled.Container>
       <form
-        onSubmit={handleSubmit(onSubmitCreateEvent)}
+        onSubmit={handleSubmit(onSubmitEditEvent)}
       >
         <Styled.CloseModal onClick={() => setModal(false)}>
           <span>x</span>
         </Styled.CloseModal>
-        <h1>Criar um evento</h1>
+        <h1>Editar evento</h1>
         <Input
           label="Nome do evento"
           register={register}
@@ -105,7 +94,7 @@ export const CreateEvent = ({ setModal }) => {
             weigth="700"
             color="white"
           >
-            Criar evento{" "}
+            Editar evento{" "}
             <FiArrowRightCircle color="var(--color-highlight)" size="16px" />
           </Button>
         </div>

@@ -1,12 +1,19 @@
 import * as Styled from "./styles";
 import { Button } from "../Button";
 import { useAllEvents } from "../../Providers/AllEvents";
+import ReactLoading from "react-loading";
+import { useState } from "react";
+import { EditEvent } from "../../Components/EditEvent"
 
 export const EventCardOrganization = ({ eventId }) => {
-  const { allEvents } = useAllEvents();
+  const { allEvents, removeEvent } = useAllEvents();
   const element = allEvents.find(({ id }) => id === Number(eventId));
-
+  const [isLoading, setIsLoading] = useState(false);
+  const [modalEdit, setModalEdit] = useState(false)
+  
   return (
+    <>
+    {modalEdit && <EditEvent id={eventId} setModal={setModalEdit}/>}
     <Styled.Container>
       <Styled.ImageContainer>
         <img src={element?.img} alt={element?.name} />
@@ -26,6 +33,9 @@ export const EventCardOrganization = ({ eventId }) => {
             padding="10px 15px"
             color="white"
             weigth="700"
+            onClick={() => {
+              setModalEdit(true)
+            }}
           >
             Editar
           </Button>
@@ -34,11 +44,15 @@ export const EventCardOrganization = ({ eventId }) => {
             padding="10px 15px"
             color="white"
             weigth="700"
+            onClick={() => {
+              console.log(removeEvent(eventId))
+            }}
           >
-            Remover
+            Cancelar evento
           </Button>
         </div>
       </Styled.DescriptionContainer>
     </Styled.Container>
+    </>
   );
 };
