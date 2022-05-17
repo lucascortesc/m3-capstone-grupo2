@@ -10,9 +10,6 @@ export const Container = styled.div`
 
   background-color: var(--primaryColor);
 
-  .updateUser {
-    widht:100%;
-  }
 `;
 
 export const MessageContainer = styled.div`
