@@ -1,8 +1,5 @@
 import toast from "react-hot-toast";
-import {
-  useHistory,
-  useParams,
-} from "react-router-dom/cjs/react-router-dom.min";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { useAllEvents } from "../../Providers/AllEvents";
 import { useUser } from "../../Providers/User";
 import * as Styled from "./styles";
@@ -10,15 +7,14 @@ import * as Styled from "./styles";
 const ModalCancelSubs = ({ setModalCancel, event, setIsLoading }) => {
   const { removeUserFromEvent } = useAllEvents();
   const { removeEventFromUser } = useUser();
-  const { id } = useParams();
   const history = useHistory();
 
   const cancelSubs = async () => {
     setModalCancel(false);
     setIsLoading(true);
 
-    const statusEvent = await removeUserFromEvent(id);
-    const statusUser = await removeEventFromUser(id);
+    const statusEvent = await removeUserFromEvent(event.id);
+    const statusUser = await removeEventFromUser(event.id);
 
     if (statusUser === "OK" && statusEvent === "OK") {
       toast.success("Inscrição removida com sucesso");

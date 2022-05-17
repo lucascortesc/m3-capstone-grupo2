@@ -5,7 +5,7 @@ export const verificarToken = async (token, user) => {
 
   if (user) {
     await api
-      .patch(`/users/${user.id}`, {
+      .get(`/users/${user.id}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

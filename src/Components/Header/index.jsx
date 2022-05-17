@@ -6,13 +6,13 @@ import { useUser } from "../../Providers/User/index";
 import { useState } from "react";
 import ModalHeader from "../ModalHeader";
 
-export const Header = () => {
+export const Header = ({ userName = false }) => {
   const { user } = useUser();
   const [modalHeader, setModalHeader] = useState(false);
   return (
     <Styled.Container>
       <Styled.HeaderContainer>
-        <h1>Titulo</h1>
+        <h1>{userName ? userName : "Titulo"}</h1>
         {!!user ? (
           <>
             <img

@@ -75,6 +75,26 @@ export const RegisterSchemaCpf = yup.object().shape({
       "CPF inválido"
     ),
   policy: yup.boolean().oneOf([true], "Termos obrigatórios"),
+  type: yup.string(),
+});
+
+export const CreateEventSchema = yup.object().shape({
+  name: yup.string().required("O nome do evento é obrigatório"),
+  description: yup.string().required("A descrição do evento é obrigatória"),
+  maxVoluntarys: yup
+    .string()
+    .required("A quantidade de voluntários necessária é obrigatória"),
+  date: yup.string().required("A data é obrigatória"),
+  location: yup.string().required("Localização do evento obrigatória"),
+  img: yup.string().required("A url da imagem é obrigatória"),
+  category: yup.string().required("A categoria do evento é obrigatória"),
+  contact: yup
+    .string()
+    .required("O contato é obrigatório")
+    .matches(
+      /^(\+55)?[\s]?\(?(\d{2})?\)?[\s-]?(9?\d{4}[\s-]?\d{4})$/gm,
+      "Telefone inválido, deve ser 00-00000-0000"
+    ),
 });
 
 export const UpdateUserSchema = yup.object().shape({
