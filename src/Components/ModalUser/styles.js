@@ -14,8 +14,6 @@ export const Container = styled.div`
 
   font-family: Nunito, sans-serif;
 
-  position: absolute;
-
   display: flex;
 
   justify-content: center;
