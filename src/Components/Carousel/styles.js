@@ -21,12 +21,17 @@ export const Container = styled.div`
       width: 200px;
       margin: 0px 20px 0px 20px;
     }
+    .initialButton {
+      display: flex;
+      justify-content: flex-end;
+    }
   }
 `;
 
 export const ContainerCarousel = styled.div`
   display: flex;
   justify-content: space-between;
+  align-items: center;
   overflow-x: scroll;
   overflow-y: hidden;
 

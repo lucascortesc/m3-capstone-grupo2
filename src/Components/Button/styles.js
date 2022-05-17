@@ -4,6 +4,7 @@ export const Container = styled.div`
 display: inline-block;
 background: ${props => props.background && props.background};
 border-radius: 5px;
+align-self: ${props => props.align && props.align};
 
 button {
     display: flex;
