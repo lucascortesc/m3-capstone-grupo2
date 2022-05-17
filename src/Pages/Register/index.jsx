@@ -7,7 +7,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useState } from "react";
 import { Button } from "../../Components/Button";
-import api from "../../services/api"
+import api from "../../services/api";
 import { useHistory } from "react-router-dom";
 import toast from "react-hot-toast";
 import { useUser } from "../../Providers/User";
@@ -15,7 +15,7 @@ import { Redirect } from "react-router-dom";
 
 export const Register = () => {
   const [type, setType] = useState("voluntary");
-  const history = useHistory()
+  const history = useHistory();
 
   const { register, handleSubmit, formState } = useForm({
     resolver: yupResolver(
@@ -23,9 +23,9 @@ export const Register = () => {
     ),
   });
 
-  const { user } = useUser()
-  if(user){
-    return <Redirect to="/" />
+  const { user } = useUser();
+  if (user) {
+    return <Redirect to="/" />;
   }
 
   const onSubmitFunction = (data) => {
@@ -61,28 +61,30 @@ export const Register = () => {
         },
       };
 
-      api.post("/register", newData)
-      .then((res) => {
-        toast.success("Cadastro realizado com sucesso!")
-        setTimeout(() => {
-          history.push("/login")
-        }, 1500)
-      })
-      .catch((error) => toast.error("Ocorreu algum erro :C"))
+      api
+        .post("/register", newData)
+        .then((res) => {
+          toast.success("Cadastro realizado com sucesso!");
+          setTimeout(() => {
+            history.push("/login");
+          }, 1500);
+        })
+        .catch((error) => toast.error("Ocorreu algum erro :C"));
     } else {
       const newData = {
         ...data,
         events: [],
       };
 
-      api.post("/register", newData)
-      .then((res) => {
-        toast.success("Cadastro realizado com sucesso!")
-        setTimeout(() => {
-          history.push("/login")
-        }, 1500)
-      })
-      .catch((error) => toast.error("Ocorreu algum erro :C"))
+      api
+        .post("/register", newData)
+        .then((res) => {
+          toast.success("Cadastro realizado com sucesso!");
+          setTimeout(() => {
+            history.push("/login");
+          }, 1500);
+        })
+        .catch((error) => toast.error("Ocorreu algum erro :C"));
     }
   };
 
@@ -101,7 +103,10 @@ export const Register = () => {
             <Styled.TypeContainer>
               <label>Eu sou</label>
               <div>
-                <select {...register("type")} onChange={(event) => setType(event.target.value)}>
+                <select
+                  {...register("type")}
+                  onChange={(event) => setType(event.target.value)}
+                >
                   <option value="voluntary">Voluntário</option>
                   <option value="organization">Organização</option>
                 </select>
@@ -227,7 +232,8 @@ export const Register = () => {
                 gap="10px"
                 weigth="800"
               >
-                Criar conta <BsArrowRightCircle color="var(--color-highlight)" />
+                Criar conta{" "}
+                <BsArrowRightCircle color="var(--color-highlight)" />
               </Button>
             </div>
             <p>

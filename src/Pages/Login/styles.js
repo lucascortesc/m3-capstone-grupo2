@@ -22,9 +22,7 @@ export const Container = styled.div`
 `;
 
 export const Background = styled.div`
-  display: none;
-
-  @media (min-width: 1024px) {
+@media (min-width: 1024px) {
     display: inline-block;
     width: 50%;
     background: url(${LoginImage}) no-repeat center, #193e51;
