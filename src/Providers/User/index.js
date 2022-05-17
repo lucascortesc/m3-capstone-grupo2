@@ -107,7 +107,7 @@ export const UserProvider = ({ children }) => {
       return "missing or expired token";
     }
 
-    const newEvents = user.events.filter((id) => id !== eventId);
+    const newEvents = user.events.filter((id) => Number(id) !== eventId);
 
     let response;
 
