@@ -20,10 +20,28 @@ img {
 `
 
 export const DescriptionContainer = styled.div`
-padding: 10px 0px 10px 20px;
+padding: 10px 10px 10px 10px;
 display: flex;
 flex-direction: column;
 gap: 10px;
+
+.canceled {
+    font-size: 20px;
+    text-align: center;
+    text-transform: uppercase;
+    color: red;
+    font-weight: 900;
+}
+
+span {
+    margin-left: 20px;
+}
+
+h3 {
+    font-size: 20px;
+    font-weight: 800;
+    text-align: center;
+}
 
 .btn-box {
     display: flex;

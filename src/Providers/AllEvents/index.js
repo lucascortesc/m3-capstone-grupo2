@@ -22,7 +22,7 @@ export const AllEventsProvider = ({ children }) => {
 
     event.voluntarys = [];
     event.userId = user.id;
-    event.state = "progess";
+    event.state = "progress";
 
     let response;
 
@@ -65,7 +65,6 @@ export const AllEventsProvider = ({ children }) => {
         response = res.statusText;
       })
       .catch((err) => (response = err.response.statusText));
-
     return response;
   };
 

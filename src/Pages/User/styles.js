@@ -2,18 +2,17 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 30px;
 
   background-color: var(--primaryColor);
-
 `;
 
 export const MessageContainer = styled.div`
-  width: 100vw;
+  width: 100%;
   max-width: 544px;
   min-height: 110px;
   display: flex;
@@ -32,6 +31,19 @@ export const MessageContainer = styled.div`
 `;
 
 export const VoluntaryContainer = styled.div`
+    .events-empty {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+
+      p {
+        font-family: "Montserrat";
+        font-size: 25px;
+        color: white;
+        font-weight: 500;
+      }
+    }
   > .events-filled {
     width: 100vw;
     display: flex;
@@ -54,9 +66,15 @@ export const VoluntaryContainer = styled.div`
       gap: 30px;
       overflow-x: scroll;
       padding: 30px 30px 20px 30px;
+    }
 
-      @media (min-width: 1024px) {
-        max-width: 65%;
+
+    @media (min-width: 1024px) {
+      ul {
+        max-width: 90%;
+        overflow-x: hidden;
+        flex-wrap: wrap;
+        justify-content: center;
       }
     }
 
@@ -88,9 +106,14 @@ export const OrganizationContainer = styled.div`
       gap: 30px;
       overflow-x: scroll;
       padding: 30px 30px 20px 30px;
+    }
 
-      @media (min-width: 1024px) {
-        max-width: 65%;
+    @media (min-width: 1024px) {
+      ul {
+        max-width: 90%;
+        overflow-x: hidden;
+        flex-wrap: wrap;
+        justify-content: center;
       }
     }
 
@@ -105,23 +128,16 @@ export const OrganizationContainer = styled.div`
 `;
 
 export const AddModal = styled.div`
-  width: 50px;
+  font-family: "Montserrat";
   height: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 40px;
-  font-weight: 800;
+  font-size: 20px;
+  font-weight: 700;
   border-radius: 5px;
   color: var(--color-highlight);
   background-color: var(--primaryColor50);
   cursor: pointer;
-  position: absolute;
-  left: 10px;
-
-  @media (min-width: 1024px) {
-    left: 50%;
-    top: -25px;
-    transform: translateX(-50%);
-  }
+  padding: 0px 20px;
 `;
