@@ -9,11 +9,10 @@ export const Container = styled.div`
   gap: 30px;
 
   background-color: var(--primaryColor);
-
 `;
 
 export const MessageContainer = styled.div`
-  width: 100vw;
+  width: 100%;
   max-width: 544px;
   min-height: 110px;
   display: flex;
@@ -32,6 +31,19 @@ export const MessageContainer = styled.div`
 `;
 
 export const VoluntaryContainer = styled.div`
+    .events-empty {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+
+      p {
+        font-family: "Montserrat";
+        font-size: 25px;
+        color: white;
+        font-weight: 500;
+      }
+    }
   > .events-filled {
     width: 100vw;
     display: flex;
@@ -54,9 +66,15 @@ export const VoluntaryContainer = styled.div`
       gap: 30px;
       overflow-x: scroll;
       padding: 30px 30px 20px 30px;
+    }
 
-      @media (min-width: 1024px) {
-        max-width: 65%;
+
+    @media (min-width: 1024px) {
+      ul {
+        max-width: 90%;
+        overflow-x: hidden;
+        flex-wrap: wrap;
+        justify-content: center;
       }
     }
 

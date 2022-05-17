@@ -90,6 +90,7 @@ export const User = () => {
                       }
                     />
                   )}
+                </div>
                   <Link to="/events">
                     <Button
                       padding="10px 15px"
@@ -100,7 +101,6 @@ export const User = () => {
                       Ver todos os eventos
                     </Button>
                   </Link>
-                </div>
               </div>
             )}
           </Styled.VoluntaryContainer>

@@ -5,14 +5,14 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { CreateEventSchema } from "../../Validation";
 import { FiArrowRightCircle } from "react-icons/fi";
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { useAllEvents } from "../../Providers/AllEvents";
 import { useUser } from "../../Providers/User";
 import toast from "react-hot-toast";
 import ReactLoading from "react-loading";
 
 export const EditEvent = ({ setModal, eventId }) => {
-  const { addEvent, allEvents } = useAllEvents()
+  const { addEvent, allEvents, editEvent } = useAllEvents()
   const { addEventToUser } = useUser();
   const [isLoading, setIsLoading] = useState(false);
   const [currentEvent, setCurrentEvent] = useState(allEvents?.find(({ id }) => id === eventId))
@@ -22,7 +22,15 @@ export const EditEvent = ({ setModal, eventId }) => {
   });
 
   const onSubmitEditEvent = async (data) => {
-    
+    setIsLoading(true)
+    const status = await editEvent(eventId, data)
+    if (status === "OK") {
+      toast.success("Evento editado com sucesso")
+    } else {
+      toast.error("Sessão expirada")
+    }
+    setModal(false)
+    setIsLoading(false)
   };
 
   return (
