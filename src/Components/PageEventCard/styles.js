@@ -28,6 +28,17 @@ export const Container = styled.div`
     font-weight: bold;
     font-size: 25px;
   }
+  .contactDiv {
+    display: flex;
+    flex-direction: column;
+    color: white;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+      Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    padding: 10px 20px;
+  }
+  .contactDiv > p {
+    margin: 2px 0;
+  }
   .divDescription {
     color: #fff;
     padding: 10px 20px;
@@ -36,8 +47,9 @@ export const Container = styled.div`
   }
   @media (min-width: 1024px) {
     background-color: #146666;
-    margin: 0 140px;
+    margin: 0 auto;
     border-radius: 10px;
+    width: 855px;
 
     img {
       width: 100%;
@@ -46,13 +58,13 @@ export const Container = styled.div`
     }
     .divInfos {
       margin-top: 0;
-      padding: 20px;
+      padding: 20px 20px 0px 20px;
     }
     h3 {
       font-size: 18px;
     }
     .divDescription {
-      padding: 20px;
+      padding: 5px 20px 20px 20px;
       background-color: #146666;
       border-radius: 0 0 5px 5px;
     }
