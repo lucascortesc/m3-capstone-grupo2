@@ -10,10 +10,15 @@ export const EventCardOrganization = ({ eventId }) => {
   const element = allEvents.find(({ id }) => id === Number(eventId));
   const [isLoading, setIsLoading] = useState(false);
   const [modalEdit, setModalEdit] = useState(false)
+
+  const cancelEvent = () => {
+    removeEvent(eventId)
+    console.log(1)
+  }
   
   return (
     <>
-    {modalEdit && <EditEvent id={eventId} setModal={setModalEdit}/>}
+    {modalEdit && <EditEvent eventId={eventId} setModal={setModalEdit}/>}
     <Styled.Container>
       <Styled.ImageContainer>
         <img src={element?.img} alt={element?.name} />
@@ -44,9 +49,7 @@ export const EventCardOrganization = ({ eventId }) => {
             padding="10px 15px"
             color="white"
             weigth="700"
-            onClick={() => {
-              console.log(removeEvent(eventId))
-            }}
+            onClick={() => cancelEvent()}
           >
             Cancelar evento
           </Button>
