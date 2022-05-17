@@ -10,10 +10,14 @@ import { Link } from "react-router-dom";
 import { CreateEvent } from "../../Components/CreateEvent";
 import { useState } from "react";
 
+import ModalUser from "../../Components/ModalUser";
+
 export const User = () => {
   const { user } = useUser();
   const { allEvents } = useAllEvents();
   const [modalCreateEvent, setModalCreateEvent] = useState(false);
+
+  const [openModal, setOpenModal] = useState(false);
 
   if (!user) {
     return <Redirect to="/" />;
@@ -22,6 +26,27 @@ export const User = () => {
   return (
     <Styled.Container>
       <Header userName={user?.name} />
+      <div className="updateUser">
+        <Button
+          className="openModalBtn"
+          onClick={() => {
+            setOpenModal(true);
+          }}
+          padding="10px 15px"
+          background="var(--primaryColor50)"
+          color="var(--color-highlight)"
+          weigth="800"
+        >
+          Alterar Cadastro
+        </Button>
+        {openModal ? (
+          <ModalUser
+            setOpenModal={setOpenModal}
+            onClose={() => setOpenModal(false)}
+          />
+        ) : null}
+      </div>
+
       {user?.type === "voluntary" ? (
         <>
           <Styled.MessageContainer>
@@ -91,6 +116,7 @@ export const User = () => {
               <p>Hoje está um lindo dia para ajudar pessoas, não acha?</p>
             )}
           </Styled.MessageContainer>
+
           <Styled.OrganizationContainer>
             {modalCreateEvent && <CreateEvent setModal={setModalCreateEvent} />}
 
@@ -112,6 +138,7 @@ export const User = () => {
                 <Styled.AddModal onClick={() => setModalCreateEvent(true)}>
                   +
                 </Styled.AddModal>
+
                 <p>Sua organização ainda não criou um evento...</p>
               </div>
             )}

@@ -1,68 +1,77 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  background-color: var(--primaryColor);
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+
+  background-color: rgba(0, 0, 0, 0.8);
 
   color: white;
-  
+
   font-family: Nunito, sans-serif;
-  
-  position: absolute;
-  top:80px;
-  left:50px;
-  
-  max-width: 300px;
- 
-  
+
   display: flex;
+
   justify-content: center;
   align-items: center;
   border-radius: 12px;
-  
-  .body {
-    text-align: left;
-    margin: 0 auto;
-    width: 80%;
-
-  }
-
 
   .modalContainer {
-    width: 301px;
-    height: 500px;
+    width: 60%;
+    max-width: 350px;
+    height: 340px;
     border-radius: 12px;
     background-color: var(--primaryColor);
-    box-shadow: var(--primaryColor) 0px 5px 15px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    @media (min-width: 1024px) {
+      width: 30%;
+      height: 35%;
+    }
+  }
+
+  .closeModal {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    width: 32px;
+    height: 32px;
+    right: calc(-100% + 64px;);
+    top: 16px;
+    display: flex;
+    position: relative;
+    align-items: center;
+  }
+
+  .body {
     display: flex;
     flex-direction: column;
-    padding: 25px;
-}
+    align-items: center;
+  }
 
-.closeModal {
-    width: 20px;
-    margin-left: 220px;
-
-    border: none;
-    
-    color: white;
-    background-color: var(--primaryColor);
-}
-
-.title {
+  .title {
     display: inline-block;
     text-align: center;
     margin-top: 20px;
-    font-size: 15px;
-}
+    font-size: 10px;
+  }
 
-.leave {
-    margin: 20px 0px 0px 79px;
-}
+  .signupButton {
+    margin-top: 15px;
+  }
 
-.signupButton {
-    margin: 20px 0px 0px 22px;
+  .leave {
+    margin-top: 15px;
+  }
 
-}
-
-}
+  .form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 `;
