@@ -4,42 +4,43 @@ import { Button } from "../Button";
 import { BsArrowRightCircle } from "react-icons/bs";
 
 import { useUser } from "../../Providers/User";
-import { useContext } from "react";
 
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 
-import { UserContext } from "../../Providers/User";
-
 import { UpdateUserSchema } from "../../Validation";
 
 import Input from "../Input";
+import toast from "react-hot-toast";
 
-
-const ModalUser = ({ closeModal }) => {
-  const { updateUser } = useContext(UserContext);
-  const { updateUserToUser } = useUser();
+const ModalUser = ({ id = "modal", onClose = () => {}, setOpenModal }) => {
+  const { updateUser } = useUser();
 
   const { register, handleSubmit, formState } = useForm({
     resolver: yupResolver(UpdateUserSchema),
   });
 
-  const onSubmitFunction = (data) => {
-    updateUser(data);
-    updateUserToUser(data);
+  const onSubmitFunction = async (data) => {
+    const statusUser = await updateUser(data);
+
+    if (statusUser === "OK") {
+      setOpenModal(false);
+      toast.success("Alteração feita com sucesso!");
+    }
+  };
+
+  const handleOutsideClick = (e) => {
+    if (e.target.id === id) onClose();
   };
 
   return (
-    <Styled.Container>
+    <Styled.Container id={id} onClick={handleOutsideClick}>
       <div className="modalContainer">
-        <button className="closeModal" onClick={() => closeModal(false)}>
-          X
-        </button>
         <div className="title">
           <h1>Alteração de Cadastro</h1>
         </div>
         <div className="body">
-          <form onSubmit={handleSubmit(onSubmitFunction)}>
+          <form className="form" onSubmit={handleSubmit(onSubmitFunction)}>
             <Input
               label="Nova senha"
               register={register}
@@ -72,12 +73,12 @@ const ModalUser = ({ closeModal }) => {
           <div className="leave">
             <Button
               className="buttonLeave"
-              onClick={() => closeModal(false)}
+              onClick={onClose}
               color="white"
               background="red"
               padding="10px"
             >
-              Sair
+              Voltar
             </Button>
           </div>
         </div>

@@ -9,6 +9,7 @@ export const Container = styled.div`
   gap: 30px;
 
   background-color: var(--primaryColor);
+
 `;
 
 export const MessageContainer = styled.div`
