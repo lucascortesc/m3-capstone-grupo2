@@ -68,6 +68,32 @@ export const AllEventsProvider = ({ children }) => {
     return response;
   };
 
+  const editEvent = async (eventId, data) => {
+    const token = JSON.parse(localStorage.getItem("token"));
+    const user = JSON.parse(localStorage.getItem("user"));
+
+    if (!(await verificarToken(token, user))) {
+      localStorage.clear();
+      return "missing or expired token";
+    }
+
+    let response;
+
+    await api
+      .patch(`/eventos/${eventId}`, data, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then((res) => {
+        api.get("/eventos").then((res) => setAllEvents(res.data));
+        response = res.statusText;
+      })
+      .catch((err) => (response = err.response.statusText));
+
+    return response;
+  };
+
   const addUserToEvent = async (eventId) => {
     const token = JSON.parse(localStorage.getItem("token"));
     const user = JSON.parse(localStorage.getItem("user"));
@@ -142,6 +168,7 @@ export const AllEventsProvider = ({ children }) => {
         allEvents,
         addEvent,
         removeEvent,
+        editEvent,
         addUserToEvent,
         removeUserFromEvent,
       }}
