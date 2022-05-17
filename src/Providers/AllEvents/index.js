@@ -50,16 +50,18 @@ export const AllEventsProvider = ({ children }) => {
       return "missing or expired token";
     }
 
+    const newStatus = { state: "canceled" };
+
     let response;
 
     await api
-      .delete(`/eventos/${eventId}`, {
+      .patch(`/eventos/${eventId}`, newStatus, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
       })
       .then((res) => {
-        setAllEvents(allEvents.filter(({ id }) => id !== eventId));
+        api.get("/eventos").then((res) => setAllEvents(res.data));
         response = res.statusText;
       })
       .catch((err) => (response = err.response.statusText));
