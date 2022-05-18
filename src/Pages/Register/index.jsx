@@ -35,6 +35,7 @@ export const Register = () => {
         email,
         password,
         cnpj,
+        type,
         socialAssist,
         culture,
         health,
