@@ -23,7 +23,7 @@ export const EventsListCard = (event) => {
       <p>
         Vagas disponíveis {voluntarys.length}/{maxVoluntarys}
       </p>
-      {/* <button onClick={() => history.push(`/events/${id}`)}>Ver mais</button> */}
+      
     </Content>
   );
 };
