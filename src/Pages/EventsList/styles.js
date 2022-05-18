@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Conteiner = styled.div`
-  background-color: #fff;
+  background-color: #193E51;
 `;
 export const Content = styled.ul`
   display: flex;
@@ -29,10 +29,10 @@ export const Section = styled.div`
   flex-wrap: nowrap;
   justify-content: space-between;
   align-items: center;
-  background-color: #6b6b87;
+  background-color: #146666;
   @media (max-width: 360px) {
     padding-left: 85px;
-  padding-right: 30px;
+    padding-right: 30px;
   }
   @media (max-width: 375px) {
     padding-left: 85px;
@@ -43,7 +43,7 @@ export const Section = styled.div`
     padding: 10px;
     border: none;
     border-radius: 5px;
-    background-color: #146666;
+    background-color: #193E51;
     font-weight: 550;
     color: #fff;
   }
