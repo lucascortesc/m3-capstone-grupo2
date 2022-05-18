@@ -9,19 +9,46 @@ import { EventCardVoluntary } from "../../Components/EventCardVoluntary";
 import { Link } from "react-router-dom";
 import { CreateEvent } from "../../Components/CreateEvent";
 import { useState } from "react";
+import Footer from "../../Components/Footer"
+
+import ModalUser from "../../Components/ModalUser";
 
 export const User = () => {
   const { user } = useUser();
   const { allEvents } = useAllEvents();
   const [modalCreateEvent, setModalCreateEvent] = useState(false);
 
+  const [openModal, setOpenModal] = useState(false);
+
   if (!user) {
     return <Redirect to="/" />;
   }
 
   return (
+    <>
     <Styled.Container>
       <Header userName={user?.name} />
+      <div className="updateUser">
+        <Button
+          className="openModalBtn"
+          onClick={() => {
+            setOpenModal(true);
+          }}
+          padding="10px 15px"
+          background="var(--primaryColor50)"
+          color="var(--color-highlight)"
+          weigth="800"
+        >
+          Alterar Cadastro
+        </Button>
+        {openModal ? (
+          <ModalUser
+            setOpenModal={setOpenModal}
+            onClose={() => setOpenModal(false)}
+          />
+        ) : null}
+      </div>
+
       {user?.type === "voluntary" ? (
         <>
           <Styled.MessageContainer>
@@ -59,10 +86,11 @@ export const User = () => {
                       eventId={
                         allEvents[
                           Math.floor(Math.random() * allEvents.length - 1)
-                        ].id
+                        ]?.id
                       }
                     />
                   )}
+                </div>
                   <Link to="/events">
                     <Button
                       padding="10px 15px"
@@ -73,7 +101,6 @@ export const User = () => {
                       Ver todos os eventos
                     </Button>
                   </Link>
-                </div>
               </div>
             )}
           </Styled.VoluntaryContainer>
@@ -91,18 +118,19 @@ export const User = () => {
               <p>Hoje está um lindo dia para ajudar pessoas, não acha?</p>
             )}
           </Styled.MessageContainer>
+
           <Styled.OrganizationContainer>
             {modalCreateEvent && <CreateEvent setModal={setModalCreateEvent} />}
 
             {user?.events.length > 0 ? (
               <div className="events-filled">
                 <Styled.AddModal onClick={() => setModalCreateEvent(true)}>
-                  +
+                  Criar evento
                 </Styled.AddModal>
                 <ul>
                   <>
                     {user?.events.map((id, index) => (
-                      <EventCardOrganization eventId={id} key={index} />
+                      <EventCardOrganization eventId={id} key={index}/>
                     ))}
                   </>
                 </ul>
@@ -112,6 +140,7 @@ export const User = () => {
                 <Styled.AddModal onClick={() => setModalCreateEvent(true)}>
                   +
                 </Styled.AddModal>
+
                 <p>Sua organização ainda não criou um evento...</p>
               </div>
             )}
@@ -119,5 +148,7 @@ export const User = () => {
         </>
       )}
     </Styled.Container>
+    <Footer/>
+    </>
   );
 };
