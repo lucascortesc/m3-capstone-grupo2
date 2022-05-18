@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  background-color: var(--primaryColor);
+  background-color: rgba(25, 62, 81, 0.6);
   button {
     padding: 10px;
     background-color: rgba(25, 62, 81, 0.6);
