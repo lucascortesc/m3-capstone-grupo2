@@ -5,6 +5,7 @@ import * as Styled from "./styles";
 import { BsArrowDownCircle, BsArrowRightCircle } from "react-icons/bs";
 import { Header } from "../../Components/Header";
 
+
 export const Home = () => {
   const history = useHistory();
 
@@ -20,7 +21,7 @@ export const Home = () => {
         <div>
           <Carousel />
           <div className="deslizePopUp">
-            Deslize para ver mais <BsArrowDownCircle color="#C3BD2E" />
+            Deslize para ver mais <BsArrowDownCircle color="var(--color-highlight)" />
           </div>
         </div>
       </Styled.ImageDiv>
@@ -39,7 +40,7 @@ export const Home = () => {
             className="InteresseButton"
           >
             <p>
-              Tem interesse? <BsArrowRightCircle color="#C3BD2E" />
+              Tem interesse? <BsArrowRightCircle color="var(--color-highlight)" />
             </p>
           </button>
         </div>

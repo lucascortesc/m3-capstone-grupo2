@@ -21,12 +21,17 @@ export const HeaderContainer = styled.div`
   background: none;
   padding: 0px 25px;
 
+  .logo {
+    width: 60px;
+  }
   > div {
     display: flex;
     gap: 20px;
   }
 
   h1 {
+    display: flex;
+    align-items: center;
     font-family: "Montserrat";
     font-weight: 800;
     color: var(--color-highlight);
