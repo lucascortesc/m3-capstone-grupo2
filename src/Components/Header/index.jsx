@@ -1,5 +1,6 @@
 import * as Styled from "./styles";
 import headerUserLogo from "../../Assets/img/header-user-logo.svg";
+import Logo from "../../Assets/img/Logo.png";
 import { Button } from "../Button";
 import { Link } from "react-router-dom";
 import { useUser } from "../../Providers/User/index";
@@ -12,10 +13,11 @@ export const Header = ({ userName = false }) => {
   return (
     <Styled.Container>
       <Styled.HeaderContainer>
-        <h1>{userName ? userName : "Just Help"}</h1>
+        <h1>{userName ? userName : <img className="logo" src={Logo} alt=""/>}</h1>
         {!!user ? (
           <>
             <img
+              className="imgUserLogo"
               onClick={() => setModalHeader(true)}
               src={headerUserLogo}
               alt="the user logo"
