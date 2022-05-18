@@ -5,7 +5,7 @@ import { EventsListCard } from "../../Components/EventsListCard";
 import { Conteiner, Content, DivHeader, Section } from "./styles";
 import { useHistory } from "react-router-dom";
 import { useState } from "react";
-
+import { BsSearch } from "react-icons/bs";
 
 export const EventsList = () => {
   const { allEvents } = useAllEvents();
@@ -37,8 +37,14 @@ export const EventsList = () => {
         <button onClick={() => history.push("/")}>Voltar</button>
 
         <form onSubmit={(e) => onsubmit(e)}>
-          <input placeholder="Digite sua pesquisa" onChange={(e) => FilterEvents(e.target.value)} type="text" />
-         
+          <input
+            placeholder="Digite sua pesquisa"
+            onChange={(e) => FilterEvents(e.target.value)}
+            type="text"
+          />
+          <div className="BsSearch"  >
+          <BsSearch/>
+          </div>
         </form>
       </Section>
 

@@ -35,6 +35,7 @@ export const Register = () => {
         email,
         password,
         cnpj,
+        type,
         socialAssist,
         culture,
         health,
@@ -49,6 +50,7 @@ export const Register = () => {
         email,
         password,
         cnpj,
+        type,
         events: [],
         goals: {
           socialAssist,
@@ -95,6 +97,11 @@ export const Register = () => {
           <BsArrowLeftCircle color="white" size="30px" />
         </Link>
       </Styled.Background>
+      <span className="span">
+        <Link to="/">
+          <BsArrowLeftCircle color="white" size="30px" />
+        </Link>
+      </span>
       <Styled.Content>
         <Styled.FormContainer onSubmit={handleSubmit(onSubmitFunction)}>
           <form>

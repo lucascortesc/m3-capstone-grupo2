@@ -2,6 +2,21 @@ import styled from "styled-components";
 import ImageRegister from "../../Assets/ImageRegister.png";
 
 export const Container = styled.div`
+  .span {
+    
+    padding: 1px;
+    display: none;
+    border: none;
+
+    color: white;
+    font-size: 30px;
+    @media (max-width: 1023px) {
+      display: inline;
+      position: absolute;
+    top: 10px;
+    left: 10px;
+    }
+  }
   width: 100vw;
   height: 100vh;
 
@@ -15,6 +30,11 @@ export const Container = styled.div`
 `;
 
 export const Background = styled.div`
+<<<<<<< HEAD
+=======
+  display: none;
+  
+>>>>>>> 8336ee1f3296ee431f883cbec6ec0e405c071e51
   @media (min-width: 1024px) {
     display: inline-block;
     width: 50vw;

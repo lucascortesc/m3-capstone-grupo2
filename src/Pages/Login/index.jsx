@@ -9,6 +9,7 @@ import {
   Content,
   Arrow,
   Button,
+ 
 } from "./styles";
 
 import { Link, useHistory, Redirect } from "react-router-dom";
@@ -60,6 +61,9 @@ export const Login = () => {
           <BsArrowLeftCircle onClick={() => history.push("./")} />
         </Arrow>
       </Background>
+        <span className="span" >
+          <BsArrowLeftCircle onClick={() => history.push("./")} />
+        </span>
       <Content>
         <FormContainer>
           <form onSubmit={handleSubmit(onSubmit)}>

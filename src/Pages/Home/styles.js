@@ -4,7 +4,7 @@ export const Container = styled.div``;
 
 export const ImageDiv = styled.div`
   /* width: 99vw; */
-  height: 200px;
+  height: 450px;
   position: relative;
   h2 {
     color: white;
@@ -86,7 +86,7 @@ export const InfosDiv = styled.div`
   padding: 30px 30px 40px 30px;
   word-spacing: 5px;
   font-family: Nunito, sans-serif;
-  margin-top: 200px;
+  margin-top: -2px;
   h3 {
     padding: 15px 0px;
     font-size: 24px;
