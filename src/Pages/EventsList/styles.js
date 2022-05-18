@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Conteiner = styled.div`
-  background-color: #193e51;
+  background-color: #fff;
 `;
 export const Content = styled.ul`
   display: flex;
@@ -21,8 +21,7 @@ export const Content = styled.ul`
 `;
 
 export const Section = styled.div`
-
-  height: 100px;
+  height: 60px;
   padding-left: 70px;
   padding-right: 70px;
   display: flex;
@@ -30,8 +29,15 @@ export const Section = styled.div`
   flex-wrap: nowrap;
   justify-content: space-between;
   align-items: center;
-
-
+  background-color: #6b6b87;
+  @media (max-width: 360px) {
+    padding-left: 85px;
+  padding-right: 30px;
+  }
+  @media (max-width: 375px) {
+    padding-left: 85px;
+  padding-right: 30px;
+  }
   button {
     display: flex;
     padding: 10px;
@@ -45,20 +51,42 @@ export const Section = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
+    div {
+      position: absolute;
+      color: grey;
+      top: 95px;
+      right: 75px;
+      @media (max-width: 375px) {
+        
+      position: absolute;
+      color: grey;
+      top: 95px;
+      right: 45px;
+    
+      }
+    }
+
+    @media (max-width: 768px) {
+      input {
+        width: 350px;
+      }
+    }
+    @media (max-width: 580px) {
+      input {
+        width: 180px;
+      }
+    }
   }
   input {
     padding-left: 5px;
     border: none;
     border-radius: 5px;
     height: 36px;
+    width: 450px;
   }
   @media (max-width: 375px) {
     button {
       margin-left: -50px;
-
-    }
-    input{
-      margin-left: 30px;
     }
   }
 `;

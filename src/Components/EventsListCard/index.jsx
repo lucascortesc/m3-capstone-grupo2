@@ -15,15 +15,15 @@ export const EventsListCard = (event) => {
   } = event.event;
 
   return (
-    <Content>
+    <Content onClick={() => history.push(`/events/${id}`)} >
       <img src={img} alt={description} />
       <h3>{name}</h3>
-      <h4>{category}</h4>
+      <span>{category}</span>
       <h5>{date}</h5>
       <p>
         Vagas disponíveis {voluntarys.length}/{maxVoluntarys}
       </p>
-      <button onClick={() => history.push(`/events/${id}`)}>Ver mais</button>
+      {/* <button onClick={() => history.push(`/events/${id}`)}>Ver mais</button> */}
     </Content>
   );
 };

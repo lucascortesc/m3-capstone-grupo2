@@ -3,9 +3,24 @@ import styled from "styled-components";
 import LoginImage from "../../Assets/login.png";
 
 export const Container = styled.div`
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-family: "Montserrat";
+  .span {
+    :hover {
+      cursor: pointer;
+    }
+    padding: 10px;
+    display: none;
+    border: none;
 
+    color: white;
+    font-size: 30px;
+    @media (max-width: 1023px) {
+      display: inline;
+      position: absolute;
+      top: 10px;
+      left: 10px;
+    }
+  }
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -14,6 +29,8 @@ export const Container = styled.div`
 
   @media (max-width: 1023px) {
     justify-content: center;
+    display: flex;
+    align-items: center;
   }
 
   @media (min-width: 1024px) {
@@ -23,6 +40,13 @@ export const Container = styled.div`
 
 export const Background = styled.div`
   display: none;
+  div {
+    display: block;
+    border: none;
+    background: transparent;
+    color: white;
+    font-size: 30px;
+  }
 
   @media (min-width: 1024px) {
     display: inline-block;
@@ -39,11 +63,16 @@ export const Content = styled.div`
   justify-content: center;
   place-content: center;
   width: 100%;
+
   @media (min-width: 1024px) {
     width: 50%;
   }
 `;
+
 export const Arrow = styled.button`
+  position: absolute;
+  top: 10px;
+  left: 10px;
   border: none;
   background: transparent;
   color: white;
