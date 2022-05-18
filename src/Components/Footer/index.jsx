@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <Styled.Container>
       <div>
-        <h5>Titulo</h5>
+        <h5>Just Help</h5>
         <p className="footerInfo">Buscando formas de melhorar o mundo</p>
         <h5>Contato</h5>
         <p>+55 00 00000-0000</p>

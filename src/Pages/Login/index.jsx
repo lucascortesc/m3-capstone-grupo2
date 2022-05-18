@@ -9,6 +9,7 @@ import {
   Content,
   Arrow,
   Button,
+ 
 } from "./styles";
 
 import { Link, useHistory, Redirect } from "react-router-dom";
@@ -16,6 +17,7 @@ import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { BsArrowRightCircle, BsArrowLeftCircle } from "react-icons/bs";
+
 export const Login = () => {
   const history = useHistory();
 
@@ -59,6 +61,9 @@ export const Login = () => {
           <BsArrowLeftCircle onClick={() => history.push("./")} />
         </Arrow>
       </Background>
+        <span className="span" >
+          <BsArrowLeftCircle onClick={() => history.push("./")} />
+        </span>
       <Content>
         <FormContainer>
           <form onSubmit={handleSubmit(onSubmit)}>

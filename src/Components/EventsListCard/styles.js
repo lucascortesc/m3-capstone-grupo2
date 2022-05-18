@@ -7,10 +7,11 @@ export const Container = styled.ul`
   align-items: center;
   justify-content: center;
   background-color: #193e51;
-
-
+ 
+  
   div {
     max-width: 1440px;
+   
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -19,9 +20,17 @@ export const Container = styled.ul`
 
     background-color: #193e51;
   }
+  
 `;
 
 export const Content = styled.li`
+
+  :hover, 
+  :focus{
+    cursor: pointer;
+    transform: translateX(5px) scale(1.025);
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.45);
+  }
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.25);
   background-color: #fff;
   display: grid;
@@ -30,17 +39,26 @@ export const Content = styled.li`
   height: 334px;
   padding: 5px;
   border-radius: 5px;
+  h3{
+    /* text-align: center; */
+  }
   img {
     height: 200px;
     width: 290px;
   }
 
-  button {
+  span{ 
+    
+    color:grey;
+  }
+
+
+  /* button {
     width: 111px;
     height: 40px;
     background-color: #c3bd2e;
     border: none;
     border-radius: 5px;
     font-weight: bold;
-  }
+  } */
 `;

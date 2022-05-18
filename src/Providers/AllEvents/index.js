@@ -22,7 +22,7 @@ export const AllEventsProvider = ({ children }) => {
 
     event.voluntarys = [];
     event.userId = user.id;
-    event.state = "progess";
+    event.state = "progress";
 
     let response;
 
@@ -50,19 +50,43 @@ export const AllEventsProvider = ({ children }) => {
       return "missing or expired token";
     }
 
-    const data = { status: "canceled" };
+    const newStatus = { state: "canceled" };
 
     let response;
 
     await api
-      .patch(`/eventos/${eventId}`, {
+      .patch(`/eventos/${eventId}`, newStatus, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
-        body: JSON.stringify(data),
       })
       .then((res) => {
-        setAllEvents(allEvents.filter(({ id }) => id !== eventId));
+        api.get("/eventos").then((res) => setAllEvents(res.data));
+        response = res.statusText;
+      })
+      .catch((err) => (response = err.response.statusText));
+    return response;
+  };
+
+  const editEvent = async (eventId, data) => {
+    const token = JSON.parse(localStorage.getItem("token"));
+    const user = JSON.parse(localStorage.getItem("user"));
+
+    if (!(await verificarToken(token, user))) {
+      localStorage.clear();
+      return "missing or expired token";
+    }
+
+    let response;
+
+    await api
+      .patch(`/eventos/${eventId}`, data, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then((res) => {
+        api.get("/eventos").then((res) => setAllEvents(res.data));
         response = res.statusText;
       })
       .catch((err) => (response = err.response.statusText));
@@ -144,6 +168,7 @@ export const AllEventsProvider = ({ children }) => {
         allEvents,
         addEvent,
         removeEvent,
+        editEvent,
         addUserToEvent,
         removeUserFromEvent,
       }}
