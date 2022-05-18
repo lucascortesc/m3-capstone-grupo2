@@ -9,7 +9,7 @@ const Footer = () => {
         <p className="footerInfo">Buscando formas de melhorar o mundo</p>
         <h5>Contato</h5>
         <p>+55 00 00000-0000</p>
-        <p>contato@mail.com</p>
+        <p>contato@email.com</p>
       </div>
       <div className="mediaDiv">
         <h5>Redes Sociais</h5>
