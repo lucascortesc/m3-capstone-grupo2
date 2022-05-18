@@ -39,9 +39,6 @@ export const Container = styled.div`
 `;
 
 export const Background = styled.div`
-<<<<<<< HEAD
-@media (min-width: 1024px) {
-=======
   display: none;
   div {
     display: block;
@@ -52,7 +49,6 @@ export const Background = styled.div`
   }
 
   @media (min-width: 1024px) {
->>>>>>> 8336ee1f3296ee431f883cbec6ec0e405c071e51
     display: inline-block;
     width: 50%;
     background: url(${LoginImage}) no-repeat center, #193e51;

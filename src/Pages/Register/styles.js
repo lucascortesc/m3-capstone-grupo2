@@ -148,9 +148,11 @@ export const TypeContainer = styled.div`
 export const TermsContainer = styled.div`
   width: 80%;
   margin-top: 10px;
+
   input {
     margin-right: 5px;
   }
+
   @media (min-width: 1024px) {
     margin: 20px 0px 20px 0px;
   }
