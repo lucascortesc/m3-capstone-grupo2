@@ -82,7 +82,8 @@ export const CreateEventSchema = yup.object().shape({
   name: yup.string().required("O nome do evento é obrigatório"),
   description: yup.string().required("A descrição do evento é obrigatória"),
   maxVoluntarys: yup
-    .string()
+    .number()
+    .typeError("Deve ser um número")
     .required("A quantidade de voluntários necessária é obrigatória"),
   date: yup.string().required("A data é obrigatória"),
   location: yup.string().required("Localização do evento obrigatória"),
@@ -93,7 +94,7 @@ export const CreateEventSchema = yup.object().shape({
     .required("O contato é obrigatório")
     .matches(
       /^(\+55)?[\s]?\(?(\d{2})?\)?[\s-]?(9?\d{4}[\s-]?\d{4})$/gm,
-      "Telefone inválido, deve ser 00-00000-0000"
+      "Telefone inválido"
     ),
 });
 
