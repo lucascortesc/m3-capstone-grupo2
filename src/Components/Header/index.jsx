@@ -12,7 +12,7 @@ export const Header = ({ userName = false }) => {
   return (
     <Styled.Container>
       <Styled.HeaderContainer>
-        <h1>{userName ? userName : "Titulo"}</h1>
+        <h1>{userName ? userName : "Just Help"}</h1>
         {!!user ? (
           <>
             <img

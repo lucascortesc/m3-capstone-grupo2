@@ -2,6 +2,21 @@ import styled from "styled-components";
 import ImageRegister from "../../Assets/ImageRegister.png";
 
 export const Container = styled.div`
+  .span {
+    
+    padding: 1px;
+    display: none;
+    border: none;
+
+    color: white;
+    font-size: 30px;
+    @media (max-width: 1023px) {
+      display: inline;
+      position: absolute;
+    top: 10px;
+    left: 10px;
+    }
+  }
   width: 100vw;
   height: 100vh;
 
@@ -16,7 +31,7 @@ export const Container = styled.div`
 
 export const Background = styled.div`
   display: none;
-
+  
   @media (min-width: 1024px) {
     display: inline-block;
     width: 50vw;
@@ -51,8 +66,8 @@ export const FormContainer = styled.div`
     align-items: center;
 
     a {
-          color: var(--color-highlight);
-          font-weight: 700;
+      color: var(--color-highlight);
+      font-weight: 700;
     }
 
     .signupButton {
@@ -102,25 +117,25 @@ export const OrganizationForm = styled.div`
 `;
 
 export const GoalsContainer = styled.div`
-width: 80%;
-align-self: center;
-display: flex;
-flex-wrap: wrap;
-margin-top: 10px;
-
->aside {
-  width: 50%;
-  font-size: 13.5px;
+  width: 80%;
+  align-self: center;
   display: flex;
-  flex-direction: column;
-  gap: 5px;
+  flex-wrap: wrap;
+  margin-top: 10px;
 
-  >div {
+  > aside {
+    width: 50%;
+    font-size: 13.5px;
     display: flex;
-    align-items: center;
-    gap: 3px;
+    flex-direction: column;
+    gap: 5px;
+
+    > div {
+      display: flex;
+      align-items: center;
+      gap: 3px;
+    }
   }
-}
 `;
 
 export const TypeContainer = styled.div`
@@ -149,14 +164,14 @@ export const TypeContainer = styled.div`
 `;
 
 export const TermsContainer = styled.div`
-width: 80%;
-margin-top: 10px;
+  width: 80%;
+  margin-top: 10px;
 
-input {
-  margin-right: 5px;
-}
+  input {
+    margin-right: 5px;
+  }
 
-@media (min-width: 1024px) {
-  margin: 20px 0px 20px 0px;
-}
-`
+  @media (min-width: 1024px) {
+    margin: 20px 0px 20px 0px;
+  }
+`;
