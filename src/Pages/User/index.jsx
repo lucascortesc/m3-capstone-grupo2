@@ -92,7 +92,7 @@ export const User = () => {
                       <EventCardVoluntary
                         eventId={
                           allEvents[
-                            Math.floor(Math.random() * allEvents.length - 1)
+                            Math.floor(Math.random() * allEvents.length)
                           ]?.id
                         }
                       />
