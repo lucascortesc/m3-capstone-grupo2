@@ -18,7 +18,7 @@ export const Container = styled.div`
     padding-top: 5px;
     button {
       display: block;
-      width: 200px;
+      width: 230px;
       margin: 0px 20px 0px 20px;
     }
     .initialButton {

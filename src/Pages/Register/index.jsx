@@ -232,7 +232,7 @@ export const Register = () => {
                 type="submit"
                 padding="10px 40px"
                 fontSize="16px"
-                background="var(--primaryColor50)"
+                backgroundColor ="#146666"
                 color="white"
                 gap="10px"
                 weigth="800"

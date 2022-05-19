@@ -1,13 +1,15 @@
 import * as Styled from "./styles";
 import headerUserLogo from "../../Assets/img/header-user-logo.svg";
 import { Button } from "../Button";
-import { Link } from "react-router-dom";
 import { useUser } from "../../Providers/User/index";
 import { useState } from "react";
 import ModalHeader from "../ModalHeader";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
-export const Header = ({ userName = false }) => {
+export const Header = ({ userName = false, leftButton }) => {
   const { user } = useUser();
+  const history = useHistory()
+
   const [modalHeader, setModalHeader] = useState(false);
   return (
     <Styled.Container>
@@ -24,26 +26,28 @@ export const Header = ({ userName = false }) => {
           </>
         ) : (
           <div>
-            <Link to="/login">
+            
               <Button
                 padding="10px 10px"
-                background="#146666"
+                backgroundColor ="#146666"
                 color="white"
                 weigth="800"
+                onClick={()=>history.push('/login')}
               >
                 Login
               </Button>
-            </Link>
-            <Link to="/register">
+            
+            
               <Button
                 padding="10px 10px"
-                background="#146666"
+                backgroundColor="#146666"
                 color="white"
                 weigth="800"
+                onClick={()=>history.push('/register')}
               >
                 Cadastro
               </Button>
-            </Link>
+            
           </div>
         )}
       </Styled.HeaderContainer>

@@ -27,6 +27,8 @@ export const User = () => {
   return (
     <>
     <Styled.Container>
+    {/*POSSIVEL função para colocar um botao do lado esquerdo do header, apenas uma ideia. 
+     leftButton={<Button onClick={()=>{history.goBack()}}>Voltar</Button>} */}
       <Header userName={user?.name} />
       <div className="updateUser">
         <Button

@@ -1,23 +1,31 @@
 import styled from "styled-components";
 
 export const Conteiner = styled.div`
-  background-color: #193E51;
+  background-color: #193e51;
 `;
 export const Content = styled.ul`
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+
+`;
+
+export const Paragraph = styled.p`
+  color: var(--color-highlight);
+  font-size: 2rem;
+  margin-top: 15px;
+`
+
+export const DivAllCard = styled.div`
+  max-width: 1440px;
+  width: 100%;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-
-  div {
-    max-width: 1440px;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-  }
 `;
 
 export const Section = styled.div`
@@ -36,14 +44,14 @@ export const Section = styled.div`
   }
   @media (max-width: 375px) {
     padding-left: 85px;
-  padding-right: 30px;
+    padding-right: 30px;
   }
   button {
     display: flex;
     padding: 10px;
     border: none;
     border-radius: 5px;
-    background-color: #193E51;
+    background-color: #193e51;
     font-weight: 550;
     color: #fff;
   }
@@ -57,12 +65,10 @@ export const Section = styled.div`
       top: 95px;
       right: 75px;
       @media (max-width: 375px) {
-        
-      position: absolute;
-      color: grey;
-      top: 95px;
-      right: 45px;
-    
+        position: absolute;
+        color: grey;
+        top: 95px;
+        right: 45px;
       }
     }
 

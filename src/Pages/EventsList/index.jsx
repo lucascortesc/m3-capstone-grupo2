@@ -2,7 +2,7 @@ import { Header } from "../../Components/Header";
 import Footer from "../../Components/Footer";
 import { useAllEvents } from "../../Providers/AllEvents";
 import { EventsListCard } from "../../Components/EventsListCard";
-import { Conteiner, Content, DivHeader, Section } from "./styles";
+import { Conteiner, Content, DivAllCard, DivHeader, Paragraph, Section } from "./styles";
 import { useHistory } from "react-router-dom";
 import { useState } from "react";
 import { BsSearch } from "react-icons/bs";
@@ -49,7 +49,8 @@ export const EventsList = () => {
       </Section>
 
       <Content>
-        <div>
+        <Paragraph>Clique para saber mais</Paragraph>
+        <DivAllCard>
           {filteredEvents.length > 0
             ? filteredEvents.map((event) => (
                 <EventsListCard key={event.id} event={event} />
@@ -57,7 +58,7 @@ export const EventsList = () => {
             : allEvents.map((event) => (
                 <EventsListCard key={event.id} event={event} />
               ))}
-        </div>
+        </DivAllCard>
       </Content>
 
       <Footer />

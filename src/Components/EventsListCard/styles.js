@@ -1,64 +1,61 @@
 import styled from "styled-components";
 
-export const Container = styled.ul`
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  background-color: #193e51;
- 
-  
-  div {
-    max-width: 1440px;
-   
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-
-    background-color: #193e51;
-  }
-  
-`;
-
 export const Content = styled.li`
-
-  :hover, 
-  :focus{
+  :hover,
+  :focus {
     cursor: pointer;
-    transform: translateX(5px) scale(1.025);
-    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.45);
+    transform: scale(1.05);
+    box-shadow: 6px 10px 20px rgba(195, 189, 46, 0.45);
+    transition: transform 0.9s 0.2s;
+    div > img {
+      transform: scale(1.1);
+    }
   }
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.25);
   background-color: #fff;
-  display: grid;
+  display: flex;
+  flex-direction: column;
   margin: 20px;
   width: 300px;
-  height: 334px;
-  padding: 5px;
-  border-radius: 5px;
-  h3{
-    /* text-align: center; */
-  }
+  height: 314px;
+  border-radius: 8px;
+`;
+
+export const DivImg = styled.div`
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  border-radius: 8px 8px 0px 0px;
+
   img {
-    height: 200px;
-    width: 290px;
+    height: 100%;
+    width: 100%;
+    border-radius: 8px 8px 0px 0px;
+    background-position: center;
+    background-size: cover;
+    transition: 0.7s;
   }
+`;
 
-  span{ 
+export const DivInfos = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  margin-left: 15px;
+
+  div {
+    display: flex;
+    flex-direction: column;
+    height: 100px;
+    justify-content: space-evenly;
+    align-items: flex-start;
     
-    color:grey;
+      h3 {
+        text-align: center;
+      }
+    
+      span {
+        color: grey;
+      }
+
   }
-
-
-  /* button {
-    width: 111px;
-    height: 40px;
-    background-color: #c3bd2e;
-    border: none;
-    border-radius: 5px;
-    font-weight: bold;
-  } */
 `;
