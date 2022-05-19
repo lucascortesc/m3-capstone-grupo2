@@ -35,7 +35,7 @@ export const CancelEvent = ({ eventId, setModalCancel }) => {
             <Button
               align="center"
               color="white"
-              background="red"
+              backgroundColor="red"
               padding="5px 20px"
               weigth="700"
               onClick={() => cancelEvent()}
@@ -44,7 +44,7 @@ export const CancelEvent = ({ eventId, setModalCancel }) => {
             </Button>
             <Button
               align="center"
-              background="var(--primaryColor50)"
+              backgroundColor="var(--primaryColor50)"
               color="var(--color-highlight)"
               padding="5px 20px"
               weigth="700"

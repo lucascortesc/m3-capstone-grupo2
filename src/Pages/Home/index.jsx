@@ -5,7 +5,6 @@ import * as Styled from "./styles";
 import { BsArrowDownCircle, BsArrowRightCircle } from "react-icons/bs";
 import { Header } from "../../Components/Header";
 
-
 export const Home = () => {
   const history = useHistory();
 
@@ -21,7 +20,8 @@ export const Home = () => {
         <div>
           <Carousel />
           <div className="deslizePopUp">
-            Deslize para ver mais <BsArrowDownCircle color="var(--color-highlight)" />
+            Deslize para ver mais{" "}
+            <BsArrowDownCircle color="var(--color-highlight)" />
           </div>
         </div>
       </Styled.ImageDiv>
@@ -40,7 +40,8 @@ export const Home = () => {
             className="InteresseButton"
           >
             <p>
-              Tem interesse? <BsArrowRightCircle color="var(--color-highlight)" />
+              Tem interesse?{" "}
+              <BsArrowRightCircle color="var(--color-highlight)" />
             </p>
           </button>
         </div>
@@ -48,26 +49,30 @@ export const Home = () => {
           <div className="whyHelpDiv">
             <h3>Por que ajudar?</h3>
             <p>
-              A cada <span className="highlighted">5 minutos</span> uma criança
-              é diagnosticada com{" "}
-              <span className="highlighted">desnutrição</span>!
+              {" "}
+              No Brasil, <span>uma a cada quatro pessoas sofreu com a falta de comida </span>
+              de maneira moderada ou severa entre 2018 e 2020.{" "}
             </p>
             <p>
-              A cada <span className="highlighted">10 minutos</span>, uma
-              criança falece por <span className="highlighted">fome</span>!
+              {" "}
+              Em comparação com o período anterior, 2014 a 2016, são <span>12,1
+              milhões de brasileiros </span> a mais em insegurança alimentar.
             </p>
             <p>
-              E a cada <span className="highlighted">30 minutos</span>, uma
-              criança morre de <span className="highlighted">frio</span> nas
-              ruas!
+              A quantidade de brasileiros em situação grave dobrou no mesmo
+              período, passando de <span>1,9% para 3,5%</span>.
+            </p>
+            <br></br>
+            <Styled.Highlight><span>Empatia</span>, <span>compaixão</span> e <span>solidariedade</span>. </Styled.Highlight>
+            <p>
+              {" "}
+              Seja em <span>defesa de uma causa</span>, de uma instituição ou de pessoas em
+              situação de risco, o <span>trabalho voluntário</span> tem um papel ativo na 
+              <span> transformação de qualquer sociedade.</span>{" "}
             </p>
             <p>
-              Por menor que seja a <span className="highlighted">ajuda</span>,
-              ela faz diferença dentro de milhoesde necessitados,{" "}
-              <span className="highlighted">
-                e precisamos de sua ajuda para fazer a diferença no mundo
-              </span>
-              !
+              Assumir o voluntariado é assumir, sobretudo, um <span>compromisso com
+              outro!</span>
             </p>
           </div>
         </div>

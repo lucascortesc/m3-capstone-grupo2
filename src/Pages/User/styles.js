@@ -61,9 +61,9 @@ export const VoluntaryContainer = styled.div`
     flex-direction: column;
     align-items: center;
     gap: 20px;
+    
 
     p {
-      font-family: "Montserrat";
       font-size: 25px;
       color: white;
       font-weight: 500;
@@ -117,6 +117,22 @@ export const VoluntaryContainer = styled.div`
 `;
 
 export const OrganizationContainer = styled.div`
+  .events-empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    justify-content: space-between;
+    height: 250px;
+
+    p {
+      font-size: 25px;
+      color: white;
+      font-weight: 500;
+      text-align: center;
+    }
+  }
+
   > .events-filled {
     width: 100vw;
     display: flex;
@@ -152,7 +168,7 @@ export const OrganizationContainer = styled.div`
   }
 `;
 
-export const AddModal = styled.div`
+export const AddModal = styled.button`
   font-family: "Montserrat";
   height: 50px;
   display: flex;
@@ -160,6 +176,7 @@ export const AddModal = styled.div`
   align-items: center;
   font-size: 20px;
   font-weight: 700;
+  border: 0;
   border-radius: 5px;
   color: var(--color-highlight);
   background-color: var(--primaryColor50);

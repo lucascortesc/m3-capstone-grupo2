@@ -87,13 +87,23 @@ export const InfosDiv = styled.div`
   word-spacing: 5px;
   font-family: Nunito, sans-serif;
   margin-top: -2px;
+
+  .whyHelpDiv {
+
+      p > span {
+        color: var(--color-highlight);
+      }
+    }
+
   h3 {
     padding: 15px 0px;
     font-size: 24px;
     text-align: center;
+    color: var(--color-highlight);
   }
   p {
     margin-bottom: 3px;
+    text-align: justify;
   }
   .InteresseButton {
     padding: 10px;
@@ -131,3 +141,8 @@ export const InfosDiv = styled.div`
     }
   }
 `;
+
+export const Highlight = styled.p`
+  font-size: 1.25rem;
+
+`
