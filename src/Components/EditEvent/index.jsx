@@ -108,7 +108,7 @@ export const EditEvent = ({ setModal, eventId }) => {
             padding="10px 30px"
             gap="20px"
             align="center"
-            background="var(--primaryColor50)"
+            backgroundColor="var(--primaryColor50)"
             weigth="700"
             color="white"
           >

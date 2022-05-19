@@ -37,7 +37,7 @@ export const User = () => {
             setOpenModal(true);
           }}
           padding="10px 15px"
-          background="var(--primaryColor50)"
+          backgroundColor="var(--primaryColor50)"
           color="var(--color-highlight)"
           weigth="800"
         >
@@ -96,7 +96,7 @@ export const User = () => {
                   <Link to="/events">
                     <Button
                       padding="10px 15px"
-                      background="var(--primaryColor50)"
+                      backgroundColor="var(--primaryColor50)"
                       color="var(--color-highlight)"
                       weigth="800"
                     >

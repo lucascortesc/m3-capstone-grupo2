@@ -46,7 +46,7 @@ export const EventCardOrganization = ({ eventId }) => {
           ) : (
             <div className="btn-box">
               <Button
-                background="var(--color-highlight)"
+                backgroundColor="var(--color-highlight)"
                 padding="10px 15px"
                 color="white"
                 weigth="700"
@@ -57,7 +57,7 @@ export const EventCardOrganization = ({ eventId }) => {
                 Editar
               </Button>
               <Button
-                background="red"
+                backgroundColor="red"
                 padding="10px 15px"
                 color="white"
                 weigth="700"

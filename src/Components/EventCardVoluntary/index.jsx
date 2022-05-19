@@ -38,7 +38,7 @@ export const EventCardVoluntary = ({ eventId, alreadyHave = false }) => {
         ) : alreadyHave ? (
           <Button
             onClick={() => cancelSub()}
-            background="red"
+            backgroundColor="red"
             padding="10px 15px"
             color="white"
             weigth="700"
@@ -49,7 +49,7 @@ export const EventCardVoluntary = ({ eventId, alreadyHave = false }) => {
         ) : (
           <Link to={`/events/${element?.id}`}>
             <Button
-              background="var(--primaryColor50)"
+              backgroundColor="var(--primaryColor50)"
               padding="10px 15px"
               color="white"
               weigth="700"

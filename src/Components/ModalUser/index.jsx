@@ -60,7 +60,7 @@ const ModalUser = ({ id = "modal", onClose = () => {}, setOpenModal }) => {
                 type="submit"
                 padding="10px 20px"
                 fontSize="12px"
-                background="var(--primaryColor50)"
+                backgroundColor="var(--primaryColor50)"
                 color="white"
                 gap="10px"
                 weigth="800"
@@ -75,7 +75,7 @@ const ModalUser = ({ id = "modal", onClose = () => {}, setOpenModal }) => {
               className="buttonLeave"
               onClick={onClose}
               color="white"
-              background="red"
+              backgroundColor="red"
               padding="10px"
             >
               Voltar
