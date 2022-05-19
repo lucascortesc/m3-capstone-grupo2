@@ -35,6 +35,7 @@ export const Register = () => {
         email,
         password,
         cnpj,
+        type,
         socialAssist,
         culture,
         health,
@@ -49,6 +50,7 @@ export const Register = () => {
         email,
         password,
         cnpj,
+        type,
         events: [],
         goals: {
           socialAssist,
