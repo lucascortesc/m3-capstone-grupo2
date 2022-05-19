@@ -31,7 +31,7 @@ export const Container = styled.div`
     flex-direction: column;
     @media (min-width: 1024px) {
       width: 30%;
-      height: 35%;
+      height: 290px;
     }
   }
 
@@ -41,7 +41,7 @@ export const Container = styled.div`
     outline: none;
     width: 32px;
     height: 32px;
-    right: calc(-100% + 64px;);
+    right: calc(-100% + 64px);
     top: 16px;
     display: flex;
     position: relative;
