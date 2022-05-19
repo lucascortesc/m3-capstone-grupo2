@@ -12,12 +12,13 @@ import { useState } from "react";
 import Footer from "../../Components/Footer";
 
 import ModalUser from "../../Components/ModalUser";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 export const User = () => {
   const { user } = useUser();
   const { allEvents } = useAllEvents();
   const [modalCreateEvent, setModalCreateEvent] = useState(false);
-
+  const history = useHistory();
   const [openModal, setOpenModal] = useState(false);
 
   if (!user) {
@@ -30,7 +31,11 @@ export const User = () => {
         {/*POSSIVEL função para colocar um botao do lado esquerdo do header, apenas uma ideia. 
      leftButton={<Button onClick={()=>{history.goBack()}}>Voltar</Button>} */}
         <Header userName={user?.name} />
+
         <div className="updateUser">
+          <button onClick={() => history.goBack()} className="buttonDesktop">
+            Voltar
+          </button>
           <Button
             className="openModalBtn"
             onClick={() => {
@@ -87,7 +92,11 @@ export const User = () => {
                       <EventCardVoluntary
                         eventId={
                           allEvents[
+<<<<<<< HEAD
                             Math.floor(Math.random() * allEvents.length)
+=======
+                            Math.floor(Math.random() * allEvents.length - 1)
+>>>>>>> 39a984f73a0fba783c4c81f894d3f72d50b32ca5
                           ]?.id
                         }
                       />
@@ -95,10 +104,12 @@ export const User = () => {
                   </div>
                   <Link to="/events">
                     <Button
+                      className="btnAll"
                       padding="10px 15px"
                       backgroundColor="var(--primaryColor50)"
                       color="var(--color-highlight)"
                       weigth="800"
+                      margin="15px"
                     >
                       Ver todos os eventos
                     </Button>

@@ -46,5 +46,9 @@ export const Container = styled.div`
       align-items: center;
       margin-right: 5px;
     }
+    span:hover {
+      text-decoration: underline;
+      cursor: pointer;
+    }
   }
 `;

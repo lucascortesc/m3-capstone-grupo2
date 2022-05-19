@@ -9,6 +9,30 @@ export const Container = styled.div`
   gap: 30px;
 
   background-color: var(--primaryColor);
+  .updateUser {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 544px;
+    padding: 10px;
+    @media (min-width: 544px) {
+      padding: 0;
+    }
+  }
+  .buttonDesktop {
+    display: block;
+    margin: 15px 0;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #146666;
+    font-weight: 550;
+    color: #fff;
+  }
+  .btnAll {
+    margin-bottom: 15px;
+  }
 `;
 
 export const MessageContainer = styled.div`
@@ -32,20 +56,20 @@ export const MessageContainer = styled.div`
 `;
 
 export const VoluntaryContainer = styled.div`
-    .events-empty {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 20px;
+  .events-empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
 
-      p {
-        font-family: "Montserrat";
-        font-size: 25px;
-        color: white;
-        font-weight: 500;
-        text-align: center;
-      }
+    p {
+      font-family: "Montserrat";
+      font-size: 25px;
+      color: white;
+      font-weight: 500;
+      text-align: center;
     }
+  }
   > .events-filled {
     width: 100vw;
     display: flex;
@@ -69,7 +93,6 @@ export const VoluntaryContainer = styled.div`
       overflow-x: scroll;
       padding: 30px 30px 20px 30px;
     }
-
 
     @media (min-width: 1024px) {
       ul {
