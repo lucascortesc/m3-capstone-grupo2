@@ -34,7 +34,7 @@ export const EventsList = () => {
       </DivHeader>
 
       <Section>
-        <button onClick={() => history.push("/")}>Voltar</button>
+        <button onClick={() => history.push("/")}>Pagina Inicial</button>
 
         <form onSubmit={(e) => onsubmit(e)}>
           <input

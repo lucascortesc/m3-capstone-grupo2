@@ -16,6 +16,7 @@ export const Paragraph = styled.p`
   color: var(--color-highlight);
   font-size: 2rem;
   margin-top: 15px;
+  text-align: center;
 `
 
 export const DivAllCard = styled.div`
@@ -38,13 +39,9 @@ export const Section = styled.div`
   justify-content: space-between;
   align-items: center;
   background-color: #146666;
-  @media (max-width: 360px) {
-    padding-left: 85px;
-    padding-right: 30px;
-  }
-  @media (max-width: 375px) {
-    padding-left: 85px;
-    padding-right: 30px;
+  @media (max-width: 425px) {
+    padding-left: 60px;
+    padding-right: 10px;
   }
   button {
     display: flex;
@@ -59,17 +56,12 @@ export const Section = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
+    position: relative;
     div {
       position: absolute;
       color: grey;
-      top: 95px;
-      right: 75px;
-      @media (max-width: 375px) {
-        position: absolute;
-        color: grey;
-        top: 95px;
-        right: 45px;
-      }
+      top: 11px;
+      right: 13px;
     }
 
     @media (max-width: 768px) {
