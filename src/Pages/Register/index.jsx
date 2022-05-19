@@ -181,6 +181,7 @@ export const Register = () => {
                   type="password"
                   name="confirmPassword"
                   register={register}
+                  error={formState.errors.confirmPassword?.message}
                 />
                 <Input
                   label="CNPJ"

@@ -21,7 +21,9 @@ export const EventsListCard = (event) => {
       </DivImg>
       <DivInfos>
         <div>
-          <h3>{name}</h3>
+          <h3>{name.length >= 25
+              ? name.slice(0, 25) + "..."
+              : name}</h3>
           <span>{category}</span>
           <h5>{date}</h5>
           <p>

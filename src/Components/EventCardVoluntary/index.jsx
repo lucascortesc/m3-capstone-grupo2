@@ -23,7 +23,11 @@ export const EventCardVoluntary = ({ eventId, alreadyHave = false }) => {
         <img src={element?.img} alt={element?.name} />
       </Styled.ImageContainer>
       <Styled.DescriptionContainer>
-        <h3>{element?.name}</h3>
+        <h3>
+          {element?.name.length >= 40
+            ? element?.name.slice(0, 40) + "..."
+            : element?.name}
+        </h3>
         <span>{element?.category}</span>
         <span>
           Vagas disponíveis{" "}

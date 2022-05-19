@@ -12,7 +12,9 @@ const CarouselCard = ({ element }) => {
         <img src={element?.img} alt="" />
       </S.DivImg>
       <S.DivInfos>
-        <h4>{element?.name}</h4>
+        <h4>{element?.name.length >= 25
+              ? element?.name.slice(0, 25) + "..."
+              : element?.name}</h4>
         <p>{element?.category}</p>
       </S.DivInfos>
     </S.Container>

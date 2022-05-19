@@ -55,4 +55,9 @@ export const DivImg = styled.div`
   }
 `;
 
-export const DivInfos = styled.div``;
+export const DivInfos = styled.div`
+  h4 {
+    text-align: center;
+  }
+
+`;
