@@ -12,7 +12,7 @@ export const Container = styled.div`
   justify-content: flex-end;
   .modal {
     background-color: var(--primaryColor);
-    height: 60px;
+    height: 80px;
     display: flex;
     flex-direction: column;
     /* padding: 5px; */
@@ -36,13 +36,14 @@ export const Container = styled.div`
 
   .pontinha {
     width: 20px;
-    height: 20px;
+    height: 30px;
     position: absolute;
     background-color: var(--primaryColor);
     top: 0;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     transform: rotate(45deg);
     margin-top: 74px;
-    margin-right: 37px;
+    margin-right: 40px;
   }
   @media (min-width: 1024px) {
     .modal {
@@ -53,6 +54,10 @@ export const Container = styled.div`
     .modal > button {
       font-size: 16px;
     }
+    .modal > button:hover {
+      transform: none;
+      color: white;
+    }
     .pontinha {
       margin-top: 97px;
       margin-right: 80px;
@@ -61,7 +66,7 @@ export const Container = styled.div`
 
   @keyframes appearFromTop {
     from {
-      transform: translateY(-10px)
+      transform: translateY(-10px);
     }
     to {
       transform: translateY(0px);
