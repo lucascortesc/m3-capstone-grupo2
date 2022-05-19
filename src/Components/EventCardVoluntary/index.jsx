@@ -5,20 +5,30 @@ import { useAllEvents } from "../../Providers/AllEvents";
 import ModalCancelSubs from "../ModalCancelSubs";
 import { useState } from "react";
 import ReactLoading from "react-loading";
+import { useHistory } from "react-router-dom";
 
 export const EventCardVoluntary = ({ eventId, alreadyHave = false }) => {
   const { allEvents } = useAllEvents();
   const [modalCancel, setModalCancel] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-
+  const history = useHistory()
   const element = allEvents.find(({ id }) => id === Number(eventId));
 
   const cancelSub = () => {
     setModalCancel(true);
   };
 
+  function RedirectToEvent (e) {
+    const target = e.target
+
+    if (target.tagName !== 'BUTTON') {
+      return history.push(`/events/${eventId}`)
+    }
+
+  }
+
   return (
-    <Styled.Container>
+    <Styled.Container onClick={(e)=> RedirectToEvent(e)}>
       <Styled.ImageContainer>
         <img src={element?.img} alt={element?.name} />
       </Styled.ImageContainer>

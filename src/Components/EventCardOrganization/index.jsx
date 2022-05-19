@@ -4,12 +4,23 @@ import { useAllEvents } from "../../Providers/AllEvents";
 import { useState } from "react";
 import { EditEvent } from "../../Components/EditEvent";
 import { CancelEvent } from "../CancelEvent";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 export const EventCardOrganization = ({ eventId }) => {
   const { allEvents } = useAllEvents();
   const element = allEvents.find(({ id }) => id === Number(eventId));
   const [modalEdit, setModalEdit] = useState(false);
   const [modalCancel, setModalCancel] = useState(false);
+  const history = useHistory()
+
+  function RedirectToEvent (e) {
+    const target = e.target
+
+    if (target.tagName !== 'BUTTON') {
+      return history.push(`/events/${eventId}`)
+    }
+
+  }
 
   return (
     <>
@@ -17,7 +28,7 @@ export const EventCardOrganization = ({ eventId }) => {
       {modalCancel && (
         <CancelEvent eventId={eventId} setModalCancel={setModalCancel} />
       )}
-      <Styled.Container>
+      <Styled.Container onClick={(e)=> RedirectToEvent(e)}>
         <Styled.ImageContainer>
           <img src={element?.img} alt={element?.name} />
         </Styled.ImageContainer>

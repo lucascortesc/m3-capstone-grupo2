@@ -7,15 +7,32 @@ export const Container = styled.div`
   border-radius: 5px;
   font-family: "Montserrat";
   background-color: white;
+  cursor: pointer;
+
+  &:hover {
+    border: 2px solid #c3bd2e;
+    transform: scale(1.1);
+    transition: transform 0.9s 0.2s;
+
+    div > img {
+      transform: scale(1.1);
+    }
+  }
 `;
 
 export const ImageContainer = styled.div`
   width: 100%;
   height: 200px;
+  border-radius: 5px 5px 0px 0px;
+  overflow: hidden;
 
   img {
     width: 100%;
     height: 100%;
+    border-radius: 5px 5px 0px 0px;
+    background-position: center;
+    background-size: cover;
+    transition: 0.7s;
   }
 `;
 

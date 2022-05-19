@@ -92,7 +92,7 @@ export const User = () => {
                       <EventCardVoluntary
                         eventId={
                           allEvents[
-                            Math.floor(Math.random() * allEvents.length)
+                            Math.floor(Math.random() * allEvents?.length)
                           ]?.id
                         }
                       />
@@ -149,7 +149,7 @@ export const User = () => {
               ) : (
                 <div className="events-empty">
                   <Styled.AddModal onClick={() => setModalCreateEvent(true)}>
-                    +
+                    Criar evento
                   </Styled.AddModal>
 
                   <p>Sua organização ainda não criou um evento...</p>
