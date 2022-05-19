@@ -27,6 +27,7 @@ export const MessageContainer = styled.div`
     font-family: "Montserrat";
     font-size: 20px;
     max-width: 90%;
+    text-align: center;
   }
 `;
 
@@ -42,6 +43,7 @@ export const VoluntaryContainer = styled.div`
         font-size: 25px;
         color: white;
         font-weight: 500;
+        text-align: center;
       }
     }
   > .events-filled {

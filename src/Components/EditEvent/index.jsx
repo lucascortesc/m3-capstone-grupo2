@@ -7,13 +7,11 @@ import { CreateEventSchema } from "../../Validation";
 import { FiArrowRightCircle } from "react-icons/fi";
 import { useState } from "react";
 import { useAllEvents } from "../../Providers/AllEvents";
-import { useUser } from "../../Providers/User";
 import toast from "react-hot-toast";
 import ReactLoading from "react-loading";
 
 export const EditEvent = ({ setModal, eventId }) => {
-  const { addEvent, allEvents, editEvent } = useAllEvents()
-  const { addEventToUser } = useUser();
+  const {  allEvents, editEvent } = useAllEvents()
   const [isLoading, setIsLoading] = useState(false);
   const [currentEvent, setCurrentEvent] = useState(allEvents?.find(({ id }) => id === eventId))
 

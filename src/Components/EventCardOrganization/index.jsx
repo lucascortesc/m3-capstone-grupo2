@@ -3,11 +3,10 @@ import { Button } from "../Button";
 import { useAllEvents } from "../../Providers/AllEvents";
 import { useState } from "react";
 import { EditEvent } from "../../Components/EditEvent";
-import toast from "react-hot-toast";
 import { CancelEvent } from "../CancelEvent";
 
 export const EventCardOrganization = ({ eventId }) => {
-  const { allEvents, removeEvent } = useAllEvents();
+  const { allEvents } = useAllEvents();
   const element = allEvents.find(({ id }) => id === Number(eventId));
   const [modalEdit, setModalEdit] = useState(false);
   const [modalCancel, setModalCancel] = useState(false);
