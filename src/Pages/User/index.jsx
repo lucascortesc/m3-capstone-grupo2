@@ -27,6 +27,8 @@ export const User = () => {
   return (
     <>
     <Styled.Container>
+    {/*POSSIVEL função para colocar um botao do lado esquerdo do header, apenas uma ideia. 
+     leftButton={<Button onClick={()=>{history.goBack()}}>Voltar</Button>} */}
       <Header userName={user?.name} />
       <div className="updateUser">
         <Button
@@ -35,7 +37,7 @@ export const User = () => {
             setOpenModal(true);
           }}
           padding="10px 15px"
-          background="var(--primaryColor50)"
+          backgroundColor="var(--primaryColor50)"
           color="var(--color-highlight)"
           weigth="800"
         >
@@ -94,7 +96,7 @@ export const User = () => {
                   <Link to="/events">
                     <Button
                       padding="10px 15px"
-                      background="var(--primaryColor50)"
+                      backgroundColor="var(--primaryColor50)"
                       color="var(--color-highlight)"
                       weigth="800"
                     >

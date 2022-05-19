@@ -3,11 +3,10 @@ import { Button } from "../Button";
 import { useAllEvents } from "../../Providers/AllEvents";
 import { useState } from "react";
 import { EditEvent } from "../../Components/EditEvent";
-import toast from "react-hot-toast";
 import { CancelEvent } from "../CancelEvent";
 
 export const EventCardOrganization = ({ eventId }) => {
-  const { allEvents, removeEvent } = useAllEvents();
+  const { allEvents } = useAllEvents();
   const element = allEvents.find(({ id }) => id === Number(eventId));
   const [modalEdit, setModalEdit] = useState(false);
   const [modalCancel, setModalCancel] = useState(false);
@@ -46,7 +45,7 @@ export const EventCardOrganization = ({ eventId }) => {
           ) : (
             <div className="btn-box">
               <Button
-                background="var(--color-highlight)"
+                backgroundColor="var(--color-highlight)"
                 padding="10px 15px"
                 color="white"
                 weigth="700"
@@ -57,7 +56,7 @@ export const EventCardOrganization = ({ eventId }) => {
                 Editar
               </Button>
               <Button
-                background="red"
+                backgroundColor="red"
                 padding="10px 15px"
                 color="white"
                 weigth="700"

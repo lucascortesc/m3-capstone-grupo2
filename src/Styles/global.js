@@ -9,10 +9,22 @@ export const GlobalStyle = createGlobalStyle`
   box-sizing: border-box;
   list-style: none;
   text-decoration: none;
+  
+  font-family: 'Montserrat', sans-serif;
 }
 
 button {
  cursor: pointer;
+
+ :hover {
+  transform: scale(1.10);
+  transition: transform .2s;
+ }
+}
+
+a {
+  text-decoration: none;
+  color: white;
 }
 
 :root{

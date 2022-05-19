@@ -13,6 +13,7 @@ export const Container = styled.div`
   h5 {
     font-size: 25px;
     margin: 15px;
+    color: var(--color-highlight);
   }
   .footerInfo {
     font-size: 16px;

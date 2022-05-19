@@ -23,7 +23,11 @@ export const EventCardVoluntary = ({ eventId, alreadyHave = false }) => {
         <img src={element?.img} alt={element?.name} />
       </Styled.ImageContainer>
       <Styled.DescriptionContainer>
-        <h3>{element?.name}</h3>
+        <h3>
+          {element?.name.length >= 40
+            ? element?.name.slice(0, 40) + "..."
+            : element?.name}
+        </h3>
         <span>{element?.category}</span>
         <span>
           Vagas disponíveis{" "}
@@ -38,7 +42,7 @@ export const EventCardVoluntary = ({ eventId, alreadyHave = false }) => {
         ) : alreadyHave ? (
           <Button
             onClick={() => cancelSub()}
-            background="red"
+            backgroundColor="red"
             padding="10px 15px"
             color="white"
             weigth="700"
@@ -49,7 +53,7 @@ export const EventCardVoluntary = ({ eventId, alreadyHave = false }) => {
         ) : (
           <Link to={`/events/${element?.id}`}>
             <Button
-              background="var(--primaryColor50)"
+              backgroundColor="var(--primaryColor50)"
               padding="10px 15px"
               color="white"
               weigth="700"

@@ -71,7 +71,7 @@ export const Register = () => {
             history.push("/login");
           }, 1500);
         })
-        .catch((error) => toast.error("Ocorreu algum erro :C"));
+        .catch((error) => toast.error("E-mail já cadastrado!"));
     } else {
       const newData = {
         ...data,
@@ -86,7 +86,7 @@ export const Register = () => {
             history.push("/login");
           }, 1500);
         })
-        .catch((error) => toast.error("Ocorreu algum erro :C"));
+        .catch((error) => toast.error("E-mail já cadastrado!"));
     }
   };
 
@@ -146,6 +146,7 @@ export const Register = () => {
                   label="Confirmar senha"
                   name="confirmPassword"
                   register={register}
+                  error={formState.errors.confirmPassword?.message}
                 />
                 <Input
                   label="CPF"
@@ -180,6 +181,7 @@ export const Register = () => {
                   type="password"
                   name="confirmPassword"
                   register={register}
+                  error={formState.errors.confirmPassword?.message}
                 />
                 <Input
                   label="CNPJ"
@@ -234,7 +236,7 @@ export const Register = () => {
                 type="submit"
                 padding="10px 40px"
                 fontSize="16px"
-                background="var(--primaryColor50)"
+                backgroundColor="#146666"
                 color="white"
                 gap="10px"
                 weigth="800"

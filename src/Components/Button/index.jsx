@@ -1,10 +1,10 @@
-import * as S from "./styles";
+import {Container} from "./styles";
 
 export const Button = ({
   align = null,
   padding = null,
   gap = null,
-  background = null,
+  backgroundColor = null,
   fontSize = null,
   color = null,
   weigth = null,
@@ -12,16 +12,17 @@ export const Button = ({
   ...rest
 }) => {
   return (
-    <S.Container
+    <Container
       align={align}
       padding={padding}
       gap={gap}
-      background={background}
+      backgroundColor={backgroundColor}
       fontSize={fontSize}
       color={color}
       weigth={weigth}
+      {...rest}
     >
-      <button {...rest}>{children}</button>
-    </S.Container>
+      {children}
+    </Container>
   );
 };
