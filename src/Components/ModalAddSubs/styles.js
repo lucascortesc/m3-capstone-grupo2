@@ -30,6 +30,7 @@ export const Container = styled.div`
   }
   .modalButtons {
     display: flex;
+    gap: 5px;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -39,6 +40,7 @@ export const Container = styled.div`
   }
   .modalButtons > button {
     width: 80%;
+    height: 32px;
     padding: 5px;
     color: white;
     font-family: "Montserrat", monospace;

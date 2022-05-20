@@ -17,7 +17,7 @@ export const Container = styled.div`
     text-align: center;
     color: white;
     padding: 0px 5px;
-    height: 200px;
+    height: 250px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -27,18 +27,30 @@ export const Container = styled.div`
   }
   .modalHeader > p {
     margin: 10px;
+    font-weight: normal;
+    font-size: 16px;
   }
+
+  .eventName {
+    font-weight: bold !important;
+    font-size: 20px !important;
+  }
+
   .modalButtons {
     display: flex;
+    gap: 5px;
     flex-direction: column;
     justify-content: center;
     align-items: center;
   }
   .modalButtons > p {
     margin: 5px;
+    font-weight: normal;
+    font-size: 16px;
   }
   .modalButtons > button {
     width: 80%;
+    height: 32px;
     padding: 5px;
     color: white;
     font-family: "Montserrat", monospace;

@@ -32,7 +32,7 @@ const ModalCancelSubs = ({ setModalCancel, event, setIsLoading }) => {
       <div className="modalContainer">
         <div className="modalHeader">
           <p>Você tentou cancelar inscrição em:</p>
-          <p>{event.name}</p>
+          <p className="eventName">{event.name}</p>
         </div>
         <div className="modalButtons">
           <p>Cancelar?</p>
