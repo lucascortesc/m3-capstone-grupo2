@@ -9,13 +9,25 @@ import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 export const Header = ({ userName = false, leftButton }) => {
   const { user } = useUser();
-  const history = useHistory()
+  const history = useHistory();
 
   const [modalHeader, setModalHeader] = useState(false);
+
   return (
     <Styled.Container>
       <Styled.HeaderContainer>
-        <h1>{userName ? userName : <img className="logo" src={Logo} alt=""/>}</h1>
+        <h1>
+          {userName ? (
+            userName
+          ) : (
+            <img
+              className="logo"
+              src={Logo}
+              alt=""
+              onClick={() => history.push("/")}
+            />
+          )}
+        </h1>
         {!!user ? (
           <>
             <img
@@ -28,28 +40,25 @@ export const Header = ({ userName = false, leftButton }) => {
           </>
         ) : (
           <div>
-            
-              <Button
-                padding="10px 10px"
-                backgroundColor ="#146666"
-                color="white"
-                weigth="800"
-                onClick={()=>history.push('/login')}
-              >
-                Login
-              </Button>
-            
-            
-              <Button
-                padding="10px 10px"
-                backgroundColor="#146666"
-                color="white"
-                weigth="800"
-                onClick={()=>history.push('/register')}
-              >
-                Cadastro
-              </Button>
-            
+            <Button
+              padding="10px 10px"
+              backgroundColor="#146666"
+              color="white"
+              weigth="800"
+              onClick={() => history.push("/login")}
+            >
+              Login
+            </Button>
+
+            <Button
+              padding="10px 10px"
+              backgroundColor="#146666"
+              color="white"
+              weigth="800"
+              onClick={() => history.push("/register")}
+            >
+              Cadastro
+            </Button>
           </div>
         )}
       </Styled.HeaderContainer>
