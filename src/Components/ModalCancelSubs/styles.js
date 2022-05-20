@@ -16,8 +16,8 @@ export const Container = styled.div`
     border-radius: 5px;
     text-align: center;
     color: white;
-    padding: 0px 5px;
-    height: 250px;
+    padding: 10px 10px;
+    min-height: 250px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;

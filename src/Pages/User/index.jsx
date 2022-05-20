@@ -28,8 +28,6 @@ export const User = () => {
   return (
     <>
       <Styled.Container>
-        {/*POSSIVEL função para colocar um botao do lado esquerdo do header, apenas uma ideia. 
-     leftButton={<Button onClick={()=>{history.goBack()}}>Voltar</Button>} */}
         <Header userName={user?.name} />
 
         <div className="updateUser">
@@ -83,6 +81,18 @@ export const User = () => {
                       ))}
                     </>
                   </ul>
+                  <Link to="/events">
+                    <Button
+                      className="btnAll"
+                      padding="10px 15px"
+                      backgroundColor="var(--primaryColor50)"
+                      color="var(--color-highlight)"
+                      weigth="800"
+                      margin="15px"
+                    >
+                      Ver todos os eventos
+                    </Button>
+                  </Link>
                 </div>
               ) : (
                 <div className="events-empty">
