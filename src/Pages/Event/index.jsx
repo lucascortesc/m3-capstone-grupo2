@@ -73,7 +73,7 @@ export const Event = () => {
           <div className="loading">
             <ReactLoading type="spin" color="#c3bd2e" height={30} width={30} />
           </div>
-        ) : event?.status === "canceled" ? (
+        ) : event?.state === "canceled" ? (
           <span className="canceled">Evento cancelado</span>
         ) : user.type === "organization" ? (
           <></>
