@@ -11,7 +11,6 @@ export const CancelEvent = ({ eventId, setModalCancel }) => {
 
   const cancelEvent = async () => {
     setIsLoading(true);
-    console.log(eventId)
     const status = await removeEvent(eventId);
     if (status === "OK") {
       toast.success("Evento cancelado com sucesso");
